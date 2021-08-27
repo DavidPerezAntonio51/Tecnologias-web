@@ -2,10 +2,24 @@ import logo from './logo.svg';
 import './App.css';
 
 function App() {
+  let nombre = "David";
+  let autenticacion = true;
+  let Integrantes_Equipo = ["Sabino Salvador", "Kate Michelle", "David"];
   return (
     <>
-    <div>Aqui esta un nuevo contenedor</div>
-    <div align="center">Este es un segundo Div/contenedor alineado al centro</div>
+    <div>Contenedor 1 con el nombre: {nombre} interpolado desde una variable</div>
+    <div align="center">
+      Este es un segundo Div/contenedor alineado al centro
+      <p>
+        {autenticacion ? "Usuario permitido": "Usuario no permitido"}
+      </p>
+    </div>
+    <div>
+      En este Div renderizaremos una lista con un map:
+      <ul>
+        {Integrantes_Equipo.map(elemento=> <li>{elemento}</li>)}
+      </ul>
+    </div>
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
@@ -21,6 +35,7 @@ function App() {
           Aqui esta la plantilla pre cargada en el comando create-react-app
           <p><code> Esta es la ruta de edicion: src/App.js</code> solo hay que editar
           </p>
+          <input type="text" placeholder="Entrada de texto"></input>
         </p>
         <a
           className="App-link"
