@@ -1,6 +1,10 @@
 import logo from './logo.svg';
 import './App.css';
 
+function Hola(){
+  return <p>Hola mundo dentro de una funcion</p>
+}
+
 function App() {
   let nombre = "David";
   let autenticacion = true;
@@ -13,6 +17,7 @@ function App() {
       <p>
         {autenticacion ? "Usuario permitido": "Usuario no permitido"}
       </p>
+      {Hola()}
     </div>
     <div>
       En este Div renderizaremos una lista con un map:
