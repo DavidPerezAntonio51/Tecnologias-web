@@ -2,6 +2,7 @@ import logo from './logo.svg';
 import './App.css';
 import ComponentClass from './Componentes/Based_on_class';
 import ComponenteFuncion from './Componentes/Based_on_funtion';
+import Propiedades from './Propiedades/Propiedades';  
 
 function App() {
   return (
@@ -9,23 +10,28 @@ function App() {
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
-          Edit <code>src/App.js</code> and save to reload.
+          Tutorial de React
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-      <section>
+        <hr />
+        <section>
         <ComponentClass mensaje="Hola mundo" id="Componente1"></ComponentClass>
       </section>
       <section>
         <ComponenteFuncion mensaje="Hola amigos" id="Componente2"></ComponenteFuncion>
       </section>
+      <hr />
+      <section>
+        <Propiedades cadena="Esta es una cadena" 
+        numero={21} 
+        booleano={true}
+        arreglo={[1,2,3]}
+        objeto={{Nombre:"David", Edad:21,} }
+        //se puede usar un componente o una etiqueta html//
+        elementoReact={<ComponentClass mensaje="estoy encapsulado" id="Componente3"></ComponentClass>}
+        funcion={(num) =>num*num}
+        ></Propiedades>
+      </section>
+      </header>
     </div>
   );
 }
