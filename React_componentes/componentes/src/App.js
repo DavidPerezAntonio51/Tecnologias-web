@@ -5,6 +5,8 @@ import ComponenteFuncion from './Componentes/Based_on_funtion';
 import Propiedades from './Propiedades/Propiedades';  
 import Estado from './Estados/Estado';
 import RenderizadoCondicional from './Renderizado/RenderizadoCondicional';
+import RenderizadoElementos from './Renderizado/RednerizadoElementos';
+import Evento from './Eventos/Evento';
 
 function App() {
   return (
@@ -36,6 +38,10 @@ function App() {
         <Estado />
         <hr />
         <RenderizadoCondicional></RenderizadoCondicional>
+        <hr />
+        <RenderizadoElementos></RenderizadoElementos>
+        <hr />
+        <Evento></Evento>
       </section>
       </header>
     </div>
