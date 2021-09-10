@@ -49,11 +49,20 @@ public class Servlet1 extends HttpServlet {
             out.println("<title>Servlet Servlet3</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Hola mundo desde servlet3"+triangulo1+"</h1>");
+            out.println("<h1>Se puede resolver"+"</h1>");
             out.println("</body>");
             out.println("</html>");
         }else{
-            
+            response.setContentType("text/html;charset=UTF-8");
+            out.println("<!DOCTYPE html>");
+            out.println("<html>");
+            out.println("<head>");
+            out.println("<title>Servlet Servlet3</title>");            
+            out.println("</head>");
+            out.println("<body>");
+            out.println("<h1>No se puede resolver"+"</h1>");
+            out.println("</body>");
+            out.println("</html>");
         }
         
     }
