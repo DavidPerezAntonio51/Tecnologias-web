@@ -1,8 +1,6 @@
 package com.escom.ipn.cv13id28idt4;
 
-import java.io.Console;
 import java.util.Map;
-import javax.ws.rs.WebApplicationException;
 import java.lang.Math;
 
 /**
