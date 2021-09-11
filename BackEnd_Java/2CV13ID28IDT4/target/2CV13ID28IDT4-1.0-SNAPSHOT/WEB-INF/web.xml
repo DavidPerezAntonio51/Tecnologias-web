@@ -4,9 +4,25 @@
         <servlet-name>Servlet1</servlet-name>
         <servlet-class>adminstrador.Servlet1</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>Solucion</servlet-name>
+        <servlet-class>adminstrador.Servlet2</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Error</servlet-name>
+        <servlet-class>adminstrador.Servlet3</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Servlet1</servlet-name>
         <url-pattern>/Servlet1</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Solucion</servlet-name>
+        <url-pattern>/Solucion</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Error</servlet-name>
+        <url-pattern>/Error</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
