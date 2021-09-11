@@ -8,6 +8,7 @@ package adminstrador;
 import com.escom.ipn.cv13id28idt4.TrianguloRectangulo;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Map;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -22,6 +23,7 @@ public class Servlet2 extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
         PrintWriter out = response.getWriter();
         TrianguloRectangulo triangulo = (TrianguloRectangulo) request.getAttribute("Triangulo");
+        Map<String,String> datos = triangulo.getData();
         response.setContentType("text/html;charset=UTF-8");
             out.println("<!DOCTYPE html>");
             out.println("<html>");

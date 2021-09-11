@@ -2,6 +2,7 @@ package com.escom.ipn.cv13id28idt4;
 
 import java.util.Map;
 import java.lang.Math;
+import java.util.HashMap;
 
 /**
  *
@@ -14,7 +15,6 @@ public class TrianguloRectangulo {
     private Double CatetoOpuesto = Double.valueOf(0);
     private Double CatetoAdyacente = Double.valueOf(0);
     private Double Hipotenusa = Double.valueOf(0);
-    private Map<String,String[]> Datos = null;
     public TrianguloRectangulo(){
     }
     
@@ -118,5 +118,15 @@ public class TrianguloRectangulo {
             return true;
         }
         return false;
+    }
+    
+    public Map<String,String> getData(){
+        Map<String,String> datos = new HashMap<String,String>();
+        datos.put("CatetoOpuesto", String.valueOf(this.CatetoOpuesto));
+        datos.put("CatetoAdyacente", String.valueOf(this.CatetoAdyacente));
+        datos.put("Hipotenusa", String.valueOf(this.CatetoOpuesto));
+        datos.put("Angulo1", String.valueOf(this.Angulo1));
+        datos.put("Angulo2", String.valueOf(this.Angulo2));
+        return datos;
     }
 }
