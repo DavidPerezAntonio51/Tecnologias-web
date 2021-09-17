@@ -24,13 +24,13 @@ public class Servlet1 extends HttpServlet {
         PrintWriter out = response.getWriter();
         TrianguloRectangulo triangulo = new TrianguloRectangulo();
         triangulo.setData(request.getParameterMap());
+        request.setAttribute("Triangulo", triangulo);
         if(triangulo.sePuedeResolver()){
-            request.setAttribute("Triangulo", triangulo);
             RequestDispatcher rd = request.getRequestDispatcher("Solucion");
             rd.forward(request, response);
         }else{
             RequestDispatcher rd = request.getRequestDispatcher("Error");
             rd.forward(request, response);
-        }   
+        }
     }
 }

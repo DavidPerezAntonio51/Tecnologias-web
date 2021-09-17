@@ -26,10 +26,11 @@ public class Servlet3 extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet Servlet3</title>");            
+            out.println("<title>Error</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>No se puede resolver 20"+"</h1>");
+            out.println("<h1>No se puede resolver el triangulo, por favor revisa las instrucciones"+"</h1>");
+            out.println("<a href=\"index.html\">De acuerdo!<a/>");
             out.println("</body>");
             out.println("</html>");
     }

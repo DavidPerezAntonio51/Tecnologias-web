@@ -28,10 +28,11 @@ public class Servlet2 extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet Servlet3</title>");            
+            out.println("<title>Solucion</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Se puede resolver"+"</h1>");
+            out.println("<h1>El triangulo queda resuelto de la siguiente manera"+"</h1>");
+            out.println(datos);
             out.println("</body>");
             out.println("</html>");
     }

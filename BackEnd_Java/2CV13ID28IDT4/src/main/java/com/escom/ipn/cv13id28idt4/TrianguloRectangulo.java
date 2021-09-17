@@ -54,31 +54,31 @@ public class TrianguloRectangulo {
     
     private void determinaAngulos(Integer F){
         if(F==1){
-            this.Angulo1 = Math.asin(CatetoOpuesto/Hipotenusa);
+            this.Angulo1 = Math.toDegrees(Math.asin(this.CatetoOpuesto/this.Hipotenusa));
             this.Angulo2 = ANGULO - Angulo1;
         }
         if(F==2){
-            this.Angulo1 = Math.acos(CatetoAdyacente/Hipotenusa);
+            this.Angulo1 = Math.toDegrees(Math.acos(CatetoAdyacente/Hipotenusa));
             this.Angulo2 = ANGULO - Angulo1;
         }
         if(F==3){
-            this.Angulo1 = Math.atan(CatetoOpuesto/CatetoAdyacente);
+            this.Angulo1 = Math.toDegrees(Math.atan(CatetoOpuesto/CatetoAdyacente));
             this.Angulo2 = ANGULO - Angulo1;
         }
     }
     
     private void determinaCatetos(Double A){
         if(this.CatetoOpuesto!=0){
-            this.Hipotenusa = this.CatetoOpuesto/Math.sin(A);
-            this.CatetoAdyacente = this.CatetoOpuesto/Math.tan(A);
+            this.Hipotenusa = this.CatetoOpuesto/Math.sin(Math.toRadians(A));
+            this.CatetoAdyacente = this.CatetoOpuesto/Math.tan(Math.toRadians(A));
         }
         if(this.CatetoAdyacente!=0){
-            this.Hipotenusa = this.CatetoAdyacente/Math.cos(A);
-            this.CatetoOpuesto = this.CatetoAdyacente*Math.tan(A);
+            this.Hipotenusa = this.CatetoAdyacente/Math.cos(Math.toRadians(A));
+            this.CatetoOpuesto = this.CatetoAdyacente*Math.tan(Math.toRadians(A));
         }
         if(this.Hipotenusa!=0){
-            this.CatetoAdyacente = this.Hipotenusa*Math.cos(A);
-            this.CatetoOpuesto = this.Hipotenusa*Math.sin(A);
+            this.CatetoAdyacente = this.Hipotenusa*Math.cos(Math.toRadians(A));
+            this.CatetoOpuesto = this.Hipotenusa*Math.sin(Math.toRadians(A));
         }
     }
     
@@ -121,10 +121,10 @@ public class TrianguloRectangulo {
     }
     
     public Map<String,String> getData(){
-        Map<String,String> datos = new HashMap<String,String>();
+        Map<String,String> datos = new HashMap<>();
         datos.put("CatetoOpuesto", String.valueOf(this.CatetoOpuesto));
         datos.put("CatetoAdyacente", String.valueOf(this.CatetoAdyacente));
-        datos.put("Hipotenusa", String.valueOf(this.CatetoOpuesto));
+        datos.put("Hipotenusa", String.valueOf(this.Hipotenusa));
         datos.put("Angulo1", String.valueOf(this.Angulo1));
         datos.put("Angulo2", String.valueOf(this.Angulo2));
         return datos;
