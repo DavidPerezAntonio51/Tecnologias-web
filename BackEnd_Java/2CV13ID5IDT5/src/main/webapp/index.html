@@ -6,34 +6,37 @@
         <link rel="stylesheet" href="./cssvol2.css">
     </head>
     <body>        
-        
+         <!-- -------------------------------------------------------------------- Circulos ------------------------------- -->       
         <div>    
             <form method="Get" action="Servlet1" id="B1">
             <h2>Circulo.</h2> 
             <br></br>
-            <img src="circulo.png" alt=""/>
+            <img src="Imagenes/circulo.png" alt=""/>
             <br></br>
+             <h4>En caso de ser mas de un circulo intreoduce los radios de cada uno separados por comas</h4>
             <input type="text" placeholder="Radio" name="Radio" form="B1"/>
             <br></br>
             <input type="submit" form="B1" name="Kate" value="Dibujar">  
             </form>
          </div>
         
-        
+        <!-- -------------------------------------------------------------------- Imagen------------------------------- -->        
         <div>
             <form method="Get" action="Servlet2" id="B2">
             <h2>Imagen</h2> 
-            <img src="grito.jpg" alt=""/>
+            <img src="Imagenes/grito.jpg" alt=""/>
             <br></br>
             <input type="submit" form="B2" name="sabino" value="Dibujar"> 
              </form>
         </div>
         
+        
+        <!-- -------------------------------------------------------------------- Gradiente ------------------------------- -->
         <div>
             <form method="Get" action="Servlet3" id="B3">
             <h2>Gradiente</h2>
             <br></br>
-            <img src="3.jpg" alt=""/>
+            <img src="Imagenes/3.jpg" alt=""/>
           
              <br></br>
             <select form="B3" name="select">
@@ -51,9 +54,22 @@
              </select> 
              
             <br></br>
+            
             <h3>Valor del gradiente debe estar entre direccion 0 y 750</h3>
             <input type="text" placeholder="Valor" name="Grad" form="B3"/>
             <br></br>
+            
+            <h4>Introduce el ancho</h4>
+            <input type="text" placeholder="ancho" name="ancho" form="B3"/>
+            <br></br>
+            
+            <h4>Introduce el largo</h4>
+            <input type="text" placeholder="largo" name="largo" form="B3"/>
+            <br></br>
+            
+            
+            
+            
             <input type="submit" form="B3" name="david" value="Dibujar"> 
              </form>
         </div>
