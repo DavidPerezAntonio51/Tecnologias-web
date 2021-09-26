@@ -28,7 +28,7 @@ public class Servlet2 extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Radio</title>");            
+            out.println("<title>Imagenes</title>");            
             out.println("</head>");
             out.println("<body>");
             

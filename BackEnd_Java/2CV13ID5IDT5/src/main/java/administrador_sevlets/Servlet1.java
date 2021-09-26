@@ -22,8 +22,6 @@ public class Servlet1 extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        Integer radio = Integer.valueOf(request.getParameter("Radio"));
-        Circulo_script Circulo = new Circulo_script(radio);
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
             out.println("<!DOCTYPE html>");
@@ -32,16 +30,27 @@ public class Servlet1 extends HttpServlet {
             out.println("<title>Radio</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<canvas id=\"Circulo\" width=\""+(radio+10)*2+"\" height=\""+(radio+10)*2+"\" style=\"border:1px solid #d3d3d3;\">");
-            out.println("<div>");
+        if(String.valueOf(request.getParameter("Radio")).equals("")){
+            out.println("No se ha introducido ningun Radio, intentalo de nuevo");
+        }else{
+            try{
+                Integer radio = Integer.valueOf(request.getParameter("Radio"));
+                Circulo_script Circulo = new Circulo_script(radio);
+                out.println("<canvas id=\"Circulo\" width=\""+(radio+10)*2+"\" height=\""+(radio+10)*2+"\" style=\"border:1px solid #d3d3d3;\">");
+                out.println(Circulo);
+            }catch(NumberFormatException e){
+                out.println("Varios circulos");
+                System.out.println(e);
+            }
+        }
             /************************************************************************************/
             /*****************************Boton para Regresar************************************/
             /************************************************************************************/
+            out.println("<div>");
             out.println("<form method=\"Get\" action=\"Inicio\" id=\"Inicio\">");
             out.println("<input type=\"submit\" name=\"Inicio\" value=\"Regresar\" form=\"Inicio\"/>");
             out.println("</form>");
             out.println("</div>");
-            out.println(Circulo);
             out.println("</body>");
             out.println("</html>");
         }
