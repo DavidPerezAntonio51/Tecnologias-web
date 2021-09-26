@@ -9,8 +9,15 @@ body{
     background-color: var(--color-primary);
     display: flex;
     justify-content: center;
-    align-items: center;
-    text-align: center;
+    align-items: stretch;
+    text-align: left;
     width: 100vw;
     height: 100vh;
+}
+
+
+p{
+ width: 5000px;
+ left: 500px;
+ right: 500px;
 }
