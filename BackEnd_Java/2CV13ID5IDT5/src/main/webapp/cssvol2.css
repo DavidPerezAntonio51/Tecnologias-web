@@ -21,7 +21,13 @@ body{
     justify-content: center;
     align-items: center;
     text-align: center;
-     left: 5000px;
-      right: 5000px;
 
+}
+
+div{
+    
+    
+   left: 500px;
+   right: 500px;  
+    
 }
