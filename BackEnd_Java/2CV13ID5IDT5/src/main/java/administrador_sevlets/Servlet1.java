@@ -43,17 +43,17 @@ public class Servlet1 extends HttpServlet {
             }catch(NumberFormatException e){
                 StringTokenizer Numeros = new StringTokenizer(request.getParameter("Radio"), ",");
                 Circulo_script[] Circulos = new Circulo_script[Numeros.countTokens()];
-                out.println(Numeros.countTokens());
-                for(int i=0; i<Numeros.countTokens();i++){
+                int i = 0;
+                while(Numeros.hasMoreElements()){
                     Integer radio = Integer.valueOf(Numeros.nextToken());
                     String id = "Circulo"+i;
                     Circulos[i] = new Circulo_script(id,radio);
                     out.println("<canvas id=\""+id+"\" width=\""+(radio+10)*2+"\" height=\""+(radio+10)*2+"\" style=\"border:1px solid #d3d3d3;\"> </canvas>");
+                    i++;
                 }
-                for(int i=0;i<Circulos.length;i++){
-                    out.println(Circulos[i]);
+                for(int j=0;j<Circulos.length;j++){
+                    out.println(Circulos[j]);
                 }
-                System.out.println(e);
             }
         }
             /************************************************************************************/

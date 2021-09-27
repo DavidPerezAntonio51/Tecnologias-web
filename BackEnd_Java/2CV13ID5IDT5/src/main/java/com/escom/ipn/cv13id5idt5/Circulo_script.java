@@ -10,9 +10,9 @@ package com.escom.ipn.cv13id5idt5;
  * @author DEZKS
  */
 public class Circulo_script {
-    Integer Radio = 0;
-    String id = "";
-    Integer Lados = 10;
+    private Integer Radio = 0;
+    private String id = "";
+    private Integer Lados = 10;
     public Circulo_script(Integer radio) {
         this.Radio = radio;
         this.Lados = this.Lados + radio;

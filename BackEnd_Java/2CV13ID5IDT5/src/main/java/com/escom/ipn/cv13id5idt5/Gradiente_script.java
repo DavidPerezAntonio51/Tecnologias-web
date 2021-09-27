@@ -11,6 +11,8 @@ public class Gradiente_script {
     private Integer Intensidad_Gradiente = 0;
     private Integer Ancho = 0;
     private Integer Largo = 0;
+    private String Color1 = "";
+    private String Color2 = "";
     public Gradiente_script() {
         
     }
@@ -26,6 +28,10 @@ public class Gradiente_script {
     }
     public void setLargo(Integer Largo){
         this.Largo = Largo;
+    }
+    public void setColors(String Color1, String Color2){
+        this.Color1 = Color1;
+        this.Color2 = Color2;
     }
     private String CreateGradient(){
         String Script = "";
@@ -122,8 +128,8 @@ public class Gradiente_script {
         "var ctx = c.getContext(\"2d\");\n" +
         "// Create gradient\n" +
         CreateGradient() +
-        "grd.addColorStop(0,\"red\");\n" +
-        "grd.addColorStop(1,\"white\");\n" +
+        "grd.addColorStop(0,\""+this.Color1+"\");\n" +
+        "grd.addColorStop(1,\""+this.Color2+"\");\n" +
         "// Fill with gradient\n" +
         "ctx.fillStyle = grd;\n" +
         "ctx.fillRect(5,5,"+Ancho+","+Largo+");\n" +

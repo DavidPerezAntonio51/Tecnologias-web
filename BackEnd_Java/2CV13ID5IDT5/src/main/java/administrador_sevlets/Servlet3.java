@@ -36,7 +36,8 @@ public class Servlet3 extends HttpServlet {
                     Gradiente.setIntesidad(Integer.valueOf(request.getParameter("Grad")));
                     Gradiente.setAncho(Integer.valueOf(request.getParameter("ancho")));
                     Gradiente.setLargo(Integer.valueOf(request.getParameter("largo")));
-                    out.println("<canvas id=\"Gradiente\" width=\""+Gradiente.getAncho()+"\" height=\""+Gradiente.getLargo()+"\" style=\"border:1px solid #d3d3d3;\">");
+                    Gradiente.setColors(request.getParameter("Colorpri"), request.getParameter("colorsec"));
+                    out.println("<canvas id=\"Gradiente\" width=\""+Gradiente.getAncho()+"\" height=\""+Gradiente.getLargo()+"\" style=\"border:1px solid #d3d3d3;\"> </canvas>");
                     out.println(Gradiente);
                 }catch(NumberFormatException e){
                     out.println("Asegurate de introducir solo numeros");
