@@ -27,19 +27,106 @@ public class Gradiente_script {
     public void setLargo(Integer Largo){
         this.Largo = Largo;
     }
-
+    private String CreateGradient(){
+        String Script = "";
+        switch(Direccion1){
+            case 1:
+                switch (Direccion2){
+                    case 0:
+                        Script = "var grd = ctx.createLinearGradient("+this.Intensidad_Gradiente+",0,0,0);";
+                    break;
+                    case 1:
+                        Script = "var grd = ctx.createLinearGradient("+this.Intensidad_Gradiente+",0,0,0);";
+                    break;
+                    case 2:
+                        Script = "var grd = ctx.createLinearGradient("+this.Intensidad_Gradiente+","+this.Intensidad_Gradiente+",0,0);";
+                    break;
+                    case 3:
+                        Script = "var grd = ctx.createLinearGradient("+this.Intensidad_Gradiente+",0,"+this.Intensidad_Gradiente+",0);";
+                    break;
+                    case 4:
+                        Script = "var grd = ctx.createLinearGradient("+this.Intensidad_Gradiente+",0,0,"+this.Intensidad_Gradiente+");";
+                    break;
+                }
+            break;
+            case 2:
+                switch (Direccion2){
+                    case 0:
+                        Script = "var grd = ctx.createLinearGradient(0,"+this.Intensidad_Gradiente+",0,0);";
+                    break;
+                    case 1:
+                        Script = "var grd = ctx.createLinearGradient("+this.Intensidad_Gradiente+","+this.Intensidad_Gradiente+",0,0);";
+                    break;
+                    case 2:
+                        Script = "var grd = ctx.createLinearGradient(0,"+this.Intensidad_Gradiente+",0,0);";
+                    break;
+                    case 3:
+                        Script = "var grd = ctx.createLinearGradient(0,"+this.Intensidad_Gradiente+","+this.Intensidad_Gradiente+",0);";
+                    break;
+                    case 4:
+                        Script = "var grd = ctx.createLinearGradient(0,"+this.Intensidad_Gradiente+",0,"+this.Intensidad_Gradiente+");";
+                    break;
+                }
+            break;
+            case 3:
+                switch (Direccion2){
+                    case 0:
+                        Script = "var grd = ctx.createLinearGradient(0,0,"+this.Intensidad_Gradiente+",0);";
+                    break;
+                    case 1:
+                        Script = "var grd = ctx.createLinearGradient("+this.Intensidad_Gradiente+",0,"+this.Intensidad_Gradiente+",0);";
+                    break;
+                    case 2:
+                        Script = "var grd = ctx.createLinearGradient(0,"+this.Intensidad_Gradiente+","+this.Intensidad_Gradiente+",0);";
+                    break;
+                    case 3:
+                        Script = "var grd = ctx.createLinearGradient(0,0,"+this.Intensidad_Gradiente+",0);";
+                    break;
+                    case 4:
+                        Script = "var grd = ctx.createLinearGradient(0,0,"+this.Intensidad_Gradiente+","+this.Intensidad_Gradiente+");";
+                    break;
+                }
+            break;
+            case 4:
+                switch (Direccion2){
+                    case 0:
+                        Script = "var grd = ctx.createLinearGradient(0,0,0,"+this.Intensidad_Gradiente+");";
+                    break;
+                    case 1:
+                        Script = "var grd = ctx.createLinearGradient("+this.Intensidad_Gradiente+",0,0,"+this.Intensidad_Gradiente+");";
+                    break;
+                    case 2:
+                        Script = "var grd = ctx.createLinearGradient(0,"+this.Intensidad_Gradiente+",0,"+this.Intensidad_Gradiente+");";
+                    break;
+                    case 3:
+                        Script = "var grd = ctx.createLinearGradient(0,0,"+this.Intensidad_Gradiente+","+this.Intensidad_Gradiente+");";
+                    case 4:
+                        Script = "var grd = ctx.createLinearGradient(0,0,0,"+this.Intensidad_Gradiente+");";
+                    break;
+                }
+            break;
+        }
+        return Script;
+    }
+    public String getAncho(){
+        return String.valueOf(this.Ancho+10);
+    }
+    public String getLargo(){
+        return String.valueOf(this.Largo+10);
+    }
+    
     @Override
     public String toString() {
         return "<script>\n" +
         "var c = document.getElementById(\"Gradiente\");\n" +
         "var ctx = c.getContext(\"2d\");\n" +
         "// Create gradient\n" +
-        "var grd = ctx.createLinearGradient(000,000,00,100);\n" +
+        CreateGradient() +
         "grd.addColorStop(0,\"red\");\n" +
         "grd.addColorStop(1,\"white\");\n" +
         "// Fill with gradient\n" +
         "ctx.fillStyle = grd;\n" +
-        "ctx.fillRect(10,10,200,100);\n" +
+        "ctx.fillRect(5,5,"+Ancho+","+Largo+");\n" +
 "       </script>";
     }
 }
