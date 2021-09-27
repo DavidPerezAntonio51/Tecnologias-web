@@ -8,6 +8,7 @@ package administrador_sevlets;
 import com.escom.ipn.cv13id5idt5.Circulo_script;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.StringTokenizer;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -37,10 +38,21 @@ public class Servlet1 extends HttpServlet {
             try{
                 Integer radio = Integer.valueOf(request.getParameter("Radio"));
                 Circulo_script Circulo = new Circulo_script(radio);
-                out.println("<canvas id=\"Circulo\" width=\""+(radio+10)*2+"\" height=\""+(radio+10)*2+"\" style=\"border:1px solid #d3d3d3;\">");
+                out.println("<canvas id=\"Circulo\" width=\""+(radio+10)*2+"\" height=\""+(radio+10)*2+"\" style=\"border:1px solid #d3d3d3;\"> </canvas>");
                 out.println(Circulo);
             }catch(NumberFormatException e){
-                out.println("Varios circulos");
+                StringTokenizer Numeros = new StringTokenizer(request.getParameter("Radio"), ",");
+                Circulo_script[] Circulos = new Circulo_script[Numeros.countTokens()];
+                out.println(Numeros.countTokens());
+                for(int i=0; i<Numeros.countTokens();i++){
+                    Integer radio = Integer.valueOf(Numeros.nextToken());
+                    String id = "Circulo"+i;
+                    Circulos[i] = new Circulo_script(id,radio);
+                    out.println("<canvas id=\""+id+"\" width=\""+(radio+10)*2+"\" height=\""+(radio+10)*2+"\" style=\"border:1px solid #d3d3d3;\"> </canvas>");
+                }
+                for(int i=0;i<Circulos.length;i++){
+                    out.println(Circulos[i]);
+                }
                 System.out.println(e);
             }
         }

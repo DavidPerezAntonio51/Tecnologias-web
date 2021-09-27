@@ -25,9 +25,12 @@ public class Circulo_script {
 
     @Override
     public String toString() {
-        return "<script> var c = document.getElementById(\"Circulo\"); var ctx = c.getContext(\"2d\"); ctx.beginPath(); ctx.arc("+this.Lados+","+this.Lados+","+this.Radio+",0,2*Math.PI); ctx.stroke(); </script>";
+        if(id.equals("")){
+            return "<script> var c = document.getElementById(\"Circulo\"); var ctx = c.getContext(\"2d\"); ctx.beginPath(); ctx.arc("+this.Lados+","+this.Lados+","+this.Radio+",0,2*Math.PI); ctx.stroke(); </script>";
+        }
+        return "<script> var c_"+this.id+" = document.getElementById(\""+this.id+"\");\n var ctx_"+this.id+" = c_"+this.id+".getContext(\"2d\");\n ctx_"+this.id+".beginPath();\n ctx_"+this.id+".arc("+this.Lados+","+this.Lados+","+this.Radio+",0,2*Math.PI);\n ctx_"+this.id+".stroke();\n </script>";
     }
-    public String toString(String id, Integer radio) {
-        return "<script> var c = document.getElementById(\""+id+"\"); var ctx = c.getContext(\"2d\"); ctx.beginPath(); ctx.arc(1"+this.Lados+","+this.Lados+","+this.Radio+",0,2*Math.PI); ctx.stroke(); </script>";
+    public String toStringVariable(String id, Integer radio) {
+        return "<script> var c_"+this.id+" = document.getElementById(\""+this.id+"\"); var ctx_"+this.id+" = c_"+this.id+".getContext(\"2d\"); ctx_"+this.id+".beginPath(); ctx_"+this.id+".arc(1"+this.Lados+","+this.Lados+","+this.Radio+",0,2*Math.PI); ctx_"+this.id+".stroke(); </script>";
     }
 }
