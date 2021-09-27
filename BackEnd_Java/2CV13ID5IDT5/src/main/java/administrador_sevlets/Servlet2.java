@@ -29,9 +29,32 @@ public class Servlet2 extends HttpServlet {
             out.println("<html>");
             out.println("<head>");
             out.println("<title>Imagenes</title>");      
-            out.println("<link rel='stylesheet' href='./cssvol2.css'>");
+            out.println("<link rel='stylesheet' href='./cssvol3.css'>");
             out.println("</head>");
             out.println("<body>");
+            
+            
+            
+            //--------------------Imagenes
+            
+            out.println("<img src=\"Imagenes/grito2.jpg\" alt=\"\"/>");
+            out.println("<img src=\"Imagenes/Eva2.jpg\" alt=\"\"/>");
+            out.println("<img src=\"Imagenes/amazon2.jpg\" alt=\"\"/>");
+            out.println("<img src=\"Imagenes/skz2.jpg\" alt=\"\"/>");
+            out.println("<img src=\"Imagenes/Saint2.jpg\" alt=\"\"/>");
+            
+            //--------------Combobox
+            
+            out.println(" <br></br>");
+            out.println("<select form='Imag' name='Imag'>");
+            out.println("<option value='0' selected>1 Grito</option>");   
+            out.println("<option value='1'>2 Evangelion</option>");
+            out.println("<option value='2'>3 Amazon</option>");
+            out.println("<option value='3'>4 StrayKids</option>");
+            out.println("<option value='4'>5 SaintSeiya</option>");
+            out.println("</select>");
+            
+            
             
             /************************************************************************************/
             /*****************************Boton para Regresar************************************/
