@@ -24,7 +24,7 @@ public class Servlet3 extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         Gradiente_script Gradiente = new Gradiente_script();
-        Gradiente.setDireccion(Integer.valueOf(request.getParameter("select1")), Integer.valueOf(request.getParameter("select2")));
+        Gradiente.setDireccion(Integer.valueOf(request.getParameter("select")), Integer.valueOf(request.getParameter("select2")));
         
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
@@ -41,7 +41,8 @@ public class Servlet3 extends HttpServlet {
                     Gradiente.setIntesidad(Integer.valueOf(request.getParameter("Grad")));
                     Gradiente.setAncho(Integer.valueOf(request.getParameter("ancho")));
                     Gradiente.setLargo(Integer.valueOf(request.getParameter("largo")));
-                    out.println("<canvas id=\"Gradiente\" width=\"200\" height=\"150\" style=\"border:1px solid #d3d3d3;\">");
+                    out.println("<canvas id=\"Gradiente\" width=\""+Gradiente.getAncho()+"\" height=\""+Gradiente.getLargo()+"\" style=\"border:1px solid #d3d3d3;\">");
+                    out.println(Gradiente);
                 }catch(NumberFormatException e){
                     out.println("Asegurate de introducir solo numeros");
                 }
