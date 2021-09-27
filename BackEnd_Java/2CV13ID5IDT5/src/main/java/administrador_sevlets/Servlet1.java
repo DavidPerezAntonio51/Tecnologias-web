@@ -27,7 +27,8 @@ public class Servlet1 extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Radio</title>");            
+            out.println("<title>Radio</title>"); 
+            out.println("<link rel='stylesheet' href='./cssvol2.css'>");
             out.println("</head>");
             out.println("<body>");
         if(String.valueOf(request.getParameter("Radio")).equals("")){

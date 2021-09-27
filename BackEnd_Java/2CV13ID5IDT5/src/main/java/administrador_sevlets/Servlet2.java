@@ -15,7 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author DEZKS
+ * @author SaBinoDios
  */
 @WebServlet(name = "Servlet2", urlPatterns = {"/Servlet2"})
 public class Servlet2 extends HttpServlet {
@@ -28,7 +28,8 @@ public class Servlet2 extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Imagenes</title>");            
+            out.println("<title>Imagenes</title>");      
+            out.println("<link rel='stylesheet' href='./cssvol2.css'>");
             out.println("</head>");
             out.println("<body>");
             
