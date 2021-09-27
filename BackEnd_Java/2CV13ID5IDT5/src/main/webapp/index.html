@@ -13,9 +13,9 @@
             <form method="Get" action="Servlet1" id="B1">
             <h1>Circulo.</h1> 
             <br></br>
-            <img src="Imagenes/circulo.png" alt=""/>
+            <img src="Imagenes/Circulo.png" alt="" style="max-width: 50%;"/>
             <br></br>
-             <h3>En caso de ser mas de un circulo intreoduce los radios de cada uno separados por comas</h3>
+             <h3>En caso de ser mas de un circulo intreoduce <br></br> los radios de cada uno separados por comas</h3>
             <input type="text" placeholder="Radio" name="Radio" form="B1"/>
             <br></br>
             <input type="submit" form="B1" name="Kate" value="Dibujar">  
@@ -68,19 +68,44 @@
             <input type="text" placeholder="Valor" name="Grad" form="B3"/>
             <br></br>
             
-            <h3>Introduce el ancho</h3>
+            <h3>Introduce el ancho e introduce el largo</h3>
             <input type="text" placeholder="ancho" name="ancho" form="B3"/>
-            <br></br>
-            
-            <h3>Introduce el largo</h3>
             <input type="text" placeholder="largo" name="largo" form="B3"/>
             <br></br>
             
+         
+            <!-- -------------------------- Scrips para los colores -->   
+             <!-- --------------------------Los scrips se rompieron volvemos a lo basico -->   
+            <select form="B3" id="Colorpri" name="Colorpri">
+            <option value="Black" selected>Negro</option>     
+            <option value="White">Blanco</option>
+            <option value="Red">Rojo</option>
+            <option value="Yellow">Amarillo</option>
+            <option value="Green">Verde</option>
+            <option value="Blue">Azul</option>
+            <option value="Grey">Gris</option>
+            <option value="Orange">Naranja</option>
+            <option value="Purple">Morado</option>
+            </select> 
+             
+            <select form="B3" id="Colorsec" name="colorsec">
+            <option value="Black" selected>Negro</option>     
+            <option value="White">Blanco</option>
+            <option value="Red">Rojo</option>
+            <option value="Yellow">Amarillo</option>
+            <option value="Green">Verde</option>
+            <option value="Blue">Azul</option>
+            <option value="Grey">Gris</option>
+            <option value="Orange">Naranja</option>
+            <option value="Purple">Morado</option>
+             </select> 
+             
+            <br></br>
             
-            
-            
-            <input type="submit" form="B3" name="david" value="Dibujar" size="100"> 
+             <input type="submit" form="B3" name="david" value="Dibujar"> 
+             
              </form>
+             
         </div>
          
     </body>

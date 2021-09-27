@@ -35,4 +35,10 @@ div{
 
 input[type="submit"] {
   transform: scale(2.0); 
+  margin:     10px 0 0 0; 
+} 
+
+select{
+  transform: scale(1.5); 
+  margin:     10px 35px 0px 35px; 
 } 
