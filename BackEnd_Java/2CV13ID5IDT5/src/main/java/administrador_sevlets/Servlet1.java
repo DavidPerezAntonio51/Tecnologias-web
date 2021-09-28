@@ -29,12 +29,17 @@ public class Servlet1 extends HttpServlet {
             out.println("<html>");
             out.println("<head>");
             out.println("<title>Radio</title>"); 
-            out.println("<link rel='stylesheet' href='./cssvol2.css'>");
+            out.println("<link rel='stylesheet' href='./cssvol3.css'>");
             out.println("</head>");
             out.println("<body>");
+            
         if(String.valueOf(request.getParameter("Radio")).equals("")){
+             out.println(" <h1>Circulo<br></br></h1>");
+             out.println(" <h1><br></br></h1>");
             out.println("No se ha introducido ningun Radio, intentalo de nuevo");
         }else{
+             out.println(" <h1>Circulo</h1>");
+             out.println(" <h1><br></br></h1>");
             try{
                 Integer radio = Integer.valueOf(request.getParameter("Radio"));
                 Circulo_script Circulo = new Circulo_script(radio);

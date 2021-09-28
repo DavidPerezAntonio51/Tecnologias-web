@@ -26,9 +26,11 @@ public class Servlet3 extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Gradiente</title>");            
+            out.println("<title>Gradiente</title>");    
+            out.println("<link rel='stylesheet' href='./cssvol3.css'>");
             out.println("</head>");
             out.println("<body>");
+            out.println(" <h1>Gradiente</h1>");
             if(request.getParameter("Grad").equals("")||request.getParameter("ancho").equals("")||request.getParameter("largo").equals("")){
                 out.println("Asegurate de no dejar los campos vacios");
             }else{

@@ -34,7 +34,7 @@ div{
 }
 
 input[type="submit"] {
-  transform: scale(2.0); 
+    transform: scale(2.0); 
   margin:     10px 0 0 0; 
 } 
 
