@@ -1,0 +1,7 @@
+<!ELEMENT componentes (componentefv, componenteom)>
+<!ELEMENT componentefv EMPTY>
+<!ELEMENT componenteom EMPTY>
+<!ATTLIST componentefv respuesta CDATA #REQUIRED>
+<!ATTLIST componentefv pregunta CDATA #REQUIRED>
+<!ATTLIST componenteom respuestas CDATA #REQUIRED>
+<!ATTLIST componenteom pregunta CDATA #REQUIRED>

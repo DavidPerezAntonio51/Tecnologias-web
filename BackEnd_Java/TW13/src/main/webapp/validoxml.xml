@@ -1,0 +1,15 @@
+<!DOCTYPE componentes
+[
+<!ELEMENT componentes (componentefv, componenteom)>
+<!ELEMENT componentefv EMPTY>
+<!ELEMENT componenteom EMPTY>
+<!ATTLIST componentefv respuesta CDATA #REQUIRED>
+<!ATTLIST componentefv pregunta CDATA #REQUIRED>
+<!ATTLIST componenteom respuestas CDATA #REQUIRED>
+<!ATTLIST componenteom pregunta CDATA #REQUIRED>
+]>
+
+<componentes>
+    <componentefv respuesta="Verdadero" pregunta="Los dias tienen 24 horas"/>
+    <componenteom respuestas="op1-uno; op2-dos; op3-tres" pregunta="Selecciona el tres"/>
+</componentes>

@@ -1,0 +1,5 @@
+<!DOCTYPE componentes SYSTEM "dtd1.dtd">
+<componentes>
+    <componentefv respuesta="Verdadero" pregunta="Los dias tienen 24 horas"/>
+    <componenteom respuestas="op1-uno; op2-dos; op3-tres" pregunta="Selecciona el tres"/>
+</componentes>
