@@ -7,6 +7,7 @@ import Estado from './Estados/Estado';
 import RenderizadoCondicional from './Renderizado/RenderizadoCondicional';
 import RenderizadoElementos from './Renderizado/RednerizadoElementos';
 import Evento from './Eventos/Evento';
+import MasSobreEventos from './Eventos/MasEventos';
 
 function App() {
   return (
@@ -42,6 +43,8 @@ function App() {
         <RenderizadoElementos></RenderizadoElementos>
         <hr />
         <Evento></Evento>
+        <hr />
+        <MasSobreEventos></MasSobreEventos>
       </section>
       </header>
     </div>
