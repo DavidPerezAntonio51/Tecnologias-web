@@ -8,6 +8,7 @@ import RenderizadoCondicional from './Renderizado/RenderizadoCondicional';
 import RenderizadoElementos from './Renderizado/RednerizadoElementos';
 import Evento from './Eventos/Evento';
 import MasSobreEventos from './Eventos/MasEventos';
+import ComunicacionComponentes from './ComunicaciondeComponentes/ComunicacionComponentes';
 
 function App() {
   return (
@@ -45,6 +46,8 @@ function App() {
         <Evento></Evento>
         <hr />
         <MasSobreEventos></MasSobreEventos>
+        <hr />
+        <ComunicacionComponentes />
       </section>
       </header>
     </div>
