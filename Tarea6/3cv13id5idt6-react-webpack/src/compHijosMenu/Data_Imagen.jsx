@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-class Data_Video extends React.Component {
+class Data_Imagen extends React.Component {
   render() {
     return (
     <div>
@@ -25,4 +25,4 @@ class Data_Video extends React.Component {
 
 
  
-export default Data_Video;
+export default Data_Imagen;

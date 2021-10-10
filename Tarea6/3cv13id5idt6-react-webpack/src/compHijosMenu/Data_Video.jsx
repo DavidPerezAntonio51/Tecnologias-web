@@ -5,9 +5,9 @@ class Data_Video extends React.Component {
     return (
     <div>
     <h2>Video</h2>
-    <h3>Ingresa el video</h3>   
+    <h3>Ingresa el video</h3>
           <select name="select video">
-            <option value="value1"selectedValue> Video1</option>
+            <option value="value1"selectedvalue> Video1</option>
             <option value="value2">Video2</option>
             <option value="value3">Video3</option>
             <option value="value4">Video4</option>

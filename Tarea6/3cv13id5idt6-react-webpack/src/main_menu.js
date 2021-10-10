@@ -7,7 +7,7 @@ import Data_Imagen from './compHijosMenu/Data_Imagen.jsx';
 import Data_Object from './compHijosMenu/Data_Object.jsx';
 import Data_Progre from './compHijosMenu/Data_Progre.jsx';
 import Data_TextArea from './compHijosMenu/Data_TextArea.jsx';
-import Data_Video from './compHijosMenu/Data_Imagen.jsx';
+import Data_Video from './compHijosMenu/Data_Video.jsx';
 
 
 export default class Main_Menu extends React.Component {
@@ -36,6 +36,7 @@ export default class Main_Menu extends React.Component {
           {this.state.value=="Video"?<Data_Video/>:""}
           {this.state.value=="Audio"?<Data_Audio/>:""}
           {this.state.value=="Imagen"?<Data_Imagen/>:""}
+
         </form>
       );
     }
