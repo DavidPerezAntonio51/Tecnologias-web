@@ -22,8 +22,6 @@ class Data_TextArea extends Component {
       <h3>Ingresa el tamaño de las columnas</h3>
       <input type="text" placeholder="" name="TextArea2"/>
     </div>
-
-    </div>
     );
   }
 }
