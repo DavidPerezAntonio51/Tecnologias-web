@@ -45,7 +45,4 @@ class Data_Imagen extends React.Component {
     );
   }
 }
-
-
- 
 export default Data_Imagen;
