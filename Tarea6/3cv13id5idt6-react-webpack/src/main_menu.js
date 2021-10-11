@@ -30,13 +30,23 @@ export default class Main_Menu extends React.Component {
               <option value="Video">Video</option>
               <option value="Audio">Audio</option>
               <option value="Imagen">Imagen</option>
-              <option value="Area">Area</option>
+              <option value="TextArea">TexareArea</option>
+              <option value="Article">Article</option>
+              <option value="Cite">Cite</option>
+              <option value="Embed">Embed</option>
+              <option value="Object">Object</option>
+              <option value="Progress">Progress</option>
             </select>
           </label>
           {this.state.value=="Video"?<Data_Video/>:""}
           {this.state.value=="Audio"?<Data_Audio/>:""}
           {this.state.value=="Imagen"?<Data_Imagen/>:""}
-
+          {this.state.value=="TextArea"?<Data_TextArea/>:""}
+          {this.state.value=="Article"?<Data_Article/>:""}
+          {this.state.value=="Cite"?<Data_Cite/>:""}
+          {this.state.value=="Embed"?<Data_Embed/>:""}
+          {this.state.value=="Object"?<Data_Object/>:""}
+          {this.state.value=="Progress"?<Data_Progre/>:""}
         </form>
       );
     }
