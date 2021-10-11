@@ -24,6 +24,7 @@ export default class Main_Menu extends React.Component {
     //Video Revisado
     //Audio Revisado
     //Imagen Revisado
+    //TextArea Revisado esperando Correccion
     render() {
       return (
         <form id="main">
