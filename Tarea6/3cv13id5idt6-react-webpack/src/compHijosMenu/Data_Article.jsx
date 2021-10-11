@@ -9,7 +9,7 @@ class Data_Article extends React.Component {
     <h3>Ingresa el Titulos</h3>
     <input type="text" placeholder="" name="arti1"/>
     <h3>Indica el contenido.</h3>
-    <input type="text" placeholder="" name="arti2"/>
+    <textarea name="arti2" value={this.state.texto} onChange={this.handleChange} rows="10" cols="60"/>
     <h3>	Indica el pie de pagina.</h3>
     <input type="text" placeholder="" name="arti3"/>
     </div>
