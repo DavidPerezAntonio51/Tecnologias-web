@@ -24,7 +24,7 @@ export default class Main_Menu extends React.Component {
     //Video Revisado
     //Audio Revisado
     //Imagen Revisado
-    //TextArea Revisado esperando Correccion
+    //TextArea Revisado
     render() {
       return (
         <form id="main">
@@ -34,7 +34,7 @@ export default class Main_Menu extends React.Component {
               <option value="Video">Video</option>
               <option value="Audio">Audio</option>
               <option value="Imagen">Imagen</option>
-              <option value="TextArea">TexareArea</option>
+              <option value="TextArea">TextArea</option>
               <option value="Article">Article</option>
               <option value="Cite">Cite</option>
               <option value="Embed">Embed</option>
