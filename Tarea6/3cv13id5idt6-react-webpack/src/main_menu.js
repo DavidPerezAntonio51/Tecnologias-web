@@ -21,12 +21,15 @@ export default class Main_Menu extends React.Component {
     handleChange(event) {
       this.setState({value: event.target.value});
     }
+    //Video Revisado
+    //Audio Revisado
+    //Imagen Revisado
     render() {
       return (
         <form id="main">
           <label>
             Escoger etiqueta a utilizar
-            <select value={this.state.value} onChange={this.handleChange}>
+            <select value={this.state.value} onChange={this.handleChange} form="main" name="Etiqueta">
               <option value="Video">Video</option>
               <option value="Audio">Audio</option>
               <option value="Imagen">Imagen</option>
@@ -47,6 +50,7 @@ export default class Main_Menu extends React.Component {
           {this.state.value=="Embed"?<Data_Embed/>:""}
           {this.state.value=="Object"?<Data_Object/>:""}
           {this.state.value=="Progress"?<Data_Progre/>:""}
+          <input type="submit" value="Enviar" form="main"/>
         </form>
       );
     }
