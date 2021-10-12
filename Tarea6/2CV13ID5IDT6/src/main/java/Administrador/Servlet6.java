@@ -7,6 +7,7 @@ package Administrador;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.StringTokenizer;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -17,16 +18,7 @@ import javax.servlet.http.HttpServletResponse;
  * @author DEZKS
  */
 public class Servlet6 extends HttpServlet {
-
-    /**
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
-     * methods.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
+    /*--------------Se deja texto predeterminado para uso futuro-------------*/
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
@@ -35,52 +27,46 @@ public class Servlet6 extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet Servlet6</title>");            
+            out.println("<title>Servlet Servlet1</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet Servlet6 at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet Servlet1 at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
     }
-
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
-    /**
-     * Handles the HTTP <code>GET</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        String Titulo = request.getParameter("Titulo");
+        String Texto = request.getParameter("Articulo");
+        String Pie = request.getParameter("Pie");
+        StringTokenizer tokens= new StringTokenizer(Texto,"/");
+        response.setContentType("text/html;charset=UTF-8");
+        PrintWriter out = response.getWriter();
+        out.println("<!DOCTYPE html>");
+        out.println("<html>");
+        out.println("<head>");
+        out.println("<title>TextArea</title>");
+        out.println("</head>");
+        out.println("<body>");
+        out.println("<h1> A continuacion se muestra la publicacion de tu articulo</h1>");
+        out.println("<br></br>");
+        out.println("<article>");
+        out.println("<header>");
+        out.println("<h1>"+Titulo+"</h1>");
+        out.println("</header>");
+        while(tokens.hasMoreElements()){
+            out.println("<p>");
+            out.println(tokens.nextElement());
+            out.println("</p>");
+        }
+        out.println("<footer>");
+        out.println(Pie);
+        out.println("</footer>");
+        out.println("</article>");
+        out.println("</body>");
+        out.println("</html>");
+        
     }
-
-    /**
-     * Handles the HTTP <code>POST</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        processRequest(request, response);
-    }
-
-    /**
-     * Returns a short description of the servlet.
-     *
-     * @return a String containing servlet description
-     */
-    @Override
-    public String getServletInfo() {
-        return "Short description";
-    }// </editor-fold>
-
 }

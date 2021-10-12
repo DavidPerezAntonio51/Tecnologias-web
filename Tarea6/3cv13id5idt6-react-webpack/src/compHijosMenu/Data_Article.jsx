@@ -25,9 +25,9 @@ class Data_Article extends React.Component {
     return (
     <div>
     <h2>Article</h2>
-    <h3>Ingresa el Titulos</h3>
+    <h3>Ingresa el Titulo</h3>
     <input type="text" placeholder="" name="Titulo" onChange={this.handleChangeTitle} value={this.state.titulo}/>
-    <h3>Indica el contenido.</h3>
+    <h3>Indica el contenido. para crear un parrafo introuce el caracter("/")</h3>
     <textarea name="Articulo" onChange={this.handleChangeText} rows="10" cols="60" value={this.state.texto}/>
     <h3>	Indica el pie de pagina.</h3>
     <input type="text" placeholder="" name="Pie" onChange={this.handleChangePie} value={this.state.pie}/>
