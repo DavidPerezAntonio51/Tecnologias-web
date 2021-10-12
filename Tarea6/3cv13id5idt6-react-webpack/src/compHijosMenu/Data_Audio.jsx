@@ -21,7 +21,7 @@ class Data_Audio extends React.Component {
     <div>
     <h2>Audio</h2>
       <h3>Elige el audio</h3>    
-      <select name="Audio0" value={this.state.Audio} onChange={this.handleOnChangeCB1}>
+      <select name="Audio" value={this.state.Audio} onChange={this.handleOnChangeCB1}>
         <option value="Audio1">Audio1</option>
         <option value="Audio2">Audio2</option>
         <option value="Audio3">Audio3</option>

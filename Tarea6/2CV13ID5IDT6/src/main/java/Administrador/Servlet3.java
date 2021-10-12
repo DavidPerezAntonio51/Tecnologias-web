@@ -37,13 +37,14 @@ public class Servlet3 extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String Video_Solicitado = request.getParameter("Video");
+        String Audio = request.getParameter("Audio");
+        String Loop = request.getParameter("Loop");
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         out.println("<!DOCTYPE html>");
         out.println("<html>");
         out.println("<head>");
-        out.println("<title>Video "+Video_Solicitado+"</title>");
+        out.println("<title>"+Audio+"</title>");
         out.println("</head>");
         out.println("<body>");
         try{
@@ -51,9 +52,6 @@ public class Servlet3 extends HttpServlet {
         Integer alto = Integer.valueOf(request.getParameter("Alto"));
         out.println("<h1> A continuacion se muestra el Video Solicitado empleando la Etiqueta Video</h1>");
         out.println("<br></br>");
-        out.println("<video src=\""+"./Videos/Vid"+Video_Solicitado+".mp4"+"\" type=\"video/mp4\" controls=\"controls\" width=\""+ancho+"\" height=\""+alto+"\">");
-        out.println("Video no soportado");
-        out.println("</video>");
         }catch(NumberFormatException e){
             out.println("<h1>Recuerda no dejar el campo en blanco y asegurate de que sean solo numeros</h1>");
         }
