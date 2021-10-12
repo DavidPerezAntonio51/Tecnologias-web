@@ -21,16 +21,16 @@ export default class Main_Menu extends React.Component {
     handleChange(event) {
       this.setState({value: event.target.value});
     }
-    //Video Revisado
     //Audio Revisado
     //Imagen Revisado
     //TextArea Revisado
     //Article Revisado
     //Embed Revisado
     //Object Revisado
+    //Linea 34 redireccionar a Servlet1 antes de terminar para poder ejecutar build
     render() {
       return (
-        <form id="main">
+        <form id="main" action="http://localhost:8080/2CV13ID5IDT6/Servlet1" method="GET">
           <label>
             Escoger etiqueta a utilizar
             <select value={this.state.value} onChange={this.handleChange} form="main" name="Etiqueta">
