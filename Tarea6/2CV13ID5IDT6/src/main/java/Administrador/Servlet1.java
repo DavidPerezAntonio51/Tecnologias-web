@@ -48,23 +48,17 @@ public class Servlet1 extends HttpServlet {
             redireccionador = request.getRequestDispatcher("Servlet3");
         }else if(Etiqueta.equals("Imagen")){
             redireccionador = request.getRequestDispatcher("Servlet4");
-        }
-        if(Etiqueta.equals("TextArea")){
+        }else if(Etiqueta.equals("TextArea")){
             redireccionador = request.getRequestDispatcher("Servlet5");
-        }
-        if(Etiqueta.equals("Article")){
+        }else if(Etiqueta.equals("Article")){
             redireccionador = request.getRequestDispatcher("Servlet6");
-        }
-        if(Etiqueta.equals("Cite")){
+        }else if(Etiqueta.equals("Cite")){
             redireccionador = request.getRequestDispatcher("Servlet7");
-        }
-        if(Etiqueta.equals("Embed")){
+        }else if(Etiqueta.equals("Embed")){
             redireccionador = request.getRequestDispatcher("Servlet8");
-        }
-        if(Etiqueta.equals("Object")){
+        }else if(Etiqueta.equals("Object")){
             redireccionador = request.getRequestDispatcher("Servlet9");
-        }
-        if(Etiqueta.equals("Progress")){
+        }else if(Etiqueta.equals("Progress")){
             redireccionador = request.getRequestDispatcher("Servlet10");
         }
         redireccionador.forward(request, response);

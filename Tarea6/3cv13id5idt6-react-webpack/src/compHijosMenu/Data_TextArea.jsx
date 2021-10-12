@@ -28,9 +28,9 @@ class Data_TextArea extends Component {
       <h3>Introduce el texto</h3>
       <textarea name="texto" value={this.state.texto} onChange={this.handleChange} rows="10" cols="60"/>
       <h3>Ingresa el tamaño de las filas</h3>
-      <input type="text" placeholder="" name="TextArea1" value={this.state.filas} onChange={this.handleChangeFila}/>
+      <input type="text" placeholder="" name="rows" value={this.state.filas} onChange={this.handleChangeFila}/>
       <h3>Ingresa el tamaño de las columnas</h3>
-      <input type="text" placeholder="" name="TextArea2" value={this.state.columnas} onChange={this.handleChangeColumna}/>
+      <input type="text" placeholder="" name="col" value={this.state.columnas} onChange={this.handleChangeColumna}/>
     </div>
     );
   }
