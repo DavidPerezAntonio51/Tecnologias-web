@@ -47,15 +47,13 @@ public class Servlet3 extends HttpServlet {
         out.println("<title>"+Audio+"</title>");
         out.println("</head>");
         out.println("<body>");
-        try{
-        Integer ancho = Integer.valueOf(request.getParameter("Ancho"));
-        Integer alto = Integer.valueOf(request.getParameter("Alto"));
-        out.println("<h1> A continuacion se muestra el Video Solicitado empleando la Etiqueta Video</h1>");
-        out.println("<br></br>");
-        }catch(NumberFormatException e){
-            out.println("<h1>Recuerda no dejar el campo en blanco y asegurate de que sean solo numeros</h1>");
+        if(Loop.equals("true")){
+            out.println("<audio src=\""+"./Audios/"+Audio+".mp3"+"\" loop type=\"audio/mp3\" controls>");
+        }else{
+            out.println("<audio src=\""+"./Audios/"+Audio+".mp3"+"\" type=\"audio/mp3\" controls>");
         }
-        
+        out.println("Tu navegador esta feo");
+        out.println("</audio>");
         out.println("</body>");
         out.println("</html>");
         

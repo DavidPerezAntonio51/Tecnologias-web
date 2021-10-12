@@ -44,8 +44,7 @@ public class Servlet1 extends HttpServlet {
         RequestDispatcher redireccionador = null;
         if(Etiqueta.equals("Video")){
             redireccionador = request.getRequestDispatcher("Servlet2");
-        }
-        if(Etiqueta.equals("Audio")){
+        }else if(Etiqueta.equals("Audio")){
             redireccionador = request.getRequestDispatcher("Servlet3");
         }
         if(Etiqueta.equals("Imagen")){
