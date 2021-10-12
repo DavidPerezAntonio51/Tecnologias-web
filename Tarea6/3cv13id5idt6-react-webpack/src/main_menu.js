@@ -30,7 +30,7 @@ export default class Main_Menu extends React.Component {
     //Linea 34 redireccionar a Servlet1 antes de terminar para poder ejecutar build
     render() {
       return (
-        <form id="main" action="http://localhost:8080/2CV13ID5IDT6/Servlet1" method="GET">
+        <form id="main" action="Servlet1" method="GET">
           <label>
             Escoger etiqueta a utilizar
             <select value={this.state.value} onChange={this.handleChange} form="main" name="Etiqueta">
