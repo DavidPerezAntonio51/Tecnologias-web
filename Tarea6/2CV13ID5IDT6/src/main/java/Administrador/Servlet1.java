@@ -15,7 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author DEZKS
+ * @author BinoDios
  */
 public class Servlet1 extends HttpServlet {
     /*--------------Se deja texto predeterminado para uso futuro-------------*/

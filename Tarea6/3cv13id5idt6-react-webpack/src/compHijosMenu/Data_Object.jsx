@@ -27,14 +27,12 @@ class Data_Object  extends React.Component {
   render() {
     return (
     <div> 
-    <h2>Imagen</h2>
+    <h2>Objet</h2>
     <h3>Ingresa el objeto</h3>   
           <select name="Object" value={this.state.object} onChange={this.handleChangeObject}>
-            <option value="1"> Imagen1</option>
-            <option value="value2">Objeto2</option>
-            <option value="value3">Objeto3</option>
-            <option value="value4">Objeto4</option>
-            <option value="value5">Objeto5</option>
+            <option value="1"> Objeto1</option>
+            <option value="2">Objeto2</option>
+            <option value="3">Objeto3</option>
           </select>
 
     <h3>Indica el tamaño de ancho del objeto.</h3>
