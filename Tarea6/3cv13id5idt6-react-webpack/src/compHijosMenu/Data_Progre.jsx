@@ -21,9 +21,9 @@ class Data_Progre extends React.Component {
     <div>
     <h2>Progress</h2>
     <h3>Ingresa el valor actual</h3>
-    <input type="text" placeholder="" name="Actual" value={this.state.actual} onChange={this.handleChangeActual}/>
+    <input type="text" placeholder="" name="actual" value={this.state.actual} onChange={this.handleChangeActual}/>
     <h3>Ingresa el valor maximo</h3>
-    <input type="text" placeholder="" name="Maximo"value={this.state.maximo} onChange={this.handleChangeMaximo}/>
+    <input type="text" placeholder="" name="maximo"value={this.state.maximo} onChange={this.handleChangeMaximo}/>
     </div>
 
     );
