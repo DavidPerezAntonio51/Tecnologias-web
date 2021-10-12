@@ -41,7 +41,6 @@ public class Servlet1 extends HttpServlet {
         String Etiqueta = request.getParameter("Etiqueta");
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
-        out.println("Hola mundo");
         RequestDispatcher redireccionador = null;
         if(Etiqueta.equals("Video")){
             redireccionador = request.getRequestDispatcher("Servlet2");
