@@ -9,6 +9,7 @@ import RenderizadoElementos from './Renderizado/RednerizadoElementos';
 import Evento from './Eventos/Evento';
 import MasSobreEventos from './Eventos/MasEventos';
 import ComunicacionComponentes from './ComunicaciondeComponentes/ComunicacionComponentes';
+import CicloVida from './CiclodeVida/CicloVida';
 
 function App() {
   return (
@@ -48,6 +49,8 @@ function App() {
         <MasSobreEventos></MasSobreEventos>
         <hr />
         <ComunicacionComponentes />
+        <hr/>
+        <CicloVida/>
       </section>
       </header>
     </div>
