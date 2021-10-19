@@ -1,10 +1,24 @@
 import React from 'react';
+import Tabla from './comp-hijos/table.js';
 
 export default class App extends React.Component {
+    constructor(props) {
+        super(props);
+        //Estados
+
+        //Bindeo de funciones
+        this.handleonClickCrear = this.handleonClickCrear.bind(this);
+    }
+    handleonClickCrear(event){
+        //redireccionar a la pagina de crear Pregunta
+        window.location="create.html";
+    }
     render() {
         return (
             <div>
-               <a href="create.html">Crear</a>
+                <h1>CREAR, ALTAS, BAJAS Y CAMBIOS</h1>
+                <input type="button" onClick={this.handleonClickCrear} value="Crear Nueva Pregunta"/>
+                <Tabla />
             </div>
         );
     }
