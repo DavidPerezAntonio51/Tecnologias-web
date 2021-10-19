@@ -4,6 +4,9 @@ const HtmlWebpackPlugin = require("html-webpack-plugin"),
 module.exports = {
   entry: {
     main: "./src/index.js",
+    crear: "./src/create.js",
+    modificar: "./src/modify.js",
+    leer: "./src/view.js",
   },
   output: {
       filename: "[name].js"
@@ -52,6 +55,24 @@ module.exports = {
       template: "./src/index.html",
       filename: "./index.html",
       chunks: ["main"],
+      hash: false,
+    }),
+    new HtmlWebpackPlugin({
+      template: "./src/index.html",
+      filename: "./create.html",
+      chunks: ["crear"],
+      hash: false,
+    }),
+    new HtmlWebpackPlugin({
+      template: "./src/index.html",
+      filename: "./modify.html",
+      chunks: ["modificar"],
+      hash: false,
+    }),
+    new HtmlWebpackPlugin({
+      template: "./src/index.html",
+      filename: "./view.html",
+      chunks: ["leer"],
       hash: false,
     }),
     new MiniCssExtractPlugin(),
