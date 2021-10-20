@@ -16,7 +16,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author DEZKS
  */
-public class GetQuestions extends HttpServlet {
+public class GetQuestion extends HttpServlet {
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
@@ -31,8 +31,9 @@ public class GetQuestions extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("application/json");
         response.setCharacterEncoding("UTF-8");
+        String pregunta = request.getParameter("pregunta");
         PrintWriter out = response.getWriter();
-        out.print("[{\"name\": \"pregunta1\"},{\"name\": \"pregunta2\"},{\"name\": \"pregunta3\"},{\"name\": \"pregunta4\"}]");
+        out.print("{\"name\": \""+pregunta+"\"}");
     }
     
     /**

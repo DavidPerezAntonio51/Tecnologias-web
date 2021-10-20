@@ -17,8 +17,8 @@
         <servlet-class>administrador.Delete</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>View</servlet-name>
-        <servlet-class>administrador.View</servlet-class>
+        <servlet-name>GetQuestion</servlet-name>
+        <servlet-class>administrador.GetQuestion</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>GetQuestions</servlet-name>
@@ -37,8 +37,8 @@
         <url-pattern>/Delete</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>View</servlet-name>
-        <url-pattern>/View</url-pattern>
+        <servlet-name>GetQuestion</servlet-name>
+        <url-pattern>/GetQuestion</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
