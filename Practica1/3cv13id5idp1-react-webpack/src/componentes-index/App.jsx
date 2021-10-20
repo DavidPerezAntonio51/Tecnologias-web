@@ -4,8 +4,6 @@ import Tabla from './comp-hijos/table.js';
 export default class App extends React.Component {
     constructor(props) {
         super(props);
-        //Estados
-
         //Bindeo de funciones
         this.handleonClickCrear = this.handleonClickCrear.bind(this);
     }
