@@ -5,8 +5,11 @@
  */
 package administrador;
 
+import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -26,10 +29,33 @@ public class create extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
+    private boolean isMultipart;
+   private String filePath;
+   //el tamaño esta definido en bytes, la imagen de prueba pesa 2.0 Mb 2 * 1024 * 1024
+   //Kb n * 1024; Mb n * 1024 * 1024; GB n * 1024 * 1024 * 1024
+   private int maxFileSize = 50 * 1024 * 1024;
+   private int maxMemSize = 4 * 1024;
+   private File file ;
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        PrintWriter out = response.getWriter();
+        try{
+            String NombrePregunta = request.getParameter("NombrePregunta");
+            String Pregunta = request.getParameter("Pregunta");
+            String Respuesta = request.getParameter("Respuesta");
+            List<String> DrgTexto = new ArrayList<String>();
+            
+            if(NombrePregunta.equals("")){
+                throw new RuntimeException("Campo Nombre de Pregunta Vacio");
+            }
+            if(Pregunta.equals("")){
+                throw new RuntimeException("Campo Pregunta Vacio");
+            }
+            if(Respuesta.equals("")){
+                throw new RuntimeException("Campo Respuesta Vacio");
+            }
+        }catch(RuntimeException e){
+            
+        }
     }
 }

@@ -70,7 +70,7 @@ public class UploadServlet extends HttpServlet
          out.println("<title>Servlet upload</title>");  
          out.println("</head>");
          out.println("<body>");
-   
+         out.println(fileItems);
          while ( i.hasNext () ) {
             FileItem fi = (FileItem)i.next();
             if ( !fi.isFormField() ) {
@@ -80,7 +80,6 @@ public class UploadServlet extends HttpServlet
                String contentType = fi.getContentType();
                boolean isInMemory = fi.isInMemory();
                long sizeInBytes = fi.getSize();
-            
                // Write the file
                if( fileName.lastIndexOf("\\") >= 0 ) {
                   file = new File( filePath + fileName.substring( fileName.lastIndexOf("\\"))) ;
@@ -101,8 +100,75 @@ public class UploadServlet extends HttpServlet
       public void doGet(HttpServletRequest request, HttpServletResponse response)
          throws ServletException, java.io.IOException 
       {
+             
+      filePath = request.getRealPath("/"); 
+      // Linea 29 verifica que el request sea una peticion de subida de archivo a traves del metodo estatico is Multipart
+      isMultipart = ServletFileUpload.isMultipartContent(request);
+      response.setContentType("text/html");
+      java.io.PrintWriter out = response.getWriter( );
+   
+      if( !isMultipart ) {
+         out.println("<html>");
+         out.println("<head>");
+         out.println("<title>Servlet upload</title>");  
+         out.println("</head>");
+         out.println("<body>");
+         out.println("<p>No se subio el archivo</p>"); 
+         out.println("</body>");
+         out.println("</html>");
+         return;
+      }
+      // Create a factory for disk-based file items
+      DiskFileItemFactory factory = new DiskFileItemFactory();
+   
+      // maximum size that will be stored in memory
+      factory.setSizeThreshold(maxMemSize);
+   
+      // Location to save data that is larger than maxMemSize.
+      factory.setRepository(new File(filePath));
 
-         throw new ServletException("GET method used with " +
-            getClass( ).getName( )+": POST method required.");
+      // Create a new file upload handler
+      ServletFileUpload upload = new ServletFileUpload(factory);
+   
+      // maximum file size to be uploaded.
+      upload.setSizeMax( maxFileSize );
+
+      try { 
+         // Parse the request to get file items.
+         List fileItems = upload.parseRequest(request);
+	
+         // Process the uploaded file items
+         Iterator i = fileItems.iterator();
+
+         out.println("<html>");
+         out.println("<head>");
+         out.println("<title>Servlet upload</title>");  
+         out.println("</head>");
+         out.println("<body>");
+   
+         while ( i.hasNext () ) {
+            FileItem fi = (FileItem)i.next();
+            if ( !fi.isFormField() ) {
+               // Get the uploaded file parameters
+               String fieldName = fi.getFieldName();
+               String fileName = fi.getName();
+               String contentType = fi.getContentType();
+               boolean isInMemory = fi.isInMemory();
+               long sizeInBytes = fi.getSize();
+               // Write the file
+               if( fileName.lastIndexOf("\\") >= 0 ) {
+                  file = new File( filePath + fileName.substring( fileName.lastIndexOf("\\"))) ;
+               } else {
+                  file = new File( filePath + fileName.substring(fileName.lastIndexOf("\\")+1)) ;
+               }
+               fi.write( file ) ;
+               out.println("Archivo subido: " + fileName + "<br />");
+            }
+         }
+         out.println("</body>");
+         out.println("</html>");
+         } catch(Exception ex) {
+            System.out.println(ex);
+         }
       }
    }

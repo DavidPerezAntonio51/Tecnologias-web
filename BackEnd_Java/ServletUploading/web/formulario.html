@@ -6,7 +6,8 @@
    <body>
       <h3>Subida de archivos:</h3>
       Selecciona el archivo a subir: <br />
-      <form action = "UploadServlet" method = "post" enctype = "multipart/form-data">
+      <form action = "UploadServlet" method = "POST" enctype = "multipart/form-data">
+          <input type="text" name="texto"/>
          <input type = "file" name = "file" size = "45" />
          <br />
          <input type = "submit" value = "Upload File" />

@@ -32,7 +32,7 @@ public class GetQuestions extends HttpServlet {
         response.setContentType("application/json");
         response.setCharacterEncoding("UTF-8");
         PrintWriter out = response.getWriter();
-        out.print("[{\"name\": \"pregunta1\"},{\"name\": \"pregunta2\"},{\"name\": \"pregunta3\"},{\"name\": \"pregunta4\"}]");
+        out.print("[{\"name\": \"pregunta1\"},{\"name\": \"pregunta2\"},{\"name\": \"pregunta3\"},{\"name\": \"pregunta4\"},{\"name\": \"pregunta5\"}]");
     }
     
     /**

@@ -1,10 +1,48 @@
 import React from 'react';
+import NombrePregunta from './formElements/NombrePregunta.js';
+import Pregunta from './formElements/Pregunta.js';
+import Respuesta from './formElements/Respuesta.js';
+import DragOptions from './formElements/DragOptions.js';
+import TargetOptions from './formElements/TargetOptions.js';
 
 export default class App extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            cantidad: 4,
+        }
+        this.handleChange = this.handleChange.bind(this);
+    }
+    handleChange(event){
+        this.setState({cantidad: event.target.value});
+    }
     render() {
+        //Editar Action al terminar desarrollo a "create"
         return (
             <div>
-               <a href="modify.html">Modifica</a>
+                <h1>Crear una Nueva Pregunta</h1>
+                <form id="crear" action="http://localhost:8080/2CV13ID5IDP1/create" enctype="multipart/form-data">
+                    Nombre de la Pregunta: <NombrePregunta/>
+                    <br />
+                    Pregunta: <Pregunta/>
+                    <br />
+                    Asegurese de que haya un ";" entre cada respuesta
+                    <br />
+                    Respuesta: <Respuesta/>
+                    <br />
+                    ¿Cuantas Imagenes Desea? 
+                    <select value={this.state.cantidad} onChange={this.handleChange}>
+                        <option value="2">2 Imagenes</option>
+                        <option value="3">3 Imagenes</option>
+                        <option value="4">4 Imagenes</option>
+                        <option value="5">5 Imagenes</option>
+                        <option value="6">6 Imagenes</option>
+                    </select>
+                    <br />
+                    <DragOptions cantidad={this.state.cantidad}/>
+                    <TargetOptions cantidad={this.state.cantidad}/>
+                    <input type="submit" value="Crear"/>
+                </form>
             </div>
         );
     }

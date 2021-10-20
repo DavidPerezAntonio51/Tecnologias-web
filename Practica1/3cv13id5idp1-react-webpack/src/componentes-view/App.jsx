@@ -8,6 +8,7 @@ export default class App extends React.Component {
         };
     }
     componentDidMount(){
+        //Editar el fetch al terminar fase de desarrollo a "GetQuestion"+window.location.search
         fetch("http://localhost:8080/2CV13ID5IDP1/GetQuestion"+window.location.search)
         .then(response => {return response.ok? response.json():response.status})
         .then(json=>{
