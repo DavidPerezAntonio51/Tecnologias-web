@@ -45,7 +45,7 @@ public class UploadServlet extends HttpServlet
       }
       // Create a factory for disk-based file items
       DiskFileItemFactory factory = new DiskFileItemFactory();
-   
+      
       // maximum size that will be stored in memory
       factory.setSizeThreshold(maxMemSize);
    
@@ -70,7 +70,6 @@ public class UploadServlet extends HttpServlet
          out.println("<title>Servlet upload</title>");  
          out.println("</head>");
          out.println("<body>");
-         out.println(fileItems);
          while ( i.hasNext () ) {
             FileItem fi = (FileItem)i.next();
             if ( !fi.isFormField() ) {
@@ -80,6 +79,9 @@ public class UploadServlet extends HttpServlet
                String contentType = fi.getContentType();
                boolean isInMemory = fi.isInMemory();
                long sizeInBytes = fi.getSize();
+               out.println(fieldName);
+                out.println(contentType);
+                out.println(fileName);
                // Write the file
                if( fileName.lastIndexOf("\\") >= 0 ) {
                   file = new File( filePath + fileName.substring( fileName.lastIndexOf("\\"))) ;
@@ -88,6 +90,11 @@ public class UploadServlet extends HttpServlet
                }
                fi.write( file ) ;
                out.println("Archivo subido: " + fileName + "<br />");
+            }else{
+                String name = fi.getFieldName();
+                String value = fi.getString();
+                out.println(name);
+                out.println(value);
             }
          }
          out.println("</body>");

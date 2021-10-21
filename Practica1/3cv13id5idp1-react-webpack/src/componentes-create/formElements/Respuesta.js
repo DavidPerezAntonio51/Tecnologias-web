@@ -9,7 +9,7 @@ class Respuesta extends Component {
          this.handleOnChange = this.handleOnChange.bind(this);
     }
     handleOnChange(event){
-
+        this.setState({Respuesta: event.target.value});
     }
     render() { 
         return ( 

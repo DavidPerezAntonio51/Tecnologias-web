@@ -21,7 +21,7 @@ export default class App extends React.Component {
         return (
             <div>
                 <h1>Crear una Nueva Pregunta</h1>
-                <form id="crear" action="http://localhost:8080/2CV13ID5IDP1/create" enctype="multipart/form-data">
+                <form id="crear" action="http://localhost:8080/2CV13ID5IDP1/create" method="POST" encType="multipart/form-data">
                     Nombre de la Pregunta: <NombrePregunta/>
                     <br />
                     Pregunta: <Pregunta/>
