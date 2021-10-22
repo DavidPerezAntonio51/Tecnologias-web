@@ -1,6 +1,9 @@
-
-
 body{
+
+    background-color: #800040; 
+}
+
+div{
     color: white;
     font-family: 'Inter', sans-serif;
     background-color: #800040;
@@ -10,3 +13,4 @@ body{
     display: flex;
 
 }
+

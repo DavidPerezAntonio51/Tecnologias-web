@@ -13,6 +13,8 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import org.jdom2.Element;
 import org.jdom2.Document;
 import org.jdom2.JDOMException;
@@ -36,8 +38,20 @@ public class AdminXDML {
     
     public AdminXDML(String Ruta){
         XmlFile = new File(Ruta);
-        this.Raiz = new Element("RELACION_DE_COLUMNAS");
-        this.RUTA = Ruta;
+        if(XmlFile.exists()){
+            try {
+                SAXBuilder builder =  new SAXBuilder();
+                oldDocXml = builder.build(XmlFile);
+                Raiz = oldDocXml.detachRootElement();
+            } catch (JDOMException ex) {
+                throw new RuntimeException(ex.getMessage());
+            } catch (IOException ex) {
+                throw new RuntimeException(ex.getMessage());
+            }
+        }else{
+            this.Raiz = new Element("RELACION_DE_COLUMNAS");
+            this.RUTA = Ruta;
+        }
     }
     /*
     public AdminXDML(String Ruta, File oldXmlFile) throws JDOMException, IOException{

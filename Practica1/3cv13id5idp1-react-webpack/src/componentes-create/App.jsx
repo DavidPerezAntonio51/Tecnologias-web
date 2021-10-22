@@ -12,9 +12,13 @@ export default class App extends React.Component {
             cantidad: 4,
         }
         this.handleChange = this.handleChange.bind(this);
+        this.handleOnClick = this.handleOnClick.bind(this);
     }
     handleChange(event){
         this.setState({cantidad: event.target.value});
+    }
+    handleOnClick(event){
+        window.location.href="index.html";
     }
     render() {
         //Editar Action al terminar desarrollo a "create"
@@ -41,7 +45,10 @@ export default class App extends React.Component {
                     <br />
                     <DragOptions cantidad={this.state.cantidad}/>
                     <TargetOptions cantidad={this.state.cantidad}/>
-                    <input type="submit" value="Crear"/>
+                    <div>
+                        <input type="submit" value="Crear"/>
+                        <input type="button" value="Regresar" onClick={this.handleOnClick}/>
+                    </div>
                 </form>
             </div>
         );
