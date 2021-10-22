@@ -6,22 +6,34 @@
 package com.escom.ipn.cv13id5idp1;
 
 import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Iterator;
-import java.util.List;
 import java.util.Map;
 import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
 import javax.servlet.http.HttpServletRequest;
+import org.w3c.dom.*;
+import javax.xml.*;
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
+import org.jdom2.JDOMException;
+
 
 /**
  *
  * @author DEZKS
  */
 public class Clasificador {
+    private final String DRAG = "Drags\\";
+    private final String TARGET = "Targets\\";
     private String RutaRaiz = null;
     private String RutaImagenes = null;
+    private Map<String,String> RutaDrg = null;
+    private Map<String,String> RutaTrg = null;
     private Map<String,String> Campos = null;
     private Map<String,FileItem> Archivos = null;
     private int maxFileSize = 50 * 1024 * 1024;
@@ -30,6 +42,7 @@ public class Clasificador {
     private HttpServletRequest request = null;
     private DiskFileItemFactory factory = null;
     private ServletFileUpload upload = null;
+    private AdminXDML Admin = null;
 
     public Clasificador(HttpServletRequest request) {
         this.request = request;
@@ -57,17 +70,64 @@ public class Clasificador {
             while(iterador.hasNext() ){
                 FileItem File = (FileItem) iterador.next();
                 if(File.isFormField()){
-                    Campos.putIfAbsent(File.getFieldName(), File.getString());
+                    if(File.getString("UTF-8").equals("")){
+                        throw new RuntimeException("El Campo " + File.getFieldName() + " esta Vacio");
+                    }
+                    Campos.putIfAbsent(File.getFieldName(), File.getString("UTF-8"));
                 }else{
+                    if(File.getName().equals("")){
+                        throw new RuntimeException("Olvidaste Subir un Archivo");
+                    }
                     Archivos.putIfAbsent(File.getFieldName(), File);
                 }
             }
+            createRuta();
         }catch(Exception e){
-            
+            throw new RuntimeException(e.getMessage());
         }
+    }
+    private void createRuta(){
+        String NombrePregunta = Campos.get("NombrePregunta");
+        RutaImagenes = RutaRaiz + "Imagenes\\" +NombrePregunta + "\\";
+        //RutaAPP\Imagenes\Pregunta1\Target
+        //--------------------------\Drags\Imagen1.jpg
+    }
+    public void saveFiles() throws Exception{
+        Iterator<Map.Entry<String,FileItem>> iterador = this.Archivos.entrySet().iterator();
+        RutaDrg = new HashMap<String,String>();
+        RutaTrg = new HashMap<String,String>();
+        while(iterador.hasNext()){
+            Map.Entry<String,FileItem> entrada = iterador.next();
+            if(entrada.getKey().contains("Drg")){
+                FileItem File = entrada.getValue();
+                String RutaArchivo = this.RutaImagenes + DRAG + File.getName();
+                this.file = new File(RutaArchivo);
+                file.getParentFile().mkdirs();
+                RutaDrg.putIfAbsent(entrada.getKey(), RutaArchivo);
+                File.write(file);
+            }else if(entrada.getKey().contains("Trg")){
+                FileItem File = entrada.getValue();
+                String RutaArchivo = this.RutaImagenes + TARGET + File.getName();
+                this.file = new File(RutaArchivo);
+                file.getParentFile().mkdirs();
+                RutaTrg.putIfAbsent(entrada.getKey(), RutaArchivo);
+                File.write(file);
+            }
+        }
+    }
+    public void addDatatoXML(){
+        //D:\GIT\Tecnologias-web\Practica1\2CV13ID5IDP1\target\2CV13ID5IDP1-1.0-SNAPSHOT\Data\data.xml
+        String RutaXml = RutaRaiz+"Data\\data.xml";
+        try{
+        Admin = new AdminXDML(RutaXml);
+        Admin.addPregunta(Campos, RutaDrg, RutaTrg);
+        }catch(RuntimeException e){
+            throw new RuntimeException(e.getMessage());
+        }
+        
     }
     @Override
     public String toString(){
-        return Campos.toString() + Archivos.toString();
+        return this.Admin.toString();
     }
 }

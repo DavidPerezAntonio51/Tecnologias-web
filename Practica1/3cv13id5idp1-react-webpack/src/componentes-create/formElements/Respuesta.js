@@ -17,5 +17,5 @@ class Respuesta extends Component {
          );
     }
 }
- 
+
 export default Respuesta;

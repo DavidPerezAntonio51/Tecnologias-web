@@ -6,14 +6,12 @@
 package administrador;
 
 import com.escom.ipn.cv13id5idp1.Clasificador;
-import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -38,8 +36,15 @@ public class create extends HttpServlet {
                throw new RuntimeException("No hay Contenido");
            }
            gestionador.organize(Ruta);
+           gestionador.saveFiles();
+           gestionador.addDatatoXML();
+           response.sendRedirect("http://localhost:3000/");
         }catch(RuntimeException e){
-            
+            out.print(e.getMessage());
+        } catch (IOException ex) {
+            out.print(ex.getMessage());
+        }catch(Exception exc){
+            out.print(exc.getMessage());
         }
     }
 }
