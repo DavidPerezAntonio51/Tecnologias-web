@@ -1,6 +1,7 @@
 import React from 'react';
 import Leer from './Leer.js';
 
+
 class Tabla extends React.Component {
     constructor(props) {
         super(props);
@@ -22,17 +23,18 @@ class Tabla extends React.Component {
     }
     render() { 
         return <div>
+            <br />
             <table>
                 <thead>
                     <tr key="Encabezado">
-                        <th key="Nombre">Nombre de la Pregunta</th>
-                        <th key="Accion">Acciones</th>
+                        <th class="Nombre" key="Nombre">Nombre de la Pregunta</th>
+                        <th class="Accion" key="Accion">Acciones</th>
                     </tr>
                 </thead>
                 <tbody>
                     {this.state.preguntas.map(el=><tr key={"body"+el}>
-                        <th key={el}>{el}</th>
-                        <th key={"btns"+el}><Leer pregunta={el}/>|<a href="modify.html">Modificar</a>|<a>Elimidar</a></th>
+                        <th class="a" key={el}>{el}</th>
+                        <th key={"btns"+el}><Leer pregunta={el}/>|<a href="modify.html">Modificar</a>|<a>Eliminar</a></th>
                     </tr>)}
                 </tbody>
             </table>
