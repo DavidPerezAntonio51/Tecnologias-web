@@ -1,16 +1,15 @@
-
-    h1
+h1
     {
-font-size: 60px;
-font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-text-align: center;
-margin: 0;
-padding: 20px 0;
-color:#2482da;
-text-shadow: 3px 3px 1px black;
+        font-size: 60px;
+        font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        text-align: center;
+        margin: 0;
+        padding: 20px 0;
+        color:#22b4ee;
+        text-shadow: 3px 3px 1px black;
     }
 
-    .inicio .a, .b, .c
+.inicio .a
     {
         margin-top: 5px;
         margin-right: 10px;
@@ -20,18 +19,75 @@ text-shadow: 3px 3px 1px black;
         padding-right: 5px;
         padding-bottom: 10px;
         padding-left: 7px;
-        font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        font-family:Georgia, 'Times New Roman', Times, serif;
         font-size: 20px;
+        text-shadow: 2px 2px 5px #999;
+        color: rgb(3, 3, 3);
+        list-style:decimal-leading-zero;
     }
 
-    .inicio .NOTA
+.contenedor 
     {
-font-size: 15px;
-font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-color: rgb(240, 32, 32);
+        display:-webkit-flex;
+        width: 300px;
+        height: 35px;
+        color: rgb(3, 3, 3);
+        font-size: 20px;
+        line-height: 40px;
+        text-shadow: 2px 2px 5px #999;
+
+        overflow: hidden; /*esconde los valores que no estan dentro de mi height establecido*/
+    } 
+
+.OMG /*Lista donde se encuentran las opciones de cuantas imegenes quieres*/
+{
+        list-style:none; /*estilos de la ista*/
+        padding-left: 10px;
+        margin: 0;
+        font-size: 20px;
+        text-shadow: 2px 2px 5px #999;
+        color: rgb(3, 3, 3);
+        animation: cambiar 10s infinite; /*nombre de la animacion = cambiar
+        Durante 10 segundos
+        Que se repita infinitamente*/
+
+}
+
+p, .OMG /*Texto de Desea y el de la clase OMG*/
+{
+    margin: 0;
+}
+
+@keyframes cambiar { /* los keyframes son las paradas de mi animacion que se llama cambiar*/
+    0%{margin-top: 0;}
+    15%{margin-top: 0;}
+/*espacio de transicion */
+    20%{margin-top: -40px;}
+    35%{margin-top: -40px;}
+/*espacio de transicion */
+    40%{margin-top: -80px;}
+    55%{margin-top: -80px;}
+/*espacio de transicion */
+    60%{margin-top: -120px;}
+    75%{margin-top: -120px;}
+/*espacio de transicion */
+    80%{margin-top: -160px;}
+    95%{margin-top: -160px;}
+/*espacio de transicion */
+    100%{margin-top: 0px;}
+}
+
+.NOTA
+    {
+        font-size: 20px;
+        font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        color: rgb(240, 32, 32);
+        border-width: medium;
+        border-color: rgb(240, 32, 32);
+        border-style: dashed;
     }
 
-    .Pregunta
+.Pregunta
     {
         font-family: 'Courier New', Courier, monospace;
         text-align: center;
@@ -40,3 +96,8 @@ color: rgb(240, 32, 32);
         color:blue;
 
     }
+
+body 
+{
+    background-color: rgb(255, 255, 255);
+}

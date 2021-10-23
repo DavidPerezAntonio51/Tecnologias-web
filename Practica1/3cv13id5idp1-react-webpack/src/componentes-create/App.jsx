@@ -24,27 +24,40 @@ export default class App extends React.Component {
         //Editar Action al terminar desarrollo a "create"
         return (
             <div class="inicio">
-                <h1>Crear una Nueva Pregunta</h1>
+                <h1>CREAR UNA NUEVA PREGUNTA</h1>
                 <form id="crear" action="http://localhost:8080/2CV13ID5IDP1/create" method="POST" encType="multipart/form-data">
-                    <ul>
+                    <ul class="prueba">
                         <li class="a">Nombre de la Pregunta: <NombrePregunta/></li>
                     <br />
-                    <li class="b"> Pregunta: <Pregunta/> </li>
+                    <li class="a"> Pregunta: <Pregunta/> </li>
                     <br />
-                    <strong class="NOTA">Asegurese de que haya un ";" entre cada respuesta</strong>
+                    <strong class="NOTA">NOTA: Asegurese de que haya un ";" entre cada respuesta</strong>
                     <br />
                     <br />
-                    <li class="c"> Respuesta: <Respuesta/> </li>
-                    <br />
+                    <li class="a"> Respuesta: <Respuesta/> </li>
                     </ul>
-                    ¿Cuantas Imagenes Desea? 
+                    <div class="contenedor">
+                        <p>¿Deseas</p>
+                        <ul class="OMG">
+                            <li>2 imagenes?</li>
+                            <li>3 imagenes?</li>
+                            <li>4 imagenes?</li>
+                            <li>5 imagenes?</li>
+                            <li>6 imagenes?</li>
+                    </ul>
+                    <br />
+                    <br />
                     <select value={this.state.cantidad} onChange={this.handleChange}>
                         <option value="2">2 Imagenes</option>
                         <option value="3">3 Imagenes</option>
                         <option value="4">4 Imagenes</option>
                         <option value="5">5 Imagenes</option>
                         <option value="6">6 Imagenes</option>
+
                     </select>
+                    </div>
+                    <br />
+                    <br />
                     <br />
                     <DragOptions cantidad={this.state.cantidad}/>
                     <TargetOptions cantidad={this.state.cantidad}/>
