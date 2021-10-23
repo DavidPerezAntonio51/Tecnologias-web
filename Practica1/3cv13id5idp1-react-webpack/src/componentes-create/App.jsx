@@ -23,17 +23,20 @@ export default class App extends React.Component {
     render() {
         //Editar Action al terminar desarrollo a "create"
         return (
-            <div>
+            <div class="inicio">
                 <h1>Crear una Nueva Pregunta</h1>
                 <form id="crear" action="http://localhost:8080/2CV13ID5IDP1/create" method="POST" encType="multipart/form-data">
-                    Nombre de la Pregunta: <NombrePregunta/>
+                    <ul>
+                        <li class="a">Nombre de la Pregunta: <NombrePregunta/></li>
                     <br />
-                    Pregunta: <Pregunta/>
+                    <li class="b"> Pregunta: <Pregunta/> </li>
                     <br />
-                    Asegurese de que haya un ";" entre cada respuesta
+                    <strong class="NOTA">Asegurese de que haya un ";" entre cada respuesta</strong>
                     <br />
-                    Respuesta: <Respuesta/>
                     <br />
+                    <li class="c"> Respuesta: <Respuesta/> </li>
+                    <br />
+                    </ul>
                     ¿Cuantas Imagenes Desea? 
                     <select value={this.state.cantidad} onChange={this.handleChange}>
                         <option value="2">2 Imagenes</option>
