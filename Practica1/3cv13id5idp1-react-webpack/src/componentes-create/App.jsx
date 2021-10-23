@@ -61,8 +61,10 @@ export default class App extends React.Component {
                     <DragOptions cantidad={this.state.cantidad}/>
                     <TargetOptions cantidad={this.state.cantidad}/>
             <div>
-                        <input type="submit" value="Crear"/>
-                        <input type="button" value="Regresar" onClick={this.handleOnClick}/>
+            <br />
+                    <br />
+                        <input class="Boton" type="submit" value="Crear"/>
+                        <input class="Boton" type="button" value="Regresar" onClick={this.handleOnClick}/>
             </div>
                 </form>
             </div>

@@ -33,8 +33,8 @@ class Tabla extends React.Component {
                 </thead>
                 <tbody>
                     {this.state.preguntas.map(el=><tr key={"body"+el}>
-                        <th class="a" key={el}>{el}</th>
-                        <th key={"btns"+el}><Leer pregunta={el}/>|<a href="modify.html">Modificar</a>|<a>Eliminar</a></th>
+                        <th class="CNombre" key={el}>{el}</th>
+                        <th class="CAccion" key={"btns"+el}><Leer pregunta={el}/>|<a href="modify.html">Modificar</a>|<a>Eliminar</a></th>
                     </tr>)}
                 </tbody>
             </table>
