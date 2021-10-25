@@ -27,7 +27,7 @@ export default class App extends React.Component {
                 <h1>CREAR UNA NUEVA PREGUNTA</h1>
                 <form id="crear" action="http://localhost:8080/2CV13ID5IDP1/create" method="POST" encType="multipart/form-data">
                     <ul className="prueba">
-                        <li class="a">Nombre de la Pregunta: <NombrePregunta/></li>
+                        <li className="a">Nombre de la Pregunta: <NombrePregunta/></li>
                     <br />
                     <li className="a"> Pregunta: <Pregunta/> </li>
                     <br />
