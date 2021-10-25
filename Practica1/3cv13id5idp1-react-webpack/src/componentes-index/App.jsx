@@ -15,7 +15,7 @@ export default class App extends React.Component {
         return (
             <div>
                 <h1>CREAR, ALTAS, BAJAS Y CAMBIOS</h1>
-                <input class="Boton BotonCNP" type="button" onClick={this.handleonClickCrear} value="Crear Nueva Pregunta"/>
+                <input className="Boton BotonCNP" type="button" onClick={this.handleonClickCrear} value="Crear Nueva Pregunta"/>
                 <Tabla />
             </div>
         );

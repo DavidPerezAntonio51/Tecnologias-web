@@ -23,22 +23,22 @@ export default class App extends React.Component {
     render() {
         //Editar Action al terminar desarrollo a "create"
         return (
-            <div class="inicio">
+            <div className="inicio">
                 <h1>CREAR UNA NUEVA PREGUNTA</h1>
                 <form id="crear" action="http://localhost:8080/2CV13ID5IDP1/create" method="POST" encType="multipart/form-data">
-                    <ul class="prueba">
+                    <ul className="prueba">
                         <li class="a">Nombre de la Pregunta: <NombrePregunta/></li>
                     <br />
-                    <li class="a"> Pregunta: <Pregunta/> </li>
+                    <li className="a"> Pregunta: <Pregunta/> </li>
                     <br />
-                    <strong class="NOTA">NOTA: Asegurese de que haya un ";" entre cada respuesta</strong>
+                    <strong className="NOTA">NOTA: Asegurese de que haya un ";" entre cada respuesta</strong>
                     <br />
                     <br />
-                    <li class="a"> Respuesta: <Respuesta/> </li>
+                    <li className="a"> Respuesta: <Respuesta/> </li>
                     </ul>
-                    <div class="contenedor">
+                    <div className="contenedor">
                         <p>¿Deseas</p>
-                        <ul class="OMG">
+                        <ul className="OMG">
                             <li>2 imagenes?</li>
                             <li>3 imagenes?</li>
                             <li>4 imagenes?</li>
@@ -63,8 +63,8 @@ export default class App extends React.Component {
             <div>
             <br />
                     <br />
-                        <input class="Boton" type="submit" value="Crear"/>
-                        <input class="Boton" type="button" value="Regresar" onClick={this.handleOnClick}/>
+                        <input className="Boton" type="submit" value="Crear"/>
+                        <input className="Boton" type="button" value="Regresar" onClick={this.handleOnClick}/>
             </div>
                 </form>
             </div>
