@@ -5,6 +5,7 @@
  */
 package com.escom.ipn.cv13id5idp1;
 
+import com.google.gson.Gson;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -12,6 +13,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -83,7 +85,19 @@ public class AdminXDML {
     public String toString(){
         return newDocXml.toString();
     }
-    
+    private void loadData(){
+        if(XmlFile.exists()){
+            SAXBuilder builder = new SAXBuilder();
+            try {
+                oldDocXml = builder.build(XmlFile);
+                Raiz = oldDocXml.detachRootElement();
+            } catch (JDOMException ex) {
+                throw new RuntimeException(ex.getMessage());
+            } catch (IOException ex) {
+                throw new RuntimeException(ex.getMessage());
+            }
+        }
+    }
     public void addPregunta(Map<String,String> Campos, Map<String,String> RutasDrg,Map<String,String> RutasTrg){
         Element Pregunta = new Element("PREGUNTA");
         Element Drags = new Element("DRAGS");
@@ -158,7 +172,22 @@ public class AdminXDML {
         }
         return Opciones;
     }
-    
+    public String getPreguntasToJson(){
+        loadData();
+        Preguntas preguntas = new Preguntas();
+        List<Element> Preguntas = Raiz.getChildren();
+        Iterator<Element> iterador = Preguntas.iterator();
+        while(iterador.hasNext()){
+            Element Pregunta = iterador.next();
+            ID_Pregunta Preguntaid = new ID_Pregunta(Pregunta.getAttributeValue("ID_PREGUNTA"));
+            preguntas.setPreguntas(Preguntaid);
+        }
+        escribir();
+        return new Gson().toJson(preguntas);
+    }
+    public boolean exist(String Ruta){
+        return this.RUTA.equals(Ruta)?true:false;
+    }
     public void searchPregunta(){
         
     }

@@ -1,0 +1,166 @@
+/*INICIO formElements (App.jsx)*/
+h1
+    {
+        font-size: 60px;
+        font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        text-align: center;
+        margin: 0;
+        padding: 20px 0;
+        color:#f1cae9;
+        text-shadow: 3px 3px 1px black;
+    }
+
+.inicio .a
+    {
+        margin-top: 5px;
+        margin-right: 10px;
+        margin-bottom: 5px;
+        margin-left: 10px;
+        padding-top: 3px;
+        padding-right: 5px;
+        padding-bottom: 10px;
+        padding-left: 7px;
+        font-family:Georgia, 'Times New Roman', Times, serif;
+        font-size: 20px;
+        text-shadow: 2px 2px 5px #999;
+        color: rgb(3, 3, 3);
+        list-style:decimal-leading-zero;
+    }
+
+.contenedor 
+    {
+        display:-webkit-flex;
+        width: 300px;
+        height: 35px;
+        color: rgb(3, 3, 3);
+        font-size: 20px;
+        line-height: 40px;
+        text-shadow: 2px 2px 5px #999;
+
+        overflow: hidden; /*esconde los valores que no estan dentro de mi height establecido*/
+    } 
+
+.OMG /*Lista donde se encuentran las opciones de cuantas imegenes quieres*/
+{
+        list-style:none; /*estilos de la ista*/
+        padding-left: 10px;
+        margin: 0;
+        font-size: 20px;
+        text-shadow: 2px 2px 5px #999;
+        color: rgb(3, 3, 3);
+        animation: cambiar 10s infinite; /*nombre de la animacion = cambiar
+        Durante 10 segundos
+        Que se repita infinitamente*/
+
+}
+
+p, .OMG /*Texto de Desea y el de la clase OMG*/
+{
+    margin: 0;
+}
+
+@keyframes cambiar { /* los keyframes son las paradas de mi animacion que se llama cambiar*/
+    0%{margin-top: 0;}
+    15%{margin-top: 0;}
+/*espacio de transicion */
+    20%{margin-top: -40px;}
+    35%{margin-top: -40px;}
+/*espacio de transicion */
+    40%{margin-top: -80px;}
+    55%{margin-top: -80px;}
+/*espacio de transicion */
+    60%{margin-top: -120px;}
+    75%{margin-top: -120px;}
+/*espacio de transicion */
+    80%{margin-top: -160px;}
+    95%{margin-top: -160px;}
+/*espacio de transicion */
+    100%{margin-top: 0px;}
+}
+
+.NOTA
+    {
+        font-size: 20px;
+        font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        color: rgb(179, 170, 170);
+        text-shadow: 1px 1px 1px white;
+        border-width: medium;
+        border-color: rgb(179, 170, 170);
+        border-style: dashed;
+    }
+/*FIN formElements (App.jsx)*/    
+
+.Pregunta
+    {
+        font-family: 'Courier New', Courier, monospace;
+        text-align: center;
+        margin: 0;
+        font-size: 30px;
+        color:black;
+    }
+
+    /*Class = Botones*/
+.Boton
+{
+    background-color:rgb(179, 170, 170);
+    border:none;
+    text-align: center;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    color:black(179, 170, 170);
+    text-shadow: 1px 1px 1px #999;
+    padding: 5px 15px;
+    margin: 1px 1px;
+    cursor: pointer;
+    -webkit-transition-duration: 0.4s;
+    transition-duration: 0.4s;
+}
+
+/*INICIO componentes-index (App.jsx/Boton CrearNuevaPregunta)*/
+.BotonCNP
+{
+    box-shadow: 0 12px 16px 0
+    rgba(0, 0, 0, 0.24), 0 17px 50px 0
+    rgba(0,0,0,0.19);
+}
+/*FIN componentes-index (App.jsx/Boton CrearNuevaPregunta)*/
+/*FIN class = Botones*/
+
+/*INICIO table.js*/
+table
+    {
+        width: 100;
+        text-align: center;
+        border: 1px solid #000;
+    }
+
+    .Nombre, .Accion, .CNombre, .CAccion
+    {
+        margin-top: 5px;
+        margin-right: 10px;
+        margin-bottom: 5px;
+        margin-left: 10px;
+        padding-top: 5px;
+        padding-right: 5px;
+        padding-bottom: 5px;
+        padding-left: 5px;
+        font-family:Georgia, 'Times New Roman', Times, serif;
+        font-size: 20px;
+        text-shadow: 2px 2px 5px #999;
+        color: rgb(3, 3, 3);
+        list-style:decimal-leading-zero;
+        width: 25%;
+        text-align:center;
+        vertical-align: text-align;
+        border: 1px solid #000;
+        border-spacing: 0;
+    }    
+/*FIN table.js*/
+
+body 
+{
+    background-color: rgba(248, 218, 178, 0.932);
+}
