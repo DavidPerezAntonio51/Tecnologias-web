@@ -11,6 +11,8 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
@@ -20,6 +22,7 @@ import javax.xml.*;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
+import org.apache.commons.io.FileUtils;
 import org.jdom2.JDOMException;
 
 
@@ -86,6 +89,11 @@ public class Clasificador {
             throw new RuntimeException(e.getMessage());
         }
     }
+
+    public void setRutaRaiz(String RutaRaiz) {
+        this.RutaRaiz = RutaRaiz;
+    }
+    
     private void createRuta(){
         String NombrePregunta = Campos.get("NombrePregunta");
         RutaImagenes = RutaRaiz + "Imagenes\\" +NombrePregunta + "\\";
@@ -124,7 +132,30 @@ public class Clasificador {
         }catch(RuntimeException e){
             throw new RuntimeException(e.getMessage());
         }
+    }
+    public String getQuetions(){
+        String RutaXml = RutaRaiz+"Data\\data.xml";
+        try{
+        Admin = new AdminXDML(RutaXml);
+        return Admin.getPreguntasToJson();
+        }catch(RuntimeException e){
+            return e.getMessage();
+        }
+    }
+    public void deleteQuestion(String Pregunta){
+        String RutaXml = RutaRaiz+"Data\\data.xml";
+        try{
+        Admin = new AdminXDML(RutaXml);
+        Admin.deletePregunta(Pregunta);
+        }catch(RuntimeException e){
+            throw  new RuntimeException(e.getMessage());
+        }
         
+        try {
+            FileUtils.deleteDirectory(new File(RutaRaiz+"Imagenes\\" + Pregunta + "\\"));
+        } catch (IOException ex) {
+            throw new RuntimeException();
+        }
     }
     @Override
     public String toString(){

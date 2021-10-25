@@ -3,24 +3,29 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package administrador;
 
 import com.escom.ipn.cv13id5idp1.Clasificador;
+import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import org.apache.commons.fileupload.servlet.ServletFileUpload;
+import org.apache.commons.fileupload.FileItem;
+import org.apache.commons.fileupload.disk.DiskFileItemFactory;
+import org.apache.commons.fileupload.servlet.ServletFileUpload;
 
 /**
  *
  * @author DEZKS
  */
-public class GetQuestions extends HttpServlet {
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
+@MultipartConfig
+public class deleteQuestion extends HttpServlet {
     /**
-     * Handles the HTTP <code>GET</code> method.
+     * Handles the HTTP <code>POST</code> method.
      *
      * @param request servlet request
      * @param response servlet response
@@ -28,22 +33,21 @@ public class GetQuestions extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("application/json");
-        response.setCharacterEncoding("UTF-8");
+        String Pregunta = request.getParameter("Pregunta");
         String RutaRaiz = request.getServletContext().getRealPath("/");
-        PrintWriter out = response.getWriter();
         try{
             Clasificador gestionador = new Clasificador(request);
             gestionador.setRutaRaiz(RutaRaiz);
-            out.print(gestionador.getQuetions());
+            gestionador.deleteQuestion(Pregunta);
+            response.setStatus(215);
         }catch(RuntimeException ex){
             response.sendError(555);
         }
         
     }
-    
+
     /**
      * Returns a short description of the servlet.
      *

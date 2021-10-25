@@ -173,7 +173,6 @@ public class AdminXDML {
         return Opciones;
     }
     public String getPreguntasToJson(){
-        loadData();
         Preguntas preguntas = new Preguntas();
         List<Element> Preguntas = Raiz.getChildren();
         Iterator<Element> iterador = Preguntas.iterator();
@@ -191,7 +190,17 @@ public class AdminXDML {
     public void searchPregunta(){
         
     }
-    
+    public void deletePregunta(String ID_PREGUNTA){
+        List<Element> Preguntas = Raiz.getChildren();
+        Iterator<Element> iterador = Preguntas.iterator();
+        while(iterador.hasNext()){
+            Element Pregunta = iterador.next();
+            if(Pregunta.getAttributeValue("ID_PREGUNTA").equals(ID_PREGUNTA)){
+                Pregunta.detach();
+            }
+        }
+        escribir();
+    }
     public void modifyPregunta(){
         
     }

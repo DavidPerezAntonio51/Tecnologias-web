@@ -1,5 +1,6 @@
 import React from 'react';
 import Leer from './Leer.js';
+import Eliminar from './Eliminar.js';
 
 
 class Tabla extends React.Component {
@@ -7,7 +8,9 @@ class Tabla extends React.Component {
         super(props);
         this.state = {
             preguntas: [],
+            
         }
+        this.updateTable = this.updateTable.bind(this);
     }
     componentDidMount(){
         //Editar el fecth a "GetQuestions" una vez terminada la fase de desarrollo
@@ -17,9 +20,38 @@ class Tabla extends React.Component {
             return response.ok? response.json():response.status})
         .then(
             (json)=>{
-                console.log(json);
+                console.log(json.Preguntas);
                 //En el map podemos obtener un Array
-                //this.setState({preguntas: json.map(el=>el.name)});
+                this.setState({preguntas: json.Preguntas.map(el=>el.name)});
+            }
+        );
+    }
+    /*
+    componentDidUpdate(){
+        //Editar el fecth a "GetQuestions" una vez terminada la fase de desarrollo
+        fetch("http://localhost:8080/2CV13ID5IDP1/GetQuestions")
+        .then(response =>{
+            console.log(response);
+            return response.ok? response.json():response.status})
+        .then(
+            (json)=>{
+                console.log(json.Preguntas);
+                //En el map podemos obtener un Array
+                this.setState({preguntas: json.Preguntas.map(el=>el.name)});
+            }
+        );
+    }*/
+    updateTable(e){
+        //Editar el fecth a "GetQuestions" una vez terminada la fase de desarrollo
+        fetch("http://localhost:8080/2CV13ID5IDP1/GetQuestions")
+        .then(response =>{
+            console.log(response);
+            return response.ok? response.json():response.status})
+        .then(
+            (json)=>{
+                console.log(json.Preguntas);
+                //En el map podemos obtener un Array
+                this.setState({preguntas: json.Preguntas.map(el=>el.name)});
             }
         );
     }
@@ -36,7 +68,7 @@ class Tabla extends React.Component {
                 <tbody>
                     {this.state.preguntas.map(el=><tr key={"body"+el}>
                         <th className="CNombre" key={el}>{el}</th>
-                        <th className="CAccion" key={"btns"+el}><Leer pregunta={el}/>|<a href="modify.html">Modificar</a>|<a>Eliminar</a></th>
+                        <th className="CAccion" key={"btns"+el}><Leer pregunta={el}/>|<a href="modify.html">Modificar</a>|<Eliminar pregunta={el} update={this.updateTable}/></th>
                     </tr>)}
                 </tbody>
             </table>
