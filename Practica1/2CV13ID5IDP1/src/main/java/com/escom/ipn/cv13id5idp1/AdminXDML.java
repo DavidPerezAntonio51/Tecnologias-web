@@ -85,18 +85,7 @@ public class AdminXDML {
     public String toString(){
         return newDocXml.toString();
     }
-    private void loadData(){
-        if(XmlFile.exists()){
-            SAXBuilder builder = new SAXBuilder();
-            try {
-                oldDocXml = builder.build(XmlFile);
-                Raiz = oldDocXml.detachRootElement();
-            } catch (JDOMException ex) {
-                throw new RuntimeException(ex.getMessage());
-            } catch (IOException ex) {
-                throw new RuntimeException(ex.getMessage());
-            }
-        }
+    private void exist(){
     }
     public void addPregunta(Map<String,String> Campos, Map<String,String> RutasDrg,Map<String,String> RutasTrg){
         Element Pregunta = new Element("PREGUNTA");
@@ -112,6 +101,8 @@ public class AdminXDML {
             }else if(entrada.getKey().equals("Pregunta")){
                 Pregunta.setAttribute(entrada.getKey(), entrada.getValue());
             }else if(entrada.getKey().equals("Respuesta")){
+                Pregunta.setAttribute(entrada.getKey(), entrada.getValue());
+            }else if(entrada.getKey().equals("Cantidad")){
                 Pregunta.setAttribute(entrada.getKey(), entrada.getValue());
             }else if(entrada.getKey().contains("Drg")){
                 DrgTxt.putIfAbsent(entrada.getKey(), entrada.getValue());
@@ -203,5 +194,45 @@ public class AdminXDML {
     }
     public void modifyPregunta(){
         
+    }
+
+    String getPreguntaToJson(String busca) {
+        Pregunta Pregunta = new Pregunta();
+        Target Target = new Target();
+        Drag Drag = new Drag();
+        List<Element> Preguntas = Raiz.getChildren();
+        Iterator<Element> iterador = Preguntas.iterator();
+        while(iterador.hasNext()){
+            Element dataPregunta = iterador.next();
+            if(dataPregunta.getAttributeValue("ID_PREGUNTA").equals(busca)){
+                Pregunta.setID(dataPregunta.getAttributeValue("ID_PREGUNTA"));
+                Pregunta.setCantidad(dataPregunta.getAttributeValue("Cantidad"));
+                Pregunta.setTexto(dataPregunta.getAttributeValue("Pregunta"));
+                Pregunta.setRespuesta(dataPregunta.getAttributeValue("Respuesta"));
+                Element Drg = dataPregunta.getChild("DRAGS");
+                List<Element>OpDrg = Drg.getChildren();
+                Iterator<Element> iteradorOpDrg = OpDrg.iterator();
+                while(iteradorOpDrg.hasNext()){
+                    Element opcion = iteradorOpDrg.next();
+                    Opciones opciones = new Opciones();
+                    opciones.setRuta(opcion.getAttributeValue("Imagen"));
+                    opciones.setTexto(opcion.getText());
+                    Drag.setOpciones(opciones);
+                }
+                Element Trg = dataPregunta.getChild("TARGETS");
+                List<Element>OpTrg = Trg.getChildren();
+                Iterator<Element> iteradorOpTrg = OpTrg.iterator();
+                while(iteradorOpTrg.hasNext()){
+                    Element opcion = iteradorOpTrg.next();
+                    Opciones opciones = new Opciones();
+                    opciones.setRuta(opcion.getAttributeValue("Imagen"));
+                    opciones.setTexto(opcion.getText());
+                    Target.setOpciones(opciones);
+                }
+                Pregunta.setDrag(Drag);
+                Pregunta.setTarget(Target);
+            }
+        }
+        return new Gson().toJson(Pregunta);
     }
 }

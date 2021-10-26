@@ -133,6 +133,15 @@ public class Clasificador {
             throw new RuntimeException(e.getMessage());
         }
     }
+    public String getQuestion(String Pregunta){
+        String RutaXml = RutaRaiz+"Data\\data.xml";
+        try{
+        Admin = new AdminXDML(RutaXml);
+        return Admin.getPreguntaToJson(Pregunta);
+        }catch(RuntimeException e){
+            return e.getMessage();
+        }
+    }
     public String getQuetions(){
         String RutaXml = RutaRaiz+"Data\\data.xml";
         try{
@@ -150,11 +159,14 @@ public class Clasificador {
         }catch(RuntimeException e){
             throw  new RuntimeException(e.getMessage());
         }
+        deleteFiles(Pregunta);
         
+    }
+    private void deleteFiles(String Pregunta){
         try {
             FileUtils.deleteDirectory(new File(RutaRaiz+"Imagenes\\" + Pregunta + "\\"));
         } catch (IOException ex) {
-            throw new RuntimeException();
+            System.err.println(ex.getMessage());
         }
     }
     @Override

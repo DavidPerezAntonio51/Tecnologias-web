@@ -5,6 +5,7 @@
  */
 package administrador;
 
+import com.escom.ipn.cv13id5idp1.Clasificador;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -31,9 +32,18 @@ public class GetQuestion extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("application/json");
         response.setCharacterEncoding("UTF-8");
-        String pregunta = request.getParameter("pregunta");
+        String RutaRaiz = request.getServletContext().getRealPath("/");
+        String Pregunta = request.getParameter("pregunta");
         PrintWriter out = response.getWriter();
-        out.print("{\"name\": \""+pregunta+"\"}");
+        System.err.println(Pregunta);
+        try{
+            Clasificador gestionador = new Clasificador(request);
+            gestionador.setRutaRaiz(RutaRaiz);
+            out.print(gestionador.getQuestion(Pregunta));
+        }catch(RuntimeException ex){
+            response.sendError(555);
+        }
+        
     }
     
     /**

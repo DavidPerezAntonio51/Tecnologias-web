@@ -47,7 +47,7 @@ export default class App extends React.Component {
                     </ul>
                     <br />
                     <br />
-                    <select value={this.state.cantidad} onChange={this.handleChange}>
+                    <select value={this.state.cantidad} onChange={this.handleChange} name="Cantidad">
                         <option value="2">2 Imagenes</option>
                         <option value="3">3 Imagenes</option>
                         <option value="4">4 Imagenes</option>
