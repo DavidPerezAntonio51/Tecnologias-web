@@ -40,7 +40,7 @@ export default class App extends React.Component {
         //Editar Action al terminar desarrollo a "create"
         return (
             <div className="inicio">
-                <form id="crear" action="http://localhost:8080/2CV13ID5IDP1/create" method="POST" encType="multipart/form-data">
+                <form id="crear" action="http://localhost:8080/2CV13ID5IDP1/Modify" method="POST" encType="multipart/form-data">
                     <h1>Editar pregunta con ID: <NombrePregunta pregunta={this.state.NombrePregunta}/></h1>
                     <ul className="prueba">
                     <br />
@@ -63,7 +63,7 @@ export default class App extends React.Component {
                     <br />
                     
                     <br />
-                    <select value={this.state.cantidad} onChange={this.handleChange}>
+                    <select value={this.state.cantidad} onChange={this.handleChange} name="Cantidad">
                         <option value="2">2 Imagenes</option>
                         <option value="3">3 Imagenes</option>
                         <option value="4">4 Imagenes</option>

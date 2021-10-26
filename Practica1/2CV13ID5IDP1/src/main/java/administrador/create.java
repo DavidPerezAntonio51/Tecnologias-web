@@ -35,7 +35,8 @@ public class create extends HttpServlet {
            if(!gestionador.isMultipart()){
                throw new RuntimeException("No hay Contenido");
            }
-           gestionador.organize(Ruta);
+           gestionador.setRutaRaiz(Ruta);
+           gestionador.organize();
            gestionador.saveFiles();
            gestionador.addDatatoXML();
            response.sendRedirect("http://localhost:3000/");

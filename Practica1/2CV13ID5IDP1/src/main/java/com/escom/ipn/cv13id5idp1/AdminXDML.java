@@ -7,7 +7,6 @@ package com.escom.ipn.cv13id5idp1;
 
 import com.google.gson.Gson;
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -15,15 +14,12 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import org.jdom2.Element;
 import org.jdom2.Document;
 import org.jdom2.JDOMException;
 import org.jdom2.input.SAXBuilder;
 import org.jdom2.output.Format;
 import org.jdom2.output.XMLOutputter;
-import org.jdom2.output.SAXOutputter;
 /**
  *
  * @author DEZKS
@@ -55,20 +51,6 @@ public class AdminXDML {
             this.RUTA = Ruta;
         }
     }
-    /*
-    public AdminXDML(String Ruta, File oldXmlFile) throws JDOMException, IOException{
-        builder = new SAXBuilder();
-        oldDocXml = builder.build(oldXmlFile);
-        this.Raiz = oldDocXml.getRootElement();
-        oldXmlFile.delete();
-        XmlFile = new File(RUTA);
-    }*/
-    /*
-    public AdminXDML(File XmlFile){
-        this.Raiz = new Element("RELACION_DE_COLUMNAS");
-        this.XmlFile = XmlFile;
-    }
-    */
     private void escribir(){
         this.newDocXml = new Document(Raiz);
         XmlFile.getParentFile().mkdirs();
@@ -84,8 +66,6 @@ public class AdminXDML {
     @Override
     public String toString(){
         return newDocXml.toString();
-    }
-    private void exist(){
     }
     public void addPregunta(Map<String,String> Campos, Map<String,String> RutasDrg,Map<String,String> RutasTrg){
         Element Pregunta = new Element("PREGUNTA");
@@ -178,9 +158,6 @@ public class AdminXDML {
     public boolean exist(String Ruta){
         return this.RUTA.equals(Ruta)?true:false;
     }
-    public void searchPregunta(){
-        
-    }
     public void deletePregunta(String ID_PREGUNTA){
         List<Element> Preguntas = Raiz.getChildren();
         Iterator<Element> iterador = Preguntas.iterator();
@@ -192,11 +169,57 @@ public class AdminXDML {
         }
         escribir();
     }
-    public void modifyPregunta(){
-        
+    public void modifyPregunta(Map<String,String> Campos, Map<String,String> RutasDrg,Map<String,String> RutasTrg){
+        Element Drags = new Element("DRAGS");
+        Element Targets = new Element("TARGETS");
+        List<Element> Preguntas = Raiz.getChildren();
+        Iterator<Element> iteradorbusqueda = Preguntas.iterator();
+        while(iteradorbusqueda.hasNext()){
+            Element Pregunta = iteradorbusqueda.next();
+            if(Pregunta.getAttributeValue("ID_PREGUNTA").equals(Campos.get("NombrePregunta"))){
+                Pregunta.removeAttribute("Cantidad");
+                Pregunta.removeAttribute("Pregunta");
+                Pregunta.removeAttribute("Respuesta");
+                Pregunta.setAttribute("Cantidad",Campos.get("Cantidad"));
+                Pregunta.setAttribute("Pregunta",Campos.get("Pregunta"));
+                Pregunta.setAttribute("Respuesta",Campos.get("Respuesta"));
+                Pregunta.removeChild("DRAGS");
+                Pregunta.removeChild("TARGETS");
+                Map<String,String> DrgTxt = new HashMap<String,String>();
+                Map<String,String> TrgTxt = new HashMap<String, String>();
+                Iterator<Map.Entry<String,String>> iterador = Campos.entrySet().iterator();
+                while(iterador.hasNext()){
+                    Map.Entry<String,String> entrada = iterador.next();
+                    if(entrada.getKey().contains("Drg")){
+                        DrgTxt.putIfAbsent(entrada.getKey(), entrada.getValue());
+                    }else if(entrada.getKey().contains("Trg")){
+                        TrgTxt.putIfAbsent(entrada.getKey(), entrada.getValue());
+                    }
+                }
+                Iterator<Map.Entry<String,String>> iteradorDrags = linkDrags(RutasDrg, DrgTxt).entrySet().iterator();
+                while(iteradorDrags.hasNext()){
+                    Map.Entry<String, String> entrada =  iteradorDrags.next();
+                    Element opcion = new Element("OPCION");
+                    opcion.setAttribute("Imagen",entrada.getKey());
+                    opcion.setText(entrada.getValue());
+                    Drags.addContent(opcion);
+                }
+                Iterator<Map.Entry<String, String>> iteradorTargets = linkTarget(RutasTrg, TrgTxt).entrySet().iterator();
+                while(iteradorTargets.hasNext()){
+                    Map.Entry<String, String> entrada = iteradorTargets.next();
+                    Element opcion = new Element("OPCION");
+                    opcion.setAttribute("Imagen",entrada.getKey());
+                    opcion.setText(entrada.getValue());
+                    Targets.addContent(opcion);
+                }
+                Pregunta.addContent(Drags);
+                Pregunta.addContent(Targets);
+                escribir();
+            }
+        }
     }
 
-    String getPreguntaToJson(String busca) {
+    public String getPreguntaToJson(String busca) {
         Pregunta Pregunta = new Pregunta();
         Target Target = new Target();
         Drag Drag = new Drag();

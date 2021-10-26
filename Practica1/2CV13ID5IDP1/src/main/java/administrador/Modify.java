@@ -5,6 +5,7 @@
  */
 package administrador;
 
+import com.escom.ipn.cv13id5idp1.Clasificador;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -27,9 +28,26 @@ public class Modify extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
+        String Ruta = request.getServletContext().getRealPath("/");
+        Clasificador gestionador = new Clasificador(request);
+        try{
+           if(!gestionador.isMultipart()){
+               throw new RuntimeException("No hay Contenido");
+           }
+           gestionador.setRutaRaiz(Ruta);
+           gestionador.organize();
+           gestionador.editXML();
+           response.sendRedirect("http://localhost:3000/");
+        }catch(RuntimeException e){
+            out.print(e.getMessage());
+        } catch (IOException ex) {
+            out.print(ex.getMessage());
+        }catch(Exception exc){
+            out.print(exc.getMessage());
+        }
     }
 }

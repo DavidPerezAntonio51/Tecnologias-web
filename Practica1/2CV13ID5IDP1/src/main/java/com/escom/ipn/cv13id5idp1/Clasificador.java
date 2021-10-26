@@ -59,13 +59,12 @@ public class Clasificador {
     public void setMaxFileSize(Integer FileSize){
         this.maxFileSize = FileSize;
     }
-    public void organize(String Ruta){
-        this.RutaRaiz = Ruta;
+    public void organize(){
         Campos = new HashMap<String, String>();
         Archivos = new HashMap<String,FileItem>();
         factory = new DiskFileItemFactory();
         factory.setSizeThreshold(maxMemSize);
-        factory.setRepository(new File(Ruta));
+        factory.setRepository(new File(RutaRaiz));
         upload = new ServletFileUpload(factory);
         upload.setFileSizeMax(maxFileSize);
         try{
@@ -172,5 +171,21 @@ public class Clasificador {
     @Override
     public String toString(){
         return this.Admin.toString();
+    }
+
+    public void editXML() {
+        String RutaXml = RutaRaiz+"Data\\data.xml";
+        String Pregunta = Campos.get("NombrePregunta");
+        try{
+        deleteFiles(Pregunta);
+        saveFiles();
+        Admin = new AdminXDML(RutaXml);
+        Admin.modifyPregunta(Campos, RutaDrg, RutaTrg);
+        
+        }catch(RuntimeException e){
+            throw new RuntimeException(e.getMessage());
+        } catch (Exception ex) {
+            throw new RuntimeException(ex.getMessage());
+        }
     }
 }
