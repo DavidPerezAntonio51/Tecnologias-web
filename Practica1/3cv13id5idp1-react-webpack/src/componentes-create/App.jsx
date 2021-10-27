@@ -63,8 +63,8 @@ export default class App extends React.Component {
             <div>
             <br />
                     <br />
-                        <input className="Boton" type="submit" value="Crear"/>
-                        <input className="Boton" type="button" value="Regresar" onClick={this.handleOnClick}/>
+                        <input className="Boton BotonRegresar" type="button" value="Regresar" onClick={this.handleOnClick}/>
+                        <input className="Boton BotonGuardar" type="submit" value="Crear"/>
             </div>
                 </form>
             </div>

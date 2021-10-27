@@ -41,7 +41,9 @@ export default class App extends React.Component {
         return (
             <div className="inicio">
                 <form id="crear" action="http://localhost:8080/2CV13ID5IDP1/Modify" method="POST" encType="multipart/form-data">
-                    <h1>Editar pregunta con ID: <NombrePregunta pregunta={this.state.NombrePregunta}/></h1>
+                <br />
+                    <h1>Editar pregunta con ID:</h1>
+                        <NombrePregunta pregunta={this.state.NombrePregunta}/>
                     <ul className="prueba">
                     <br />
                     <li className="a"> Pregunta: <Pregunta texto={this.state.Pregunta}/> </li>
@@ -75,13 +77,19 @@ export default class App extends React.Component {
                     <br />
                     <strong className="NOTA">NOTA: Todos los archivos deben subirse nuevamente</strong>
                     <br />
+                    <br />
+                    <br />
                     <DragOptions cantidad={this.state.cantidad}/>
                     <TargetOptions cantidad={this.state.cantidad}/>
             <div>
             <br />
                     <br />
+
+                        <input className="Boton BotonRegresar" type="button" value="Regresar" onClick={this.handleOnClick}/>
+
+                        <div className="BotonGuardar">
                         <input className="Boton" type="submit" value="Guardar"/>
-                        <input className="Boton" type="button" value="Regresar" onClick={this.handleOnClick}/>
+                        </div>
             </div>
                 </form>
             </div>

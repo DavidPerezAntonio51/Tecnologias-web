@@ -6,7 +6,7 @@ class NombrePregunta extends React.Component {
     }
     render() { 
         return(
-            <input type="text" name="NombrePregunta" placeholder="Nombre de la Pregunta" value={this.props.pregunta} readOnly/>
+            <input className="NombreP" type="text" name="NombrePregunta" placeholder="Nombre de la Pregunta" value={this.props.pregunta} readOnly/>
         );
     }
 }

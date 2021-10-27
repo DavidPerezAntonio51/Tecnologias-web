@@ -11,7 +11,7 @@ class Leer extends Component {
     }
 
     render() { 
-        return <button class="Boton" type="button" onClick={this.handleOnClick}>Leer</button>;
+        return <button className="Boton" type="button" onClick={this.handleOnClick}>Leer</button>;
     }
 }
  
