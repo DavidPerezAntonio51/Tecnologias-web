@@ -12,7 +12,7 @@ import java.util.Map;
 
 /**
  *
- * @author DEZKS
+ * @author Sab
  */
 public class Target {
     Collection Opciones;

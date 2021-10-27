@@ -28,7 +28,7 @@ import org.jdom2.JDOMException;
 
 /**
  *
- * @author DEZKS
+ * @author Sab
  */
 public class Clasificador {
     private final String DRAG = "Drags\\";

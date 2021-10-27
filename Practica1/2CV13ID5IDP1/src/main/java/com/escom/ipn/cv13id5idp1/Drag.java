@@ -10,7 +10,7 @@ import java.util.Collection;
 
 /**
  *
- * @author DEZKS
+ * @author Sab
  */
 public class Drag {
     private Collection Opciones;

@@ -7,7 +7,7 @@ package com.escom.ipn.cv13id5idp1;
 
 /**
  *
- * @author DEZKS
+ * @author Sab
  */
 public class ID_Pregunta {
     private String name;
