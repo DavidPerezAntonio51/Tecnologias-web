@@ -36,5 +36,6 @@ class TextoDrag extends Component {
          );
     }
 }
+
  
 export default TextoDrag;
