@@ -39,7 +39,7 @@ public class create extends HttpServlet {
            gestionador.organize();
            gestionador.saveFiles();
            gestionador.addDatatoXML();
-           response.sendRedirect("http://localhost:3000/");
+           response.sendRedirect("index.html");
         }catch(RuntimeException e){
             out.print(e.getMessage());
         } catch (IOException ex) {

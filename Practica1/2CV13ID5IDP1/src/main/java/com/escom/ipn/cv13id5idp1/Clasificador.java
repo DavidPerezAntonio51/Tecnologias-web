@@ -108,16 +108,18 @@ public class Clasificador {
             if(entrada.getKey().contains("Drg")){
                 FileItem File = entrada.getValue();
                 String RutaArchivo = this.RutaImagenes + DRAG + File.getName();
+                String RutaRelativa = "Imagenes\\"+Campos.get("NombrePregunta")+"\\"+DRAG+File.getName();
                 this.file = new File(RutaArchivo);
                 file.getParentFile().mkdirs();
-                RutaDrg.putIfAbsent(entrada.getKey(), RutaArchivo);
+                RutaDrg.putIfAbsent(entrada.getKey(), RutaRelativa);
                 File.write(file);
             }else if(entrada.getKey().contains("Trg")){
                 FileItem File = entrada.getValue();
                 String RutaArchivo = this.RutaImagenes + TARGET + File.getName();
+                String RutaRelativa = "Imagenes\\"+Campos.get("NombrePregunta")+"\\"+TARGET+File.getName();
                 this.file = new File(RutaArchivo);
                 file.getParentFile().mkdirs();
-                RutaTrg.putIfAbsent(entrada.getKey(), RutaArchivo);
+                RutaTrg.putIfAbsent(entrada.getKey(), RutaRelativa);
                 File.write(file);
             }
         }
