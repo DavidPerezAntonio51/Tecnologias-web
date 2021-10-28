@@ -10,12 +10,20 @@ class DragOptions extends Component {
         //nombres DrgTxt, DrgImg
         const items = [];
         const name = "Drg";
-        for(let i = 0; i < this.props.cantidad; i++){
-            items.push("Drag Opcion "+(i+1), 
-            <TextoDrag index={i} busca="Drag" key={"TxtIn"+(i+1)} name={name+"Txt"+(i+1)}/>,
-            <Imagen index={i} busca="Ruta" key={"ImgIn"+(i+1)} name={name+"Img"+(i+1)}/>,
-            <br key={"br"+(i+1)}/>);
+        for(let i = 0; i < this.props.cantidad; i++){ //pego imagen
+            items.push(
+            <Imagen index={i} busca="Ruta" key={"ImgIn"+(i+1)} name={name+"Img"+(i+1)}/>);
         }
+
+        items.push(<br key={"br"+(2)}/>);
+
+        for(let i = 0; i < this.props.cantidad; i++){// pego texto xd
+            items.push(
+            <TextoDrag index={i} busca="Drag" key={"TxtIn"+(i+1)} name={name+"Txt"+(i+1)}/>);
+        }
+
+
+
         return ( 
             <div>
                 {items}
