@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import TextoTarget from './Drag-TargetElements/TextoTarget.js';
-import Imagen from './Drag-TargetElements/Imagen2.js';
+import Imagen from './Drag-TargetElements/Imagen1.js';
 
 class TargetOptions extends Component {
     constructor(props) {
@@ -13,7 +13,7 @@ class TargetOptions extends Component {
         const name = "Trg";
         for(let i = 0; i < this.props.cantidad; i++){
             items.push(
-            <Imagen index={i} busca="Ruta" key={"ImgIn"+(i+1)} name={name+"Img"+(i+1)}/>);
+            <Imagen index={i} busca="Ruta" key={"Img2"+(i+1)} name={name+"tImg"+(i+1)}/>);
         }
         items.push(<br key={"br"+(2)}/>);
         for(let i = 0; i < this.props.cantidad; i++){

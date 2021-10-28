@@ -44,7 +44,7 @@ export default class App extends React.Component {
             <div className="inicio">
                 <form id="crear" action="http://localhost:8080/2CV13ID5IDP1/Modify" method="POST" encType="multipart/form-data">
                 <br />
-                    <h1>Editar pregunta con ID:</h1>
+                    <h1>Vista de la pregunta con ID:</h1>
                         <NombrePregunta pregunta={this.state.NombrePregunta}/>
                     <ul className="prueba">
                     <br />
