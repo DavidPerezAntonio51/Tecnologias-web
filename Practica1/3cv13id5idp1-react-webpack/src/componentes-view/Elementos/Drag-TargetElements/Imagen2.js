@@ -29,7 +29,7 @@ class Imagen extends Component {
     render() { 
         return ( 
             //<input className="Vista" type="Text" name={this.props.name} placeholder="ruta" value={this.state.Ruta} readOnly/>
-            <img src={this.state.Ruta}/>
+            <img src={this.state.Ruta} className="VistaI"/>
             //<img src="Imagenes/Pre1/Drags/1 (1).jpg" alt=""/>
          );
     }

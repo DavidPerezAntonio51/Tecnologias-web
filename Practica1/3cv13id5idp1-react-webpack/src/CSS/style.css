@@ -117,7 +117,17 @@ p, .OMG /*Texto de Desea y el de la clase OMG*/
         color:black;
         border:none;
         background-color: rgba(248, 218, 178, 0.932);
+        width: 350px;
+        text-align:center;
+        margin-right: 100px;
     }
+
+    .VistaI
+    {
+        height: 350px;
+        width: 350px;
+        margin-right : 100px;
+    }    
 
 
 
