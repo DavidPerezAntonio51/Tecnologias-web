@@ -1,0 +1,219 @@
+/* 1.- Selector universal */
+*{
+    padding: 0px;
+    margin: 0px;
+    font-family:cursive;
+    font-variant: small-caps;
+    font-size: 20pt;
+    text-align: left;
+    min-height: 10vh;
+    align-items:center;
+    color:aliceblue;
+    background:-webkit-radial-gradient( #560e86, #0a0011);
+}
+
+/* 2.- Selector elemento */
+
+h1 {
+    font-size: 60px;
+    font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    justify-content: center;
+    margin: 0px;
+    padding: 0px;
+    color:#f09bdf;
+    width: 100%;
+    height: 30%;
+    background-image: url("./Imagen/skz.jpg");
+    display:-webkit-flex;
+    -webkit-background-size:cover;
+    border: dotted;
+    border-color: f09bdf;
+    border-width: 10px;
+    text-shadow: 3px 3px 1px black;
+
+}
+
+/* 3.- Selector de clase */
+.OMG span {
+    font-family:'Fredoka One';
+    font-size: 120px;
+    font-weight: bold;
+    position: relative;
+    display: flex;
+    transition: all 300ms ease-in-out;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.OMG span::before {
+     content: var(--l);
+     position: absolute;
+     transform: scale(1.1);
+     filter: blur(15px);
+}
+
+.OMG span::after {
+    content:var(--l);
+    position: absolute;
+    top: 80%;
+    filter: blur(30px);
+    transform: rotateX(50deg);
+}
+
+.OMG span:hover{
+    filter: contrast(250%);
+}
+
+.OMG span:nth-child(1){
+    color: rgb(67, 202, 243);
+}
+
+.OMG span:nth-child(2){
+    color: #ff0697 ;
+}
+
+.OMG span:nth-child(3){
+    color: #ff4d00;
+}
+
+.OMG span:nth-child(4){
+    color: #ffe600;
+}
+
+.OMG span:nth-child(5){
+    color: #b0f;
+}
+
+/* 4.- Selector de Identificador */
+#id1{
+    grid-column-start: 1;
+    grid-column-end: 3;
+    
+    background:-webkit-radial-gradient( #63d0f1, #fdfcfd);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.9em;
+    font-weight: 300;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+/* 5.-  Selector Hermano */
+span {
+    font-family: cursive;
+    color:#ff4d00;
+}
+
+/* Las propiedades del selector hermano se van a ejecutar hast que se haya ejecutado el anterior en este caso "span" */
+span + h2 {
+    float: left;
+    display:-webkit-flex;
+    background: -webkit-radial-gradient( #36dd36, #1bad0e);
+    margin: 0 5vw;
+    box-shadow:0 0 6px rgba(255,255,255,0.8);   
+}
+
+/* 6.- Selector Grupo, separados por una coma */
+.clasegrupo, h5{
+    padding-top: 20px;
+    font-size: 20px;
+    display: inline-table;
+    color:#0a0011;
+    background: white;
+    border-radius: 40px;
+    text-align: center;
+    border: 1px solid #ccc;
+    width: 300px;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+/* 7.- Selector combinado */
+.CombinacionC#CombinacionID{
+    background-image: url("./Imagen/skz00.jpg");
+    display:-webkit-flex;
+    -webkit-background-size:cover;
+    width: 100%;
+    height: 70%;
+    justify-content:right;
+    color:#ff4d00;
+    font-family: 'Raleway', sans-serif;
+    font-size: 35px;
+    text-shadow: 3px 3px 1px black;
+}
+
+/* 8.- Selector hijo */
+
+#id_abuelo > .clasepadre > h4{
+    color: rgb(255, 11, 243);
+    font-size: 33px;
+    font-family: 'Times New Roman', Times, serif;
+    text-align: center;
+    display:-ms-flexbox;
+}
+
+/* 9.- Selector  Atributo igualacion exacta */
+div[href="youtube.com"]{
+    justify-content: right;
+    text-underline-position: above;
+    color: rgb(121, 126, 120);
+}
+
+/* 10.- Selector atributo Comienza con  */
+div[href^= "www."]{
+    text-underline-position: initial;
+    color: olive;
+} 
+
+/* 11.- Selector atributo finaliza con */
+div[href$=".org"]{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: orangered;
+}
+
+/* 12.- Selector atributo contiene la cadena */
+div[href*="twit"]{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: royalblue;
+}
+
+/* 13.- Selector atributo contiene inicialmente la palabra... */
+div[data|="skz"]{
+    font-family: 'Roboto';  
+    background: #6190e8; 
+    text-shadow: 3px 3px 1px black;
+    text-align: right;
+    background: -webkit-linear-gradient( #6190e8, #a7bfe8); 
+}
+
+/* 14.- Slector de atributo igualacion multiple */
+h6[class="forh6"][data-tony*="r"]{
+    background-color: brown;
+    border-radius: 30px;
+    font-size: 25px;
+}
+
+/* 15.- Selector seudoclase */
+a:hover{
+    background-color: grey;
+    color: black;
+}
+a:visited{
+    background-color: black;
+    color: olivedrab;
+}
+
+/* 16.- Selector decendente */
+div #id_decendencia{
+    background-image:url("./Imagen/wallpaper.png");
+    transform: rotate(-10deg);
+    display: flex;
+    justify-content: center;
+    color: powderblue;
+    border:solid;
+    border-color:salmon;
+    width: 100%;
+    height: 1%;
+}

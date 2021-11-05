@@ -178,7 +178,6 @@ p, .OMG /*Texto de Desea y el de la clase OMG*/
     left: 10px;
 }
 /*FIN Modify.js*/
-
 /*FIN class = Botones*/
 
 /*INICIO table.js*/
@@ -212,6 +211,7 @@ table
     }    
 /*FIN table.js*/
 
+/*General*/
 body 
 {
     background-color: rgba(248, 218, 178, 0.932);
