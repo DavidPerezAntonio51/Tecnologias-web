@@ -19,10 +19,10 @@ class Home extends Component {
         return ( 
             <div>
                 <Encabezado title={this.props.title}></Encabezado>
-                <Container className>
+                <Container>
                     <Row>
                         <Col>
-                            <Button variant="outline-dark"> <Link to="/2CV13ID5IDP3/create">Crear Pregunta</Link></Button>
+                            <Button variant="outline-dark" as={Link}to="/2CV13ID5IDP3/create">Crear Pregunta</Button>
                         </Col>
                     </Row>
                 </Container>

@@ -1,16 +1,17 @@
 import React, { Component } from 'react';
-import {Container, Row, Col} from 'react-bootstrap';
+import { Container, Row, Col } from 'react-bootstrap';
 import Table from 'react-bootstrap/Table';
+import Acciones from './Acciones.js';
 
 class Tabla extends Component {
     constructor(props) {
         super(props);
-        this.state = { 
+        this.state = {
             Preguntas: ["Pre1", "Pre2", "Pre3"],
         }
     }
     render() {
-        return ( 
+        return (
             <Container>
                 <Row>
                     <Col>
@@ -21,25 +22,49 @@ class Tabla extends Component {
                     <Table striped bordered hover variant="dark">
                         <thead>
                             <tr>
-                                <th>Nombre de la Pregunta</th>
-                                <th>Acciones</th>
+                                <th>
+                                    <Container>
+                                        <Row className="justify-content-md-center">
+                                            <Col md="auto">
+                                                Nombre de la Pregunta
+                                            </Col>
+                                        </Row>
+                                    </Container>
+                                </th>
+                                <th>
+                                    <Container>
+                                        <Row className="justify-content-md-center">
+                                            <Col md="auto">
+                                                Acciones
+                                            </Col>
+                                        </Row>
+                                    </Container>
+                                </th>
                             </tr>
                         </thead>
                         <tbody>
                             {this.state.Preguntas.map(
-                                el=>
-                                    <tr key={"fila"+el}>
-                                        <td key={"Nombre"+ el}>{el}</td>
-                                        <td key={"Actions"+el}>{el}</td>
+                                pregunta =>
+                                    <tr key={"fila" + pregunta}>
+                                        <td key={"Nombre" + pregunta}>
+                                            <Container>
+                                                <Row className="justify-content-md-center">
+                                                    <Col md="auto">
+                                                        <h4>{pregunta}</h4>
+                                                    </Col>
+                                                </Row>
+                                            </Container>
+                                        </td>
+                                        <td key={"Actions" + pregunta}><Acciones pregunta={pregunta} /></td>
                                     </tr>
                             )}
                         </tbody>
                     </Table>
                 </Row>
-                
+
             </Container>
-         );
+        );
     }
 }
- 
+
 export default Tabla;

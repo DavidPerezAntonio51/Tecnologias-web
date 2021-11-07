@@ -4,9 +4,41 @@
         <servlet-name>create</servlet-name>
         <servlet-class>Rutas.create</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>modify</servlet-name>
+        <servlet-class>Rutas.modify</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>preview</servlet-name>
+        <servlet-class>Rutas.preview</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>GetQuestions</servlet-name>
+        <servlet-class>APIs.GetQuestions</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>GetQuestion</servlet-name>
+        <servlet-class>APIs.GetQuestion</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>create</servlet-name>
         <url-pattern>/create</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>modify</servlet-name>
+        <url-pattern>/modify</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>preview</servlet-name>
+        <url-pattern>/preview</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>GetQuestions</servlet-name>
+        <url-pattern>/API/GetQuestions</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>GetQuestion</servlet-name>
+        <url-pattern>/API/GetQuestion</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
