@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Switch, Route, NavLink, Link } from "react-router-dom";
-import Encabezado from "./Encabezado.jsx";
+import Home from './Home.jsx';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 class App extends Component {
     render() {
@@ -10,14 +11,7 @@ class App extends Component {
                         <li>
                             <Link to="/2CV13ID5IDP3/">Home</Link>
                         </li>
-                        <li>
-                            <Link to="/2CV13ID5IDP3/about">About</Link>
-                        </li>
-                        <li>
-                            <Link to="/2CV13ID5IDP3/dashboard">Dashboard</Link>
-                        </li>
                     </ul>
-
                     <hr />
 
                     {/*
@@ -29,7 +23,7 @@ class App extends Component {
         */}
                     <Switch>
                         <Route exact path="/2CV13ID5IDP3/">
-                            <Home />
+                            <Home title="Crear, Ver, Modificar y Eliminar"/>
                         </Route>
                         <Route exact path="/2CV13ID5IDP3/about">
                             <About />
@@ -46,14 +40,6 @@ class App extends Component {
 
 // You can think of these components as "pages"
 // in your app.
-
-function Home() {
-    return (
-        <div>
-            <h2>Home</h2>
-        </div>
-    );
-}
 
 function About() {
     return (

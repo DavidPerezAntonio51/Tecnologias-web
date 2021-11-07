@@ -1,4 +1,7 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 
 class Encabezado extends Component {
     constructor(props) {
@@ -6,10 +9,13 @@ class Encabezado extends Component {
     }
     render() { 
         return ( 
-            <div>
-                <h1>{this.props.titulo}</h1>
-            </div>
-            
+            <Container fluid>
+                <Row className="justify-content-md-center">
+                    <Col md="auto">
+                        <h1>{this.props.title}</h1>
+                    </Col>
+                </Row>
+            </Container>
          );
     }
 }
