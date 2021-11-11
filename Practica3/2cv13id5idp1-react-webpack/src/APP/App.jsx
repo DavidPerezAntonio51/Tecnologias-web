@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Switch, Route, NavLink, Link } from "react-router-dom";
 import Home from './Home.jsx';
+import Play from './Play.jsx';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 class App extends Component {
@@ -25,8 +26,8 @@ class App extends Component {
                         <Route exact path="/2CV13ID5IDP3/">
                             <Home title="Crear, Ver, Modificar y Eliminar"/>
                         </Route>
-                        <Route exact path="/2CV13ID5IDP3/about">
-                            <About />
+                        <Route exact path="/2CV13ID5IDP3/play">
+                            <Play />
                         </Route>
                         <Route exact path="/2CV13ID5IDP3/dashboard">
                             <Dashboard />

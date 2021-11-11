@@ -14,15 +14,15 @@ class Acciones extends Component {
                 <Row className="justify-content-md-center">
                     <Col md="auto">
                     <Stack direction="horizontal" gap={3}>
-                        <Button as={Link} to="/2CV13ID5IDP3/play" variant="outline-success">
+                        <Button as={Link} to={"/2CV13ID5IDP3/play"+"?pregunta="+this.props.pregunta} variant="outline-success">
                             Jugar
                         </Button>
                         <div className="vr" />
-                        <Button as={Link} to="/2CV13ID5IDP3/preview" variant="outline-info">
+                        <Button as={Link} to={"/2CV13ID5IDP3/preview"+"?pregunta="+this.props.pregunta} variant="outline-info">
                             Previsualizar
                         </Button>
                         <div className="vr" />
-                        <Button as={Link} to="/2CV13ID5IDP3/modify" variant="outline-light">
+                        <Button as={Link} to={"/2CV13ID5IDP3/modify"+"?pregunta="+this.props.pregunta} variant="outline-light">
                             Modificar
                         </Button>
                         <div className="vr" />
