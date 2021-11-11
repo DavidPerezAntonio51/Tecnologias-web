@@ -28,12 +28,8 @@ export default class Play extends Component {
     return(
       <div>
         
-        <div onDrop={this.handlerDrop} onDragEnter={this.onDragEnter}>
-          <h2 draggable onDragStart={this.handlerMouseMove} onDragEnd={this.handlerMouseMove2}>Elemento drag</h2>
-        </div>
-        
-        <div onDrop={this.handlerDrop} onDragEnter={this.onDragEnter}>
-          <h2 draggable onDragStart={this.handlerMouseMove} onDragEnd={this.handlerMouseMove2}>Elemento drag</h2>
+        <div onDrop={this.handlerDrop} onDragEnter={this.onDragEnter} className="divsab">
+          <h2 draggable onDragStart={this.handlerMouseMove} onDragEnd={this.handlerMouseMove2} >Elemento drag </h2>
         </div>
         
         <div onDrop={this.handlerDrop} onDragEnter={this.onDragEnter}>
