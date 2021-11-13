@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
 
-class List extends Component {
-    constructor(props) {
+class ModuloJuego extends Component {
+   constructor(props) {
         super(props);
         this.state = {
             objetos: [<h1></h1>,<h1></h1>,<h1></h1>,<h1></h1>,<h1></h1>,<h1></h1>,<h1></h1>,<h1></h1>,<h1>Mano</h1>],
@@ -30,12 +30,12 @@ class List extends Component {
                     {(provided) => (
                         <ul {...provided.droppableProps} ref={provided.innerRef}>
                             {this.state.objetos.map(
-                                (numero, index) => {
+                                (objeto, index) => {
                                     return(
-                                    <Draggable id={"drg"+index} key={"key"+index} draggableId={index+"drag"} index={index+1}>
+                                    <Draggable key={"key"+index} draggableId={index+"drag"} index={index+1}>
                                         {(provided) => (
                                             <li ref={provided.innerRef} {...provided.draggableProps} {...provided.dragHandleProps}>
-                                                {numero}
+                                                {objeto}
                                             </li>
                                         )}
                                     </Draggable>
@@ -49,5 +49,5 @@ class List extends Component {
         );
     }
 }
-
-export default List;
+ 
+export default ModuloJuego;

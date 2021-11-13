@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Switch, Route, NavLink, Link } from "react-router-dom";
 import Home from './Home.jsx';
+import Crear from './Create.jsx';
 import Play from './Play.jsx';
 import List from './Lista.jsx';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -29,6 +30,9 @@ class App extends Component {
                         </Route>
                         <Route exact path="/2CV13ID5IDP3/play">
                             <List/>
+                        </Route>
+                        <Route exact path="/2CV13ID5IDP3/create">
+                            <Crear title="Crea una nueva pregunta llenando los datos"/>
                         </Route>
                         <Route exact path="/2CV13ID5IDP3/dashboard">
                             <Dashboard />
