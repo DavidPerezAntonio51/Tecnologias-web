@@ -1,50 +1,68 @@
 import React, { Component } from 'react';
 import Encabezado from './Encabezado.jsx';
-import {Container, Row, Col} from 'react-bootstrap';
+import { Container, Row, Col } from 'react-bootstrap';
 import Formulario from './ComponentsCreate/FormularioCrear.js';
+import ModuloJuego from './ComponentsPlay/ModuloJuego.js';
 import Stack from 'react-bootstrap/Stack';
 import Button from 'react-bootstrap/Button';
 
 class Crear extends Component {
     constructor(props) {
         super(props);
-        this.state = { 
+        this.state = {
             ValorI: 1,
             ValorD: 1,
-         }
-    }   
-    render() { 
-        return ( 
+        }
+    }
+    render() {
+        return (
             <Container>
                 <Row>
                     <Encabezado title={this.props.title}></Encabezado>
                 </Row>
-                <br/>
-                <br/>
+                <br />
+                <br />
                 <Row className="justify-content-md-center">
-                <Container>
-                    <Row>
-                        <Col md={5} lg={4}>
-                            <Formulario/>
-                        </Col>
-                        <Col md={7}>
-                            <Encabezado title={"Prueba tu ejercicio"}></Encabezado>
-                        </Col>
-                    </Row>
-                </Container>
+                    <Container>
+                        <Row>
+                            <Col md={5} lg={4}>
+                                <Formulario />
+                            </Col>
+                            <Col md={7}>
+                                <Row>
+                                    <Col>
+                                        <Encabezado title={"Prueba tu ejercicio"}></Encabezado>
+                                    </Col>
+                                </Row>
+                                <br />
+                                <Row className="justify-content-lg-center">
+                                    <Col lg="auto">
+                                        <Row>
+                                            <Col>
+                                                <ModuloJuego />
+                                            </Col>
+                                            <Col>
+                                                <ModuloJuego />
+                                            </Col>
+                                        </Row>
+                                    </Col>
+                                </Row>
+                            </Col>
+                        </Row>
+                    </Container>
                 </Row>
-               
+
                 <Row>
                     <Col>
                         <Button size="lg" variant="outline-dark">Regresar</Button>
                     </Col>
                     <Col>
-                        <Button size="lg" as="input" type="submit" value="Guardar" variant="outline-dark" form="formulario"/>
+                        <Button size="lg" as="input" type="submit" value="Guardar" variant="outline-dark" form="formulario" />
                     </Col>
                 </Row>
             </Container>
-         );
+        );
     }
 }
- 
+
 export default Crear;
