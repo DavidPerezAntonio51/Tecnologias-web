@@ -41,13 +41,19 @@ class Crear extends Component {
                 <Row >
                     <Col>
                         <Row>
-                            <Button size="lg" variant="outline-dark">Regresar</Button>
+                            <Button size="lg" variant="outline-dark">Regresar </Button>
                         </Row>
                     </Col>
+
+                    <Col>
+                    </Col>
+
                     <Col>
                         <Row>
                             <Col>
-                                <Button size="lg" as="input" type="submit" value="Guardar" variant="outline-dark" form="formulario" />
+                                <Row>
+                                    <Button size="lg" as="input" type="submit" value="Guardar" variant="outline-dark" form="formulario" />
+                                </Row>
                             </Col>
                         </Row>
                     </Col>
