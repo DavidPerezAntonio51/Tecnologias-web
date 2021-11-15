@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Form } from 'react-bootstrap';
-import {Container, Row, Col} from 'react-bootstrap';
+import { Container, Row, Col } from 'react-bootstrap';
 import Stack from 'react-bootstrap/Stack'
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
 
@@ -14,15 +14,17 @@ class Proporcion extends Component {
         this.handlerOnChangeI = this.handlerOnChangeI.bind(this);
         this.handlerOnChangeD = this.handlerOnChangeD.bind(this);
     }
-    handlerOnChangeI(e){
+    handlerOnChangeI(e) {
         this.setState({
             valorI: e.target.value,
         });
+        this.props.modificadorValorI(e.target.value);
     }
-    handlerOnChangeD(e){
+    handlerOnChangeD(e) {
         this.setState({
             valorD: e.target.value,
         });
+        this.props.modificadorValorD(e.target.value);
     }
     render() {
         return (

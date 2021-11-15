@@ -17,6 +17,7 @@ class NombrePregunta extends Component {
     render() {
         return (
             <Form.Group>
+                <Form.Label>Escribe el nombre de tu pregunta:</Form.Label>
                 <Form.Floating >
                     <Form.Control name="NombrePregunta" type="text" placeholder="Nombre de la Pregunta" value={this.state.Nombre} onChange={this.handlerOnChange} />
                     <label htmlFor="Nombre">Nombre de la Pregunta</label>

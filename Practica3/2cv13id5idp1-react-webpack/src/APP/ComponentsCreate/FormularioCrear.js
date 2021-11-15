@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Form from 'react-bootstrap/Form';
-import {Container, Row, Col} from 'react-bootstrap';
+import { Container, Row, Col } from 'react-bootstrap';
 import NombrePregunta from './Form/NombrePregunta.js';
 import Proporcion from './Form/Proporcion.js';
 import Lienzo from './Form/Lienzos.js';
@@ -11,43 +11,38 @@ import Stack from 'react-bootstrap/Stack';
 class Formulario extends Component {
     constructor(props) {
         super(props);
-        this.state = {  }
+        this.state = {}
     }
-    render() { 
-        return ( 
+    render() {
+        return (
             <Form id="formulario">
                 <Stack gap={3}>
                     <Row>
-                    <Col>
-                    <NombrePregunta/>
-                    </Col>
-                </Row>
-                <Row>
-                    <Col>
-                        <Proporcion/>
-                    </Col>
-                </Row>
-                <Row>
-                    <Col>
-                        <Lienzo/>
-                    </Col>
-                </Row>
-                <Row>
-                    <Col>
-                        <Puntero/>
-                    </Col>
-                </Row>
-                <Row>
-                    <Col>
-                        <Radar/>
-                    </Col>
-                </Row>
+                        <Col>
+                            <NombrePregunta />
+                        </Col>
+                        <Col>
+                            <Proporcion />
+                        </Col>
+                    </Row>
+                    <Row>
+                        <Col>
+                            <Lienzo />
+                        </Col>
+                    </Row>
+                    <Row>
+                        <Col>
+                            <Puntero />
+                        </Col>
+                        <Col>
+                            <Radar />
+                        </Col>
+                    </Row>
+
                 </Stack>
-                
             </Form>
-         );
+        );
     }
 }
- 
-export default Formulario
-;
+
+export default Formulario;

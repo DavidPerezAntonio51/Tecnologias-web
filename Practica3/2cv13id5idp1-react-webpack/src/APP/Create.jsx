@@ -12,8 +12,13 @@ class Crear extends Component {
         this.state = {
             ValorI: 1,
             ValorD: 1,
+            CanvasSize: 10,
+            objetosI: [],
+            objetosD: [],
+            defaultPointer: 1,
         }
     }
+
     render() {
         return (
             <Container>
@@ -25,39 +30,26 @@ class Crear extends Component {
                 <Row className="justify-content-md-center">
                     <Container>
                         <Row>
-                            <Col md={5} lg={4}>
+                            <Col>
                                 <Formulario />
-                            </Col>
-                            <Col md={7}>
-                                <Row>
-                                    <Col>
-                                        <Encabezado title={"Prueba tu ejercicio"}></Encabezado>
-                                    </Col>
-                                </Row>
-                                <br />
-                                <Row className="justify-content-lg-center">
-                                    <Col lg="auto">
-                                        <Row>
-                                            <Col>
-                                                <ModuloJuego />
-                                            </Col>
-                                            <Col>
-                                                <ModuloJuego />
-                                            </Col>
-                                        </Row>
-                                    </Col>
-                                </Row>
                             </Col>
                         </Row>
                     </Container>
                 </Row>
-
-                <Row>
+                <br />
+                <br />
+                <Row >
                     <Col>
-                        <Button size="lg" variant="outline-dark">Regresar</Button>
+                        <Row>
+                            <Button size="lg" variant="outline-dark">Regresar</Button>
+                        </Row>
                     </Col>
                     <Col>
-                        <Button size="lg" as="input" type="submit" value="Guardar" variant="outline-dark" form="formulario" />
+                        <Row>
+                            <Col>
+                                <Button size="lg" as="input" type="submit" value="Guardar" variant="outline-dark" form="formulario" />
+                            </Col>
+                        </Row>
                     </Col>
                 </Row>
             </Container>
