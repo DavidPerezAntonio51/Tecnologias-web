@@ -5,6 +5,7 @@ import Formulario from './ComponentsCreate/FormularioCrear.js';
 import ModuloJuego from './ComponentsPlay/ModuloJuego.js';
 import Stack from 'react-bootstrap/Stack';
 import Button from 'react-bootstrap/Button';
+import {Link} from 'react-router-dom';
 
 class Crear extends Component {
     constructor(props) {
@@ -41,7 +42,7 @@ class Crear extends Component {
                 <Row >
                     <Col>
                         <Row>
-                            <Button size="lg" variant="outline-dark">Regresar </Button>
+                            <Button as={Link} to="/2CV13ID5IDP3/" size="lg" variant="outline-dark">Regresar </Button>
                         </Row>
                     </Col>
 
