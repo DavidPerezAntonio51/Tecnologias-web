@@ -46,9 +46,6 @@ class Crear extends Component {
                     </Col>
 
                     <Col>
-                    </Col>
-
-                    <Col>
                         <Row>
                             <Col>
                                 <Row>
