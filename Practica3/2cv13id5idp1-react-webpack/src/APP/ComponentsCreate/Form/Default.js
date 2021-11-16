@@ -11,7 +11,7 @@ class PunterosDefault extends Component {
         this.state = {
             Defaults: [],
             Selected: 1,
-            Ruta:null,
+            Tipo: "Puntero",
         }
         this.handlerOnChange = this.handlerOnChange.bind(this);
     }
@@ -19,8 +19,14 @@ class PunterosDefault extends Component {
         var api;
         if(this.props.tipo == "Puntero"){
             api = "getPointers";
+            this.setState({
+                Tipo: "Puntero",
+            });
         }else{
             api = "getSounds";
+            this.setState({
+                Tipo: "Sonido",
+            });
         }
         fetch('http://localhost:8080/2CV13ID5IDP3/API/'+api).
         then(
@@ -47,6 +53,7 @@ class PunterosDefault extends Component {
         });
     }
     render() {
+
         return (
             <Form.Group>
                 <Row>
@@ -62,7 +69,7 @@ class PunterosDefault extends Component {
                         </FloatingLabel>
                     </Col>
                     <Col md={2}>
-                        <Image src={this.state.Selected} fluid/>
+                        <Image src={"http:\\\\localhost:8080"+this.state.Selected} fluid/>
                     </Col>
                 </Row>
             </Form.Group>
