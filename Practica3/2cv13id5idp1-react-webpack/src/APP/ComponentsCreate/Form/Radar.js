@@ -9,7 +9,7 @@ class Radar extends Component {
         this.state = {
             Personalizado: false,
         }
-
+        this.handlerOnChange = this.handlerOnChange.bind(this);
     }
     handlerOnChange(e) {
         this.setState({
