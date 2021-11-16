@@ -68,13 +68,20 @@ class PunterosDefault extends Component {
                             </Form.Select>
                         </FloatingLabel>
                     </Col>
-                    <Col md={2}>
-                        <Image src={"http:\\\\localhost:8080"+this.state.Selected} fluid/>
+                    <Col md={2}>   
+                    {        
+                    this.state.Tipo=="Sonido" ?             
+                    <audio src={"http:\\\\localhost:8080"+this.state.Selected}  loop controls />   
+                    : <Image src={"http:\\\\localhost:8080"+this.state.Selected} fluid/>                   
+                    }
                     </Col>
                 </Row>
             </Form.Group>
-        );
+            );       
     }
 }
 //"http:\\\\localhost:8080"+
+
+// <Image src={"http:\\\\localhost:8080"+this.state.Selected} fluid/>
+// <Audio src={"http:\\\\localhost:8080"+this.state.Selected} autoplay loop />
 export default PunterosDefault;
