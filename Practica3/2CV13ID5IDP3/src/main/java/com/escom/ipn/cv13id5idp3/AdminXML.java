@@ -6,6 +6,7 @@
 package com.escom.ipn.cv13id5idp3;
 
 import JsonTemplates.Pointer;
+import JsonTemplates.Sound;
 import com.google.gson.Gson;
 import java.io.File;
 import java.io.FileOutputStream;
@@ -79,5 +80,20 @@ public class AdminXML {
         }
         escribir();
         return new Gson().toJson(Pointers);
+    }
+
+    public String getSoundsToJson() {
+        Collection Sounds = new ArrayList();
+        List<Element> Sonidos = Raiz.getChildren();
+        Iterator<Element> i = Sonidos.iterator();
+        while(i.hasNext()){
+            Element Sonido = i.next();
+            Sound sound = new Sound();
+            sound.setNombre(Sonido.getAttributeValue("name"));
+            sound.setRuta(Sonido.getAttributeValue("Ruta"));
+            Sounds.add(sound);
+        }
+        escribir();
+        return new Gson().toJson(Sounds);
     }
 }

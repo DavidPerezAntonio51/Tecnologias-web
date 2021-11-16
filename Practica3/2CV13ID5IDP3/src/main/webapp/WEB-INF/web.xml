@@ -24,6 +24,10 @@
         <servlet-name>getPointers</servlet-name>
         <servlet-class>APIs.getPointers</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>getSounds</servlet-name>
+        <servlet-class>APIs.getSounds</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>create</servlet-name>
         <url-pattern>/create</url-pattern>
@@ -47,6 +51,10 @@
     <servlet-mapping>
         <servlet-name>getPointers</servlet-name>
         <url-pattern>/API/getPointers</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>getSounds</servlet-name>
+        <url-pattern>/API/getSounds</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
