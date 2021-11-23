@@ -18,6 +18,7 @@ class Puntero extends Component {
         this.setState({
             Personalizado: !this.state.Personalizado,
         });
+        this.props.changeEnctype();
     }
     render() {
         return (

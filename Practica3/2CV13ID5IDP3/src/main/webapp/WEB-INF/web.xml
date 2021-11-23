@@ -28,6 +28,10 @@
         <servlet-name>getSounds</servlet-name>
         <servlet-class>APIs.getSounds</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>saveQuestion</servlet-name>
+        <servlet-class>administrador.saveQuestion</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>create</servlet-name>
         <url-pattern>/create</url-pattern>
@@ -42,11 +46,11 @@
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>GetQuestions</servlet-name>
-        <url-pattern>/API/GetQuestions</url-pattern>
+        <url-pattern>/API/getQuestions</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>GetQuestion</servlet-name>
-        <url-pattern>/API/GetQuestion</url-pattern>
+        <url-pattern>/API/getQuestion</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>getPointers</servlet-name>
@@ -55,6 +59,10 @@
     <servlet-mapping>
         <servlet-name>getSounds</servlet-name>
         <url-pattern>/API/getSounds</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>saveQuestion</servlet-name>
+        <url-pattern>/saveQuestion</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

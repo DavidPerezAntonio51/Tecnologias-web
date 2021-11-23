@@ -18,13 +18,11 @@ class Proporcion extends Component {
         this.setState({
             valorI: e.target.value,
         });
-        this.props.modificadorValorI(e.target.value);
     }
     handlerOnChangeD(e) {
         this.setState({
             valorD: e.target.value,
         });
-        this.props.modificadorValorD(e.target.value);
     }
     render() {
         return (

@@ -14,7 +14,6 @@ class Lienzo extends Component {
         this.setState({
             Tamaño: event.target.value
         });
-        this.props.modificadorCanvas(event.target.value);
     }
     render() {
         return (
@@ -22,7 +21,7 @@ class Lienzo extends Component {
                 <Form.Label>Elige el tamaño del lienzo:</Form.Label>
 
                 <FloatingLabel controlId="Valor1" label="Tamaño">
-                    <Form.Select value={this.state.Tamaño} name="TamañoLienzo" onChange={this.handlerOnChange}>
+                    <Form.Select value={this.state.Tamaño} name="Lienzo" onChange={this.handlerOnChange}>
                         <option value={10}>1-10</option>
                         <option value={20}>1-20</option>
                         <option value={30}>1-30</option>

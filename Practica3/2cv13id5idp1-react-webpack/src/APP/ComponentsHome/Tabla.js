@@ -7,8 +7,23 @@ class Tabla extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            Preguntas: ["Pre1", "Pre2", "Pre3"],
+            Preguntas: [],
         }
+    }
+    componentDidMount() {
+        fetch('http://localhost:8080/2CV13ID5IDP3/API/getQuestions')
+            .then(
+                response => {
+                    return response.ok ? response.json() : response.status;
+                }
+            )
+            .then(
+                json => {
+                    this.setState({
+                        Preguntas: json,
+                    });
+                }
+            );
     }
     render() {
         return (
@@ -45,17 +60,17 @@ class Tabla extends Component {
                         <tbody>
                             {this.state.Preguntas.map(
                                 pregunta =>
-                                    <tr key={"fila" + pregunta}>
-                                        <td key={"Nombre" + pregunta}>
+                                    <tr key={"fila" + pregunta.Nombre}>
+                                        <td key={"Nombre" + pregunta.Nombre}>
                                             <Container>
                                                 <Row className="justify-content-md-center">
                                                     <Col md="auto">
-                                                        <h4>{pregunta}</h4>
+                                                        <h4>{pregunta.Nombre}</h4>
                                                     </Col>
                                                 </Row>
                                             </Container>
                                         </td>
-                                        <td key={"Actions" + pregunta}><Acciones pregunta={pregunta} /></td>
+                                        <td key={"Actions" + pregunta.Nombre}><Acciones pregunta={pregunta.Nombre} /></td>
                                     </tr>
                             )}
                         </tbody>

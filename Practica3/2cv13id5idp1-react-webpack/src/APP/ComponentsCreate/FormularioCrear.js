@@ -11,11 +11,26 @@ import Stack from 'react-bootstrap/Stack';
 class Formulario extends Component {
     constructor(props) {
         super(props);
-        this.state = {}
+        this.state = {
+            Puntero: false,
+            Radar: false,
+        }
+        this.handlerPointer = this.handlerPointer.bind(this);
+        this.handlerRadar = this.handlerRadar.bind(this);
+    }
+    handlerPointer(event) {
+        this.setState({
+            Puntero: !this.state.Puntero,
+        });
+    }
+    handlerRadar(event) {
+        this.setState({
+            Radar: !this.state.Radar,
+        });
     }
     render() {
         return (
-            <Form id="formulario">
+            <Form id="formulario" method="post" action="http://localhost:8080/2CV13ID5IDP3/saveQuestion" encType={this.state.Radar||this.state.Puntero?"multipart/form-data":"application/x-www-form-urlencoded"}>
                 <Stack gap={3}>
                     <Row>
                         <Col>
@@ -32,10 +47,10 @@ class Formulario extends Component {
                     </Row>
                     <Row>
                         <Col>
-                            <Puntero />
+                            <Puntero changeEnctype={this.handlerPointer}/>
                         </Col>
                         <Col>
-                            <Radar />
+                            <Radar changeEnctype={this.handlerRadar}/>
                         </Col>
                     </Row>
 

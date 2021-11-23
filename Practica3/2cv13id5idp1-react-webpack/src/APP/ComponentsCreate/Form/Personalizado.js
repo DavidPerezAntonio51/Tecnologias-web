@@ -10,9 +10,9 @@ class Personalizado extends Component {
         return (
             <Form.Group>
                 <Form.Label>
-                    Carga tu Propio {this.props.tipo} c:
+                    Carga tu Propio {this.props.tipo} \^^/
                 </Form.Label>
-                <Form.Control type="file" name={this.props.tipo + "Personalizado"} />
+                <Form.Control type="file" name={this.props.tipo} />
             </Form.Group>
         );
     }

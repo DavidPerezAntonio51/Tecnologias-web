@@ -6,6 +6,7 @@
 package com.escom.ipn.cv13id5idp3;
 
 import JsonTemplates.Pointer;
+import JsonTemplates.Pregunta;
 import JsonTemplates.Sound;
 import com.google.gson.Gson;
 import java.io.File;
@@ -51,13 +52,16 @@ public class AdminXML {
                 throw new RuntimeException(ex.getMessage());
             }
         }else{
-            this.Raiz = new Element("RELACION_DE_COLUMNAS");
+            this.Raiz = new Element("preguntas");
             this.RUTA = Ruta;
         }
     }
-    public void escribir(){
-        this.newDocXml = new Document(Raiz);
+    private void creaRuta(){
         XmlFile.getParentFile().mkdirs();
+    }
+    private void escribir(){
+        this.newDocXml = new Document(Raiz);
+        creaRuta();
         XMLOutputter outputter = new XMLOutputter();
         outputter.setFormat(Format.getPrettyFormat());
         //FOStream = new FileOutputStream(XmlFile);
@@ -69,10 +73,9 @@ public class AdminXML {
     }
     public String getPointersToJson(){
         Collection Pointers = new ArrayList();
-        List<Element> Punteros = Raiz.getChildren();
-        Iterator<Element> i = Punteros.iterator();
-        while(i.hasNext()){
-            Element puntero = i.next();
+        Iterator<Element> Punteros = getChildrenIterator();
+        while(Punteros.hasNext()){
+            Element puntero = Punteros.next();
             Pointer pointer = new Pointer();
             pointer.setNombre(puntero.getAttributeValue("name"));
             pointer.setRuta(puntero.getAttributeValue("Ruta"));
@@ -81,13 +84,51 @@ public class AdminXML {
         escribir();
         return new Gson().toJson(Pointers);
     }
-
+    
+    public void saveQuestion(Map<String,String[]> data){
+        Element pregunta = new Element("pregunta");
+        Element relacion = new Element("relacion");
+        Element tamaño = new Element("tamaño");
+        Element puntero = new Element("puntero");
+        Element radar = new Element("radar");
+        pregunta.setAttribute("nombrePregunta", data.get("NombrePregunta")[0]);
+        relacion.setAttribute("izquierda",data.get("ValorI")[0]);
+        relacion.setAttribute("derecha",data.get("ValorD")[0]);
+        tamaño.setText(data.get("Lienzo")[0]);
+        puntero.setAttribute("ruta",data.get("Puntero")[0]);
+        radar.setAttribute("ruta", data.get("Radar")[0]);
+        pregunta.addContent(relacion);
+        pregunta.addContent(tamaño);
+        pregunta.addContent(puntero);
+        pregunta.addContent(radar);
+        Raiz.addContent(pregunta);
+        escribir();
+    }
+    
+    public void deleteQuestion(){
+        
+    }
+    private Iterator<Element> getChildrenIterator(){
+        return Raiz.getChildren().iterator();
+    };
+    public String getQuestionsToJson(){
+        Collection Preguntas = new ArrayList();
+        Iterator<Element> preguntas = getChildrenIterator();
+        while(preguntas.hasNext()){
+            Element Pregunta = preguntas.next();
+            Pregunta pregunta = new Pregunta();
+            pregunta.setNombre(Pregunta.getAttributeValue("nombrePregunta"));
+            Preguntas.add(pregunta);
+        }
+        escribir();
+        return new Gson().toJson(Preguntas);
+    }
+    
     public String getSoundsToJson() {
         Collection Sounds = new ArrayList();
-        List<Element> Sonidos = Raiz.getChildren();
-        Iterator<Element> i = Sonidos.iterator();
-        while(i.hasNext()){
-            Element Sonido = i.next();
+        Iterator<Element> Sonidos = getChildrenIterator();
+        while(Sonidos.hasNext()){
+            Element Sonido = Sonidos.next();
             Sound sound = new Sound();
             sound.setNombre(Sonido.getAttributeValue("name"));
             sound.setRuta(Sonido.getAttributeValue("Ruta"));

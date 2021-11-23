@@ -5,6 +5,7 @@
  */
 package APIs;
 
+import com.escom.ipn.cv13id5idp3.AdminXML;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -31,18 +32,12 @@ public class GetQuestions extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("application/json");
         response.setCharacterEncoding("UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet GetQuestions</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet GetQuestions at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
-        }
+        PrintWriter out = response.getWriter();
+        String Usuario = "admin";//pedir ususario de la sesion
+        String Path = request.getServletContext().getRealPath("/");
+        String XMLPath = Path + "Preguntas\\" + Usuario + "\\data\\preguntas.xml";
+        AdminXML admin = new AdminXML(XMLPath);
+        out.print(admin.getQuestionsToJson());
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

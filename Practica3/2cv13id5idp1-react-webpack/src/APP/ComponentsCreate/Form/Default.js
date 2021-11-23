@@ -59,7 +59,7 @@ class PunterosDefault extends Component {
                 <Row>
                     <Col md={7}>
                         <FloatingLabel controlId="LabelPunteros" label={"Elige un " + this.props.tipo}>
-                            <Form.Select value={this.state.Selected} onChange={this.handlerOnChange} name={this.props.tipo + "Default"}>
+                            <Form.Select value={this.state.Selected} onChange={this.handlerOnChange} name={this.props.tipo}>
                                 {this.state.Defaults.map(
                                     (item, index) => {
                                         return <option key={index} value={item.Ruta}>{item.Nombre}</option>
