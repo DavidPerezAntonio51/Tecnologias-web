@@ -19,6 +19,7 @@ class Tabla extends Component {
             )
             .then(
                 json => {
+                    console.log(json);
                     this.setState({
                         Preguntas: json,
                     });

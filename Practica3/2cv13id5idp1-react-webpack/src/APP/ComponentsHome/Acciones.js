@@ -2,11 +2,24 @@ import React, { Component } from 'react';
 import { Container, Row, Col,Button } from 'react-bootstrap';
 import Stack from 'react-bootstrap/Stack';
 import { Link } from 'react-router-dom';
+import Swal from 'sweetalert2';
+import withReactContent from 'sweetalert2-react-content';
 
 
 class Acciones extends Component {
     constructor(props) {
         super(props);
+        this.handlerEliminar = this.handlerEliminar.bind(this);
+    }
+    handlerEliminar(e){
+        const MySwal = withReactContent(Swal);
+        MySwal.fire({
+            background: '#B3B3B3',
+            icon: 'warning',
+            iconColor: '#000000',
+            title: '¡Cuidado!',
+            text: 'Deseas Eliminar la pregunta con ID: '+ this.props.pregunta,
+        });
     }
     render() {
         return (
@@ -26,7 +39,7 @@ class Acciones extends Component {
                             Modificar
                         </Button>
                         <div className="vr" />
-                        <Button variant="outline-danger">
+                        <Button variant="outline-danger" onClick={this.handlerEliminar}>
                             Eliminar
                         </Button>
                     </Stack>

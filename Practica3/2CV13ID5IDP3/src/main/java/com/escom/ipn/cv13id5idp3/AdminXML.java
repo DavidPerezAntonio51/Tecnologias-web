@@ -19,6 +19,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import org.apache.commons.io.FileUtils;
 import org.jdom2.Element;
 import org.jdom2.Document;
 import org.jdom2.JDOMException;
@@ -104,13 +105,32 @@ public class AdminXML {
         Raiz.addContent(pregunta);
         escribir();
     }
-    
-    public void deleteQuestion(){
-        
+    private Element searchQuestion(String Pregunta){
+        Iterator<Element> iterador = getChildrenIterator();
+        while(iterador.hasNext()){
+            Element pregunta = iterador.next();
+            if(pregunta.getAttributeValue("nombrePregunta").equals(Pregunta)){
+                return pregunta;
+            }
+        }
+        return null;
+    }
+    private void deleteFiles(String RutaArchivos){
+        try {
+            FileUtils.deleteDirectory(new File(RutaArchivos));
+        } catch (IOException ex) {
+            System.err.println(ex.getMessage());
+        }
+    }
+    public void deleteQuestion(String Pregunta,String Archivos){
+        Element pregunta = searchQuestion(Pregunta);
+        deleteFiles(Archivos);
+        pregunta.detach();
+        escribir();
     }
     private Iterator<Element> getChildrenIterator(){
         return Raiz.getChildren().iterator();
-    };
+    }
     public String getQuestionsToJson(){
         Collection Preguntas = new ArrayList();
         Iterator<Element> preguntas = getChildrenIterator();
