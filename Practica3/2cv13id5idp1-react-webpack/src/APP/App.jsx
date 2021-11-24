@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { BrowserRouter as Router, Switch, Route, NavLink, Link } from "react-router-dom";
 import Home from './Home.jsx';
 import Crear from './Create.jsx';
+import Modify from './Modify.jsx';
 import Play from './Play.jsx';
 import List from './Lista.jsx';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -23,6 +24,11 @@ class App extends Component {
           matches the current URL. Use a <Switch> any time
           you have multiple routes, but you want only one
           of them to render at a time
+                        
+                        
+
+
+
         */}
                     <Switch>
                         <Route exact path="/2CV13ID5IDP3/">
@@ -34,6 +40,12 @@ class App extends Component {
                         <Route exact path="/2CV13ID5IDP3/create">
                             <Crear title="Crea una nueva pregunta llenando los datos"/>
                         </Route>
+
+                        <Route exact path="/2CV13ID5IDP3/modify">
+                            <Modify title="Edita los datos de las preguntas"/>
+                        </Route>
+
+
                         <Route exact path="/2CV13ID5IDP3/dashboard">
                             <Dashboard />
                         </Route>
