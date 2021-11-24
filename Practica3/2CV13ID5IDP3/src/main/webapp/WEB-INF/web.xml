@@ -36,6 +36,10 @@
         <servlet-name>deleteQuestion</servlet-name>
         <servlet-class>APIs.deleteQuestion</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>updateQuestion</servlet-name>
+        <servlet-class>administrador.updateQuestion</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>create</servlet-name>
         <url-pattern>/create</url-pattern>
@@ -71,6 +75,10 @@
     <servlet-mapping>
         <servlet-name>deleteQuestion</servlet-name>
         <url-pattern>/API/deleteQuestion</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>updateQuestion</servlet-name>
+        <url-pattern>/updateQuestion</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

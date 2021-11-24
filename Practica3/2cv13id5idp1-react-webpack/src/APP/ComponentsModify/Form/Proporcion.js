@@ -30,7 +30,7 @@ class Proporcion extends Component {
                 <Form.Label>Elige la porporcion que deseas usar</Form.Label>
                 <Stack direction="horizontal" gap={3}>
                     <Form.Label>Proporcion </Form.Label>
-                    <FloatingLabel controlId="Valor1" label={"Valor anterior"+this.props.ValorI} style={{width:"250px"}}>
+                    <FloatingLabel controlId="Valor1" label={"Valor anterior: "+this.props.ValorI} style={{width:"250px"}}>
                         <Form.Select value={this.state.valorI} name="ValorI" onChange={this.handlerOnChangeI}>
                             <option value={1}>1</option>
                             <option value={2}>2</option>
@@ -45,7 +45,7 @@ class Proporcion extends Component {
                         </Form.Select>
                     </FloatingLabel>
                     <Form.Label>a</Form.Label>
-                    <FloatingLabel controlId="Valor2" label={"Valor anterior"+this.props.ValorD} style={{width:"250px"}}>
+                    <FloatingLabel controlId="Valor2" label={"Valor anterior: "+this.props.ValorD} style={{width:"250px"}}>
                         <Form.Select value={this.state.valorD} name="ValorD" onChange={this.handlerOnChangeD}>
                             <option value={1}>1</option>
                             <option value={2}>2</option>

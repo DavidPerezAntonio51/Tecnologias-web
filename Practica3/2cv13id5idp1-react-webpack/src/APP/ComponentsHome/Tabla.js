@@ -9,8 +9,25 @@ class Tabla extends Component {
         this.state = {
             Preguntas: [],
         }
+        this.updateTable = this.updateTable.bind(this);
     }
     componentDidMount() {
+        fetch('http://localhost:8080/2CV13ID5IDP3/API/getQuestions')
+            .then(
+                response => {
+                    return response.ok ? response.json() : response.status;
+                }
+            )
+            .then(
+                json => {
+                    console.log(json);
+                    this.setState({
+                        Preguntas: json,
+                    });
+                }
+            );
+    }
+    updateTable(e){
         fetch('http://localhost:8080/2CV13ID5IDP3/API/getQuestions')
             .then(
                 response => {
@@ -71,7 +88,7 @@ class Tabla extends Component {
                                                 </Row>
                                             </Container>
                                         </td>
-                                        <td key={"Actions" + pregunta.Nombre}><Acciones pregunta={pregunta.Nombre} /></td>
+                                        <td key={"Actions" + pregunta.Nombre}><Acciones update={this.updateTable} pregunta={pregunta.Nombre} /></td>
                                     </tr>
                             )}
                         </tbody>

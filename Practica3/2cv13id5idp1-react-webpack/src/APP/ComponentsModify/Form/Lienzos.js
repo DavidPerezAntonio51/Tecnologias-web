@@ -20,7 +20,7 @@ class Lienzo extends Component {
             <Form.Group>
                 <Form.Label>Elige el tamaño del lienzo:</Form.Label>
 
-                <FloatingLabel controlId="Valor1" label={"Tamaño anterior del loenzo: "+this.props.Lienzo}>
+                <FloatingLabel controlId="Valor1" label={"Tamaño anterior del lienzo: "+this.props.Lienzo}>
                     <Form.Select value={this.state.Tamaño} name="Lienzo" onChange={this.handlerOnChange}>
                         <option value={10}>1-10</option>
                         <option value={20}>1-20</option>

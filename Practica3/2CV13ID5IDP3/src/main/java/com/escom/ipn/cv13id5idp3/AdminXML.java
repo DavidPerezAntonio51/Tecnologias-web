@@ -85,9 +85,7 @@ public class AdminXML {
         escribir();
         return new Gson().toJson(Pointers);
     }
-    
-    public void saveQuestion(Map<String,String[]> data){
-        Element pregunta = new Element("pregunta");
+    private Element addContent(Element pregunta, Map<String,String[]> data){
         Element relacion = new Element("relacion");
         Element tamaño = new Element("tamaño");
         Element puntero = new Element("puntero");
@@ -102,7 +100,11 @@ public class AdminXML {
         pregunta.addContent(tamaño);
         pregunta.addContent(puntero);
         pregunta.addContent(radar);
-        Raiz.addContent(pregunta);
+        return pregunta;
+    }
+    public void saveQuestion(Map<String,String[]> data){
+        Element pregunta = new Element("pregunta");
+        Raiz.addContent(this.addContent(pregunta, data));
         escribir();
     }
     private Element searchQuestion(String Pregunta){
@@ -137,6 +139,14 @@ public class AdminXML {
         Element pregunta = searchQuestion(Pregunta);
         deleteFiles(Archivos);
         pregunta.detach();
+        escribir();
+    }
+    public void updateQuestion(String Pregunta,String Archivos,Map<String,String[]> data){
+        Element pregunta = searchQuestion(Pregunta);
+        deleteFiles(Archivos);
+        pregunta.removeContent();
+        pregunta.detach();
+        Raiz.addContent(this.addContent(pregunta, data));
         escribir();
     }
     private Iterator<Element> getChildrenIterator(){

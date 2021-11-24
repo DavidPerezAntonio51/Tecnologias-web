@@ -17,7 +17,7 @@ class NombrePregunta extends Component {
     }
     render() {
         return (
-                <Form.Control type="text" placeholder={this.props.Pname} readOnly />
+                <Form.Control name="NombrePregunta" type="text" placeholder={this.props.Pname} value={this.props.Pname} readOnly />
 
         );
     }

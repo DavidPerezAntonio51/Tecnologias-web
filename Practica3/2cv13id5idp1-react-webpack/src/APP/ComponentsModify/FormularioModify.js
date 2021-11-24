@@ -75,7 +75,7 @@ class FormularioModify extends Component {
                             <Lienzo Lienzo={this.state.Pregunta.Tamaño}/>
                         </Col>
                     </Row>
-                    
+                    Elige nuevos elementos.
                     <Row>
                         <Col>
                             <Puntero changeEnctype={this.handlerPointer}/>
