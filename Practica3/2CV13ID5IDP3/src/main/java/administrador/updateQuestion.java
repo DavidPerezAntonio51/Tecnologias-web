@@ -12,6 +12,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
 import java.util.Map;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -70,13 +71,13 @@ public class updateQuestion extends HttpServlet {
                 System.err.println(ex.getMessage());
             }
             out.println("Multipart");
-            response.sendRedirect("http://localhost:3000/2CV13ID5IDP3/");
+            response.sendRedirect("/2CV13ID5IDP3/");
         }else{
             Map<String, String[]> parametros = request.getParameterMap();
             String nombrePregunta = parametros.get("NombrePregunta")[0];
             admin.updateQuestion(nombrePregunta, UserPath+nombrePregunta, parametros);
             System.err.println(nombrePregunta);
-            response.sendRedirect("http://localhost:3000/2CV13ID5IDP3/");
+            response.sendRedirect("/2CV13ID5IDP3/");
         }
         
         //Cambiar la linea de Abajo por un forward al terminar el desarrollo
