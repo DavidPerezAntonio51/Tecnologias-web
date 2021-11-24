@@ -5,7 +5,6 @@ import { Link } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import withReactContent from 'sweetalert2-react-content';
 
-
 class Acciones extends Component {
     constructor(props) {
         super(props);
@@ -14,11 +13,27 @@ class Acciones extends Component {
     handlerEliminar(e){
         const MySwal = withReactContent(Swal);
         MySwal.fire({
-            background: '#B3B3B3',
+            background: '#212529',
             icon: 'warning',
-            iconColor: '#000000',
+            iconColor: '#dc3545',
             title: '¡Cuidado!',
             text: 'Deseas Eliminar la pregunta con ID: '+ this.props.pregunta,
+            showDenyButton: true,
+            confirmButtonColor: '#198754',
+            confirmButtonText: '¡Hagamoslo!',
+            denyButtonColor: '#dc3545',
+            denyButtonText: '¡NO!',
+        })
+        .then(result=>{
+            console.log(result);
+            if(result.isConfirmed){
+                fetch('http://localhost:8080/2CV13ID5IDP3/API/deleteQuestion?pregunta='+this.props.pregunta)
+                .then(Response=>{
+                    console.log(Response.ok);
+                });
+            }else{
+
+            }
         });
     }
     render() {

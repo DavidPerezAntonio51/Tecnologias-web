@@ -36,6 +36,7 @@ public class deleteQuestion extends HttpServlet {
         String PATHXml = request.getServletContext().getRealPath("/")+"Preguntas\\"+user+"\\data\\preguntas.xml";
         AdminXML admin = new AdminXML(PATHXml);
         admin.deleteQuestion(Pregunta, PathArchivos);
+        response.setStatus(202);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

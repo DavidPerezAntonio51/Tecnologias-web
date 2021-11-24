@@ -23,7 +23,7 @@ module.exports = {
         },
       },
       {
-        test: /\.css$/i,
+        test: /\.s?css$/i,
         /* use: [MiniCssExtractPlugin.loader, "css-loader"], */
         use: [
           {

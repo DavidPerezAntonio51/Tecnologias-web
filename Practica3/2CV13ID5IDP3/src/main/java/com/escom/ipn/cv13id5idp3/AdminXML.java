@@ -115,6 +115,17 @@ public class AdminXML {
         }
         return null;
     }
+    public String getQuestionToJson(String Pregunta){
+        Element pregunta = searchQuestion(Pregunta);
+        Pregunta preguntaJson = new Pregunta();
+        preguntaJson.setNombre(pregunta.getAttributeValue("nombrePregunta"));
+        preguntaJson.setValorI(pregunta.getChild("relacion").getAttributeValue("izquierda"));
+        preguntaJson.setValorD(pregunta.getChild("relacion").getAttributeValue("derecha"));
+        preguntaJson.setTamaño(pregunta.getChild("tamaño").getText());
+        preguntaJson.setPuntero(pregunta.getChild("puntero").getAttributeValue("ruta"));
+        preguntaJson.setRadar(pregunta.getChild("radar").getAttributeValue("ruta"));
+        return new Gson().toJson(preguntaJson);
+    }
     private void deleteFiles(String RutaArchivos){
         try {
             FileUtils.deleteDirectory(new File(RutaArchivos));
