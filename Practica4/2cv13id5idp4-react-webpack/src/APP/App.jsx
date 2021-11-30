@@ -1,10 +1,6 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Switch, Route, NavLink, Link } from "react-router-dom";
-import Home from './Home.jsx';
-import Crear from './Create.jsx';
-import Modify from './Modify.jsx';
-import Play from './Play.jsx';
-import List from './Lista.jsx';
+import Rutas from './Router/Rutas';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 class App extends Component {
@@ -17,61 +13,10 @@ class App extends Component {
                         </li>
                     </ul>
                     <hr />
-
-                    {/*
-          A <Switch> looks through all its children <Route>
-          elements and renders the first one whose path
-          matches the current URL. Use a <Switch> any time
-          you have multiple routes, but you want only one
-          of them to render at a time
-                        
-                        
-
-
-
-        */}
-                    <Switch>
-                        <Route exact path="/2CV13ID5IDP3/">
-                            <Home title="Crear, Ver, Modificar y Eliminar"/>
-                        </Route>
-                        <Route exact path="/2CV13ID5IDP3/play">
-                            <List/>
-                        </Route>
-                        <Route exact path="/2CV13ID5IDP3/create">
-                            <Crear title="Crea una nueva pregunta llenando los datos"/>
-                        </Route>
-
-                        <Route exact path="/2CV13ID5IDP3/modify">
-                            <Modify title="Edita los datos de las preguntas"/>
-                        </Route>
-
-
-                        <Route exact path="/2CV13ID5IDP3/dashboard">
-                            <Dashboard />
-                        </Route>
-                    </Switch>
+                    <Rutas/>
                 </div>
         );
     }
 
-}
-
-// You can think of these components as "pages"
-// in your app.
-
-function About() {
-    return (
-        <div>
-            <h2>About</h2>
-        </div>
-    );
-}
-
-function Dashboard() {
-    return (
-        <div>
-            <h2>Dashboard</h2>
-        </div>
-    );
 }
 export default App;
