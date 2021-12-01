@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
 import {Switch,Route,Redirect} from 'react-router-dom'
-import Home from './Home.jsx';
-import Crear from './Create.jsx';
-import Modify from './Modify.jsx';
-import Play from './Play.jsx';
-import List from './Lista.jsx';
-import Login from './Login.jsx';
+import Home from '../Home.jsx';
+import Crear from '../Create.jsx';
+import Modify from '../Modify.jsx';
+import Play from '../Play.jsx';
+import List from '../Lista.jsx';
+import Login from '../Login.jsx';
 
 class Rutas extends Component {
     constructor(props) {
@@ -46,10 +46,6 @@ class Rutas extends Component {
                     <Modify title="Edita los datos de las preguntas" />
                 </Route>
 
-
-                <Route exact path="/2CV13ID5IDP3/dashboard">
-                    <Dashboard />
-                </Route>
             </Switch>
         );
     }

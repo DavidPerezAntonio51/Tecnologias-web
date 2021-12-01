@@ -9,7 +9,7 @@ class App extends Component {
                 <div>
                     <ul>
                         <li>
-                            <Link to="/2CV13ID5IDP3/">Home</Link>
+                            <Link to="/2CV13ID5IDP3/login">Home</Link>
                         </li>
                     </ul>
                     <hr />
