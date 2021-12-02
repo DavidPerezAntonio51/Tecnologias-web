@@ -8,8 +8,8 @@ class Login extends Component {
         super(props);
         this.state = { 
             alert: false,
-            usuario: "",
-            contraseña: "",
+            name: "",
+            password: "",
         }
         this.verifica = this.verifica.bind(this);
         this.handlerOnChangeUser = this.handlerOnChangeUser.bind(this);
@@ -18,34 +18,38 @@ class Login extends Component {
     verifica(e) {
         e.preventDefault();
         var data = {
-            usuario: this.state.usuario,
-            contraseña: this.state.contraseña
+            name: this.state.name,
+            password: this.state.password
         }
         const config = {
             method: 'POST',
             body: JSON.stringify(data),
             //mode: 'cors',
-            headers: {
-                'Content-Type': 'application/json'
-            }
+            
         }
         console.log(config)
         fetch('http://localhost:8080/2CV13ID5IDP4/API/Login',config)
         .then(result=> {
-            console.log(result);
+            return result.ok? result.json(): result.status
         })
         .then(json=> {
-            this.props.handleLogin(e,json)
+            console.log(json);
+            if(json.error){
+                this.setState({
+                    alert: true,
+                    error: json.error
+                })
+            }
         })
     }
     handlerOnChangeUser(e){
         this.setState({
-            usuario: e.target.value
+            name: e.target.value
         })
     }
     handlerOnChangePassword(e){
         this.setState({
-            contraseña: e.target.value
+            password: e.target.value
         })
     }
     render() { 
@@ -64,7 +68,7 @@ class Login extends Component {
             <Form.Group>
                 <Form.Label>Ingrese su usuario</Form.Label>
                 <Form.Floating >
-                    <Form.Control name="User" type="text" placeholder="Usuario" value={this.state.usuario} onChange={this.handlerOnChangeUser} />
+                    <Form.Control name="User" type="text" placeholder="Usuario" value={this.state.name} onChange={this.handlerOnChangeUser} />
                     <label className="login-labi" htmlFor="Nombre">Nombre de usuario</label>
                 </Form.Floating>
             </Form.Group>
@@ -75,7 +79,7 @@ class Login extends Component {
             <Form.Group>
                 <Form.Label>Ingrese su contraseña</Form.Label>
                 <Form.Floating >
-                    <Form.Control name="password" type="password" placeholder="Contraseña" value={this.state.contraseña} onChange={this.handlerOnChangePassword} />
+                    <Form.Control name="password" type="password" placeholder="Contraseña" value={this.state.password} onChange={this.handlerOnChangePassword} />
                     <label className="login-labi" htmlFor="Contraseña">contraseña</label>
                 </Form.Floating>
             </Form.Group>

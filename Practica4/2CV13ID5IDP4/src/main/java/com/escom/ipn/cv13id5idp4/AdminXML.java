@@ -8,6 +8,7 @@ package com.escom.ipn.cv13id5idp4;
 import JsonTemplates.Pointer;
 import JsonTemplates.Pregunta;
 import JsonTemplates.Sound;
+import JsonTemplates.Usuario;
 import com.google.gson.Gson;
 import java.io.File;
 import java.io.FileOutputStream;
@@ -177,5 +178,25 @@ public class AdminXML {
         }
         escribir();
         return new Gson().toJson(Sounds);
+    }
+    public Boolean userEsist(Usuario user){
+        Iterator<Element> usuarios = getChildrenIterator();
+        while(usuarios.hasNext()){
+            Element usuario = usuarios.next();
+            if(user.getName().equals(usuario.getAttributeValue("name"))){
+                return true;
+            }
+        }
+        return false;
+    }
+    public Boolean loginUser(Usuario user){
+        Iterator<Element> usuarios = getChildrenIterator();
+        while(usuarios.hasNext()){
+            Element usuario = usuarios.next();
+            if(user.getName().equals(usuario.getAttributeValue("name")) && user.getPassword().equals(usuario.getAttributeValue("password"))){
+                return true;
+            }
+        }
+        return false;
     }
 }
