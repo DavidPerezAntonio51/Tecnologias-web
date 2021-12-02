@@ -16,34 +16,51 @@ class Rutas extends Component {
         this.handleLogin = this.handleLogin.bind(this)
         this.handleLogout = this.handleLogout.bind(this)
     }
-    handleLogin(event,user){
+    componentDidMount() {
+        const user = window.localStorage.getItem('User')
+        if(user){
+            this.setState({
+                User: user
+            })
+        }
+    }
+    handleLogin(user){
         this.setState({
-            
+            User: user
         })
     }
     handleLogout(event){
         this.setState({
-            
+            User: ""
         })
+        window.localStorage.removeItem('User')
     }
     render() {
         return (
             <Switch>
-                <Route exact path="/2CV13ID5IDP3/login">
-                    {this.state.Logged?<Redirect to="/2CV13ID5IDP3/home"/>:<Login handleLogin={this.handleLogin}/>}
+                <Route exact path="/2CV13ID5IDP4/login">
+                    {this.state.User?<Redirect to="/2CV13ID5IDP4/home"/>:<Login handleLogin={this.handleLogin}/>}
                 </Route>
-                <Route exact path="/2CV13ID5IDP3/home">
-                    {this.state.Logged?<Home title="Crear, Ver, Modificar y Eliminar" />:<Redirect to="/2CV13ID5IDP3/login"/>}
+                <Route exact path="/2CV13ID5IDP4/home">
+                    {this.state.User
+                    ?<Home title="Crear, Ver, Modificar y Eliminar" handleLogout={this.handleLogout} User={this.state.User}/>
+                    :<Redirect to="/2CV13ID5IDP4/login"/>}
                 </Route>
-                <Route exact path="/2CV13ID5IDP3/play">
-                    <List />
+                <Route exact path="/2CV13ID5IDP4/play">
+                    {this.state.User
+                    ?<List />
+                    :<Redirect to="/2CV13ID5IDP4/login"/>}
                 </Route>
-                <Route exact path="/2CV13ID5IDP3/create">
-                    <Crear title="Crea una nueva pregunta llenando los datos" />
+                <Route exact path="/2CV13ID5IDP4/create">
+                    {this.state.User
+                    ?<Crear title="Crea una nueva pregunta llenando los datos" />
+                    :<Redirect to="/2CV13ID5IDP4/login"/>}
                 </Route>
 
-                <Route exact path="/2CV13ID5IDP3/modify">
-                    <Modify title="Edita los datos de las preguntas" />
+                <Route exact path="/2CV13ID5IDP4/modify">
+                    {this.state.User
+                    ?<Modify title="Edita los datos de las preguntas" />
+                    :<Redirect to="/2CV13ID5IDP4/login"/>}
                 </Route>
 
             </Switch>

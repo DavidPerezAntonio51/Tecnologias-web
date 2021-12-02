@@ -28,8 +28,8 @@ class PunterosDefault extends Component {
                 Tipo: "Sonido",
             });
         }
-        fetch('http://localhost:8080/2CV13ID5IDP3/API/'+api).
-        then(
+        fetch('http://localhost:8080/2CV13ID5IDP4/API/'+api)
+        .then(
             response => {
                 return response.ok? response.json():response.status;
             }

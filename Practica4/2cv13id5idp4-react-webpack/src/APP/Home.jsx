@@ -11,18 +11,25 @@ import Tabla from './ComponentsHome/Tabla.js';
 class Home extends Component {
     constructor(props) {
         super(props);
-        this.state = { 
-
-         }
     }
     render() { 
         return ( 
             <div>
+                <Container>
+                    <Row>
+                        <Col>
+                            <h1>Laboratorio virtual de: {this.props.User}</h1>
+                        </Col>
+                        <Col xs md="3" lg="2">
+                            <Button variant="outline-secondary" type="button" onClick={this.props.handleLogout}>Cerrar Sesión</Button>
+                        </Col>
+                    </Row>
+                </Container>
                 <Encabezado title={this.props.title}></Encabezado>
                 <Container>
                     <Row>
                         <Col>
-                            <Button variant="outline-dark" as={Link}to="/2CV13ID5IDP3/create">Crear Pregunta</Button>
+                            <Button variant="outline-dark" as={Link}to="/2CV13ID5IDP4/create">Crear Pregunta</Button>
                         </Col>
                     </Row>
                 </Container>
