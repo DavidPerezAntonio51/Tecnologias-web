@@ -2,4 +2,5 @@
 <Usuarios>
     <Usuario name="admin" password="1234"/>
     <Usuario name="David" password="79137913"/>
+    <Usuario name="Dezkser" password="david"/>
 </Usuarios>

@@ -27,7 +27,7 @@ class Acciones extends Component {
             .then(result => {
                 console.log(result);
                 if (result.isConfirmed) {
-                    fetch('http://localhost:8080/2CV13ID5IDP3/API/deleteQuestion?pregunta=' + this.props.pregunta)
+                    fetch('http://localhost:8080/2CV13ID5IDP4/API/deleteQuestion?pregunta=' + this.props.pregunta)
                         .then(Response => {
                             if (Response.ok) {
                                 MySwal.fire({
@@ -36,7 +36,7 @@ class Acciones extends Component {
                                     iconColor: '#198754',
                                     title: '¡Hecho!',
                                     text: 'La pregunta fue eliminada correctamente',
-                                    timer: 4500,
+                                    timer: 3000,
                                     didOpen: () => {
                                         MySwal.showLoading();
                                     },
@@ -49,7 +49,7 @@ class Acciones extends Component {
                                     iconColor: '#dc3545',
                                     title: '¡ERROR!',
                                     text: 'Ocurrio un error con el Servidor, Revisa tu conexiona Internet',
-                                    timer: 4500,
+                                    timer: 3000,
                                     didOpen: () => {
                                         MySwal.showLoading();
                                     },
@@ -63,7 +63,7 @@ class Acciones extends Component {
                         iconColor: '#FFFFFF',
                         title: '¡Cancelado!',
                         text: 'La pregunta esta a salvo',
-                        timer: 4500,
+                        timer: 3000,
                         didOpen: () => {
                             MySwal.showLoading();
                         },
@@ -77,15 +77,15 @@ class Acciones extends Component {
                 <Row className="justify-content-md-center">
                     <Col md="auto">
                         <Stack direction="horizontal" gap={3}>
-                            <Button as={Link} to={"/2CV13ID5IDP3/play" + "?pregunta=" + this.props.pregunta} variant="outline-success">
+                            <Button as={Link} to={"/2CV13ID5IDP4/play" + "?pregunta=" + this.props.pregunta} variant="outline-success">
                                 Jugar
                             </Button>
                             <div className="vr" />
-                            <Button as={Link} to={"/2CV13ID5IDP3/preview" + "?pregunta=" + this.props.pregunta} variant="outline-info">
+                            <Button as={Link} to={"/2CV13ID5IDP4/preview" + "?pregunta=" + this.props.pregunta} variant="outline-info">
                                 Previsualizar
                             </Button>
                             <div className="vr" />
-                            <Button as={Link} to={"/2CV13ID5IDP3/modify" + "?pregunta=" + this.props.pregunta} variant="outline-light">
+                            <Button as={Link} to={"/2CV13ID5IDP4/modify" + "?pregunta=" + this.props.pregunta} variant="outline-light">
                                 Modificar
                             </Button>
                             <div className="vr" />
