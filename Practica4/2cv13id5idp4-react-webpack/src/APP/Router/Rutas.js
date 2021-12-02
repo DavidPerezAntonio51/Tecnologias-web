@@ -11,26 +11,26 @@ class Rutas extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            Logged: false,
+            User: "",
         }
         this.handleLogin = this.handleLogin.bind(this)
         this.handleLogout = this.handleLogout.bind(this)
     }
-    handleLogin(event){
+    handleLogin(event,user){
         this.setState({
-            Logged: true,
+            
         })
     }
     handleLogout(event){
         this.setState({
-            Logged: false,
+            
         })
     }
     render() {
         return (
             <Switch>
                 <Route exact path="/2CV13ID5IDP3/login">
-                    {this.state.Logged?<Redirect to="/2CV13ID5IDP3/home"/>:<Login/>}
+                    {this.state.Logged?<Redirect to="/2CV13ID5IDP3/home"/>:<Login handleLogin={this.handleLogin}/>}
                 </Route>
                 <Route exact path="/2CV13ID5IDP3/home">
                     {this.state.Logged?<Home title="Crear, Ver, Modificar y Eliminar" />:<Redirect to="/2CV13ID5IDP3/login"/>}
