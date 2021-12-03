@@ -3,6 +3,8 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import Swal from 'sweetalert2';
 import withReactContent from 'sweetalert2-react-content';
+import { Container, Row, Col } from 'react-bootstrap';
+
 
 class Login extends Component {
     constructor(props) {
@@ -49,7 +51,6 @@ class Login extends Component {
                     background: '#212529',
                     icon: 'success',
                     iconColor: '#198754',
-                    textColor: '#198754',
                     title: 'Bienvenido: ' + json.data.name,
                     showConfirmButton: false,
                     timer: 3000,
@@ -76,16 +77,12 @@ class Login extends Component {
     }
     render() {
         return (
-            <form>
 
-                <div className="login-body">
+                    <Container className="login-box">
 
+                        <h3 className="logitext">Inicio de sesión</h3>
 
-                    <div className="login-box">
-
-                        <h3>Inicio de sesion</h3>
-
-                        <div className="login-lab">
+                        <Container className="login-lab">
 
                             <Form.Group>
                                 <Form.Label>Ingrese su usuario</Form.Label>
@@ -95,9 +92,9 @@ class Login extends Component {
                                 </Form.Floating>
                             </Form.Group>
 
-                        </div>
+                        </Container>
 
-                        <div className="login-lab">
+                        <Container className="login-lab">
                             <Form.Group>
                                 <Form.Label>Ingrese su contraseña</Form.Label>
                                 <Form.Floating >
@@ -105,16 +102,14 @@ class Login extends Component {
                                     <label className="login-labi" htmlFor="Contraseña">contraseña</label>
                                 </Form.Floating>
                             </Form.Group>
-                        </div>
+                        </Container>
 
-                        <div className="login-boton">
-                            <Button size="lg" variant="outline-light" type="button" onClick={this.verifica}>Regresar </Button>
-                        </div>
+                        <Container className="login-boton">
+                            <Button size="lg" variant="success" type="button" onClick={this.verifica}>Iniciar sesión</Button>
+                        </Container>
 
-                    </div>
-                </div>
-
-            </form>
+                    </Container>
+            
         );
     }
 }

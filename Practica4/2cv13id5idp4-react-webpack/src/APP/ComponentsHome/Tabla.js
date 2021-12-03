@@ -45,10 +45,10 @@ class Tabla extends Component {
     }
     render() {
         return (
-            <Container>
+            <Container className="help">
                 <Row>
                     <Col>
-                        <h2>Preguntas</h2>
+                        <h2 className="textV">Preguntas</h2>
                     </Col>
                 </Row>
                 <Row>

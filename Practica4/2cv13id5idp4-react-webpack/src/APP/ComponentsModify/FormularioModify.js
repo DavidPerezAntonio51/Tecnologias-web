@@ -59,7 +59,7 @@ class FormularioModify extends Component {
                     
                     <Row>    
                         <Col>
-                            Nombre de la pregunta
+                           <Form.Label>Nombre de la pregunta</Form.Label>
                             <NombrePregunta Pname={this.state.Pregunta.Nombre}/>
                         </Col>
                     </Row>
@@ -75,13 +75,11 @@ class FormularioModify extends Component {
                             <Lienzo Lienzo={this.state.Pregunta.Tamaño}/>
                         </Col>
                     </Row>
-                    Elige nuevos elementos.
+                    <Form.Label> Elige nuevos elementos.</Form.Label>
                     <Row>
                         <Col>
                             <Puntero changeEnctype={this.handlerPointer}/>
-                        </Col>
-                    </Row>
-                    <Row>    
+                        </Col>  
                         <Col>
                             <Radar changeEnctype={this.handlerRadar}/>
                         </Col>

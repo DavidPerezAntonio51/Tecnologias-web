@@ -41,7 +41,7 @@ class Modify extends Component {
                 <Row >
                     <Col>
                         <Row>
-                            <Button as={Link} to="/2CV13ID5IDP4/" size="lg" variant="outline-dark">Regresar </Button>
+                            <Button as={Link} to="/2CV13ID5IDP4/home" size="lg" variant="outline-light">Regresar </Button>
                         </Row>
                     </Col>
 
@@ -49,7 +49,7 @@ class Modify extends Component {
                         <Row>
                             <Col>
                                 <Row>
-                                <Button size="lg" as="input" type="submit" value="Actualizar" variant="outline-dark" form="formify" />  
+                                <Button size="lg" as="input" type="submit" value="Actualizar" variant="outline-light" form="formify" />  
                                 </Row>
                             </Col>
                         </Row>

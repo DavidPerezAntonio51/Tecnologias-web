@@ -12,7 +12,7 @@ class Encabezado extends Component {
             <Container fluid>
                 <Row className="justify-content-md-center">
                     <Col md="auto">
-                        <h1>{this.props.title}</h1>
+                        <h1 className="textV1">{this.props.title}</h1>
                     </Col>
                 </Row>
             </Container>

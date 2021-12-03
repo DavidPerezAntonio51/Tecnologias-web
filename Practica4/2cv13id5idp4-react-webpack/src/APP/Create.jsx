@@ -42,15 +42,14 @@ class Crear extends Component {
                 <Row >
                     <Col>
                         <Row>
-                            <Button as={Link} to="/2CV13ID5IDP4/home" size="lg" variant="outline-dark">Regresar </Button>
+                            <Button as={Link} to="/2CV13ID5IDP4/home" size="lg" variant="outline-light">Regresar </Button>
                         </Row>
                     </Col>
-
                     <Col>
                         <Row>
                             <Col>
                                 <Row>
-                                    <Button size="lg" as="input" type="submit" value="Guardar" variant="outline-dark" form="formulario" />
+                                    <Button size="lg" as="input" type="submit" value="Guardar" variant="outline-light" form="formulario" />
                                 </Row>
                             </Col>
                         </Row>

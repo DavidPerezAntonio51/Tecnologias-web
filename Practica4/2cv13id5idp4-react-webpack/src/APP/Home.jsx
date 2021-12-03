@@ -18,10 +18,10 @@ class Home extends Component {
                 <Container>
                     <Row>
                         <Col>
-                            <h1>Laboratorio virtual de: {this.props.User}</h1>
+                            <h1 className="textV1">Laboratorio virtual de: {this.props.User}</h1>
                         </Col>
                         <Col xs md="3" lg="2">
-                            <Button variant="outline-secondary" type="button" onClick={this.props.handleLogout}>Cerrar Sesión</Button>
+                            <Button variant="outline-light" type="button" onClick={this.props.handleLogout}>Cerrar Sesión</Button>
                         </Col>
                     </Row>
                 </Container>
@@ -29,7 +29,7 @@ class Home extends Component {
                 <Container>
                     <Row>
                         <Col>
-                            <Button variant="outline-dark" as={Link}to="/2CV13ID5IDP4/create">Crear Pregunta</Button>
+                            <Button variant="outline-light" as={Link}to="/2CV13ID5IDP4/create">Crear Pregunta</Button>
                         </Col>
                     </Row>
                 </Container>
