@@ -30,7 +30,6 @@
   .textV1{
     color: #ffc107;
     padding-top: 20px;
-    padding-bottom: 75px;
   }
   
   Label{
@@ -71,7 +70,7 @@
   body{
     min-height: 100vh;
     max-height: 100vh;
-    background: linear-gradient(#170730, #7597de);
+    background: linear-gradient(#100522, #7597de);
   
   }
 

@@ -48,7 +48,7 @@ class Rutas extends Component {
                 </Route>
                 <Route exact path="/2CV13ID5IDP4/play">
                     {this.state.User
-                    ?<List />
+                    ?<Play/>
                     :<Redirect to="/2CV13ID5IDP4/login"/>}
                 </Route>
                 <Route exact path="/2CV13ID5IDP4/create">

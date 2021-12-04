@@ -6,19 +6,37 @@ class ModuloJuego extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            RelacionActual: 1,
+            ValorI: 1,
+            ValorD: 1,
+            Resultado: 1,
         }
+        this.updateIzquierdo = this.updateIzquierdo.bind(this);
+        this.updateDerecho = this.updateDerecho.bind(this);
+    }
+    updateIzquierdo(valor){
+        this.setState({
+            ValorI: valor
+        })
+    }
+    updateDerecho(valor){
+        this.setState({
+            ValorD: valor
+        })
     }
     render() {
         return (
+            <Container>
             <Row>
                 <Col>
-                    <ModuloMano objetos={this.props.objetosI} handlerOnDragEnd={this.props.handlerOnDragEndI}/>
+                    <ModuloMano handlerUpdate={this.updateIzquierdo}/>
                 </Col>
                 <Col>
-                    <ModuloMano objetos={this.props.objetosD} handlerOnDragEnd={this.props.handlerOnDragEndD}/>
+                    <ModuloMano handlerUpdate={this.updateDerecho}/>
+                </Col>
+                <Col md={2} lg={5}>
                 </Col>
             </Row>
+            </Container>
         );
     }
 }
