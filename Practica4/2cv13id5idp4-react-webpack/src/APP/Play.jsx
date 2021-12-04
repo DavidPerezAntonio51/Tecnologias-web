@@ -31,7 +31,7 @@ class Play extends Component {
             <Container>
                 <Encabezado title={this.state.Pregunta.Nombre}></Encabezado>
                 <Row>
-                    <ModuloJuego data={this.state.Pregunta}/>
+                    <ModuloJuego RespuestaCorrecta={this.state.Pregunta.ValorI/this.state.Pregunta.ValorD}/>
                 </Row>
             </Container>
          );

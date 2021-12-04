@@ -146,8 +146,7 @@ public class AdminXML {
         Element pregunta = searchQuestion(Pregunta);
         deleteFiles(Archivos);
         pregunta.removeContent();
-        pregunta.detach();
-        Raiz.addContent(this.addContent(pregunta, data));
+        this.addContent(pregunta, data);
         escribir();
     }
     private Iterator<Element> getChildrenIterator(){
