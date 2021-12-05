@@ -11,7 +11,6 @@ class Crear extends Component {
     constructor(props) {
         super(props);
     }
-
     render() {
         return (
             <Container>
@@ -24,7 +23,7 @@ class Crear extends Component {
                     <Container>
                         <Row>
                             <Col>
-                                <Formulario />
+                                <Formulario/>
                             </Col>
                         </Row>
                     </Container>

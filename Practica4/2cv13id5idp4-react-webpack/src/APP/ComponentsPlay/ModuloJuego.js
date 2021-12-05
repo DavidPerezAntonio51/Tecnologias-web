@@ -1,13 +1,16 @@
 import React, { Component } from 'react'
 import { Container, Row, Col } from 'react-bootstrap';
 import ModuloMano from './ModuloMano.js';
+import Stack from 'react-bootstrap/Stack';
+import Button from 'react-bootstrap/Button';
+import {Link} from 'react-router-dom';
 
 class ModuloJuego extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            ValorI: 1,
-            ValorD: 1,
+            ValorI: 10,
+            ValorD: 10,
             RespuestaActual: 1,
         }
         this.updateIzquierdo = this.updateIzquierdo.bind(this);
@@ -50,6 +53,15 @@ class ModuloJuego extends Component {
                         <ModuloMano handlerUpdate={this.updateDerecho} />
                     </Col>
                     <Col md={5} lg={5}>
+                        <Container>
+                            <Row>
+                                <Col>
+                                    <Stack gap={3}>
+                                        <Button as={Link} to="/2CV13ID5IDP4/home" size="lg" variant="outline-light">Menu Principal </Button>
+                                    </Stack>
+                                </Col>
+                            </Row>
+                        </Container>
                     </Col>
                 </Row>
             </Container>
