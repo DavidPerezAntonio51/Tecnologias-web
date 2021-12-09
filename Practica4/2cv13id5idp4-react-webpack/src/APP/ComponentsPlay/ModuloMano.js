@@ -21,7 +21,7 @@ class ModuloMano extends Component {
             .then(data => {
                 if (data.Tamaño == 10) {
                     this.setState({
-                        objetos: [<h1></h1>, <h1></h1>, <h1></h1>, <h1></h1>, <h1></h1>, <h1></h1>, <h1></h1>, <h1></h1>,<h1></h1>, <h1><Image src={"http:\\\\localhost:8080" + data.Puntero} fluid /></h1>]
+                        objetos: [<h1></h1>, <h1></h1>, <h1></h1>, <h1></h1>, <h1></h1>, <h1></h1>, <h1></h1>, <h1></h1>,<h1></h1>, <h1><Image className="Imaplay" src={"http:\\\\localhost:8080" + data.Puntero} fluid /></h1>]
                     })
                 }
                 if (data.Tamaño == 20) {

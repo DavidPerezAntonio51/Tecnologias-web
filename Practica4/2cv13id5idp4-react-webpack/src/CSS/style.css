@@ -23,6 +23,10 @@
     color: white;
   }
 
+  .textB{
+    color: rgb(0, 0, 0);
+  }
+
   .textV{
     color: white;
   }
@@ -33,7 +37,16 @@
   }
   
   Label{
-    color: white;
+    color: rgb(255, 0, 0);
+  }
+
+  .Imaplay {
+    position: relative;
+    justify-content: center;
+    top: 0;
+    left: 12vh;
+    width: 20%;
+    height: 20%;
   }
 
   .login-boton {

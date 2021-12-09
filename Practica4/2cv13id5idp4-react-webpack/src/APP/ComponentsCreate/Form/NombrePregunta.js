@@ -17,7 +17,7 @@ class NombrePregunta extends Component {
     render() {
         return (
             <Form.Group>
-                <Form.Label className="textV">Escribe el nombre de tu pregunta:</Form.Label>
+                <Form.Label>Escribe el nombre de tu pregunta:</Form.Label>
                 <Form.Floating >
                     <Form.Control required name="NombrePregunta" type="text" placeholder="Nombre de la Pregunta" value={this.state.Nombre} onChange={this.handlerOnChange} />
                     <Form.Control.Feedback type="invalid">

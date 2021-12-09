@@ -23,7 +23,7 @@ class Puntero extends Component {
     render() {
         return (
             <Form.Group>
-                <Form.Switch id="Pointer" label={"Puntero " + (this.state.Personalizado ? "Personalizado" : "por Default")} onChange={this.handlerOnChange}></Form.Switch>
+                <Form.Switch id="Pointer" label={"Puntero " + (this.state.Personalizado ? "Personalizado" : "por Default")}onChange={this.handlerOnChange}></Form.Switch>
                 {this.state.Personalizado ? <Personalizado tipo="Puntero" /> : <Default tipo="Puntero" />}
             </Form.Group>
         );
