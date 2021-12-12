@@ -56,7 +56,10 @@
     padding-top: 25px;
   }
 
-
+  .fondodav{
+   color: white; 
+   background-color: white;
+  }
   .login-lab {
     padding-top: 15px;
     color: rgb(255, 255, 255);
