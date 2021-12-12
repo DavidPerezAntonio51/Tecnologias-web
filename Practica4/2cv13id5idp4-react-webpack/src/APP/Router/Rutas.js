@@ -38,6 +38,9 @@ class Rutas extends Component {
     render() {
         return (
             <Switch>
+                <Route exact path="/2CV13ID5IDP4/">
+                   <Redirect to="/2CV13ID5IDP4/login"/>
+                </Route>
                 <Route exact path="/2CV13ID5IDP4/login">
                     {this.state.User?<Redirect to="/2CV13ID5IDP4/home"/>:<Login handleLogin={this.handleLogin}/>}
                 </Route>

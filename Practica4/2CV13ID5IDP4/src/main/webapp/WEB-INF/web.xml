@@ -52,6 +52,10 @@
         <servlet-name>play</servlet-name>
         <servlet-class>Rutas.play</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>home</servlet-name>
+        <servlet-class>Rutas.home</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>create</servlet-name>
         <url-pattern>/create</url-pattern>
@@ -103,6 +107,10 @@
     <servlet-mapping>
         <servlet-name>play</servlet-name>
         <url-pattern>/play</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>home</servlet-name>
+        <url-pattern>/home</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

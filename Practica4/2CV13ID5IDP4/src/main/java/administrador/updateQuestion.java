@@ -71,13 +71,13 @@ public class updateQuestion extends HttpServlet {
                 System.err.println(ex.getMessage());
             }
             out.println("Multipart");
-            response.sendRedirect("http://localhost:3000/2CV13ID5IDP4/home");
+            response.sendRedirect("/2CV13ID5IDP4/home");
         }else{
             Map<String, String[]> parametros = request.getParameterMap();
             String nombrePregunta = parametros.get("NombrePregunta")[0];
             admin.updateQuestion(nombrePregunta, UserPath+nombrePregunta, parametros);
             System.err.println(nombrePregunta);
-            response.sendRedirect("http://localhost:3000/2CV13ID5IDP4/home");
+            response.sendRedirect("/2CV13ID5IDP4/home");
         }
         
         //Cambiar la linea de Abajo por un forward al terminar el desarrollo
