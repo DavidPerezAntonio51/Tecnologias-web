@@ -12,6 +12,7 @@ class ModuloJuego extends Component {
             ValorI: 10,
             ValorD: 10,
             RespuestaActual: 1,
+            Color: "fondodav"
         }
         this.updateIzquierdo = this.updateIzquierdo.bind(this);
         this.updateDerecho = this.updateDerecho.bind(this);
@@ -38,18 +39,21 @@ class ModuloJuego extends Component {
             })
         }
         console.log(this.state.RespuestaActual)
-        if (this.props.RespuestaCorrecta == this.state.RespuestaActual) {
+        if (this.props.RespuestaCorrecta == this.state.RespuestaActual && this.state.Color!=prevState.Color) {
             console.log("¡Exito!")
+            /*this.setState({
+                Color:"fondotrue"
+            })*/
         }
     }
     render() {
         return (
             <Container>
                 <Row>
-                    <Col>
+                    <Col className={this.state.Color}>
                         <ModuloMano handlerUpdate={this.updateIzquierdo} />
                     </Col>
-                    <Col>
+                    <Col className={this.state.Color}>
                         <ModuloMano handlerUpdate={this.updateDerecho} />
                     </Col>
                     <Col md={5} lg={5}>
