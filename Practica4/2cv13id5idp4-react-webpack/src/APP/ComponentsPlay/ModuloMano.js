@@ -40,7 +40,6 @@ class ModuloMano extends Component {
     }
     handlerUpdate(result) {
         if (!result.destination) return;
-        console.log(result.destination.index);
         this.props.handlerUpdate(result.destination.index);
     }
     handlerOnDragEnd(result) {

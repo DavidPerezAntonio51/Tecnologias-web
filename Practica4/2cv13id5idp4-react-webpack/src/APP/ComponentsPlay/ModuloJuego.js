@@ -3,7 +3,7 @@ import { Container, Row, Col } from 'react-bootstrap';
 import ModuloMano from './ModuloMano.js';
 import Stack from 'react-bootstrap/Stack';
 import Button from 'react-bootstrap/Button';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 class ModuloJuego extends Component {
     constructor(props) {
@@ -12,7 +12,8 @@ class ModuloJuego extends Component {
             ValorI: 10,
             ValorD: 10,
             RespuestaActual: 1,
-            Color: "fondodav"
+            Color: "fondodav",
+            ControlFlag: true
         }
         this.updateIzquierdo = this.updateIzquierdo.bind(this);
         this.updateDerecho = this.updateDerecho.bind(this);
@@ -28,22 +29,32 @@ class ModuloJuego extends Component {
         })
     }
     componentDidUpdate(prevPops, prevState) {
-        if (this.state.ValorD != prevState.ValorD) {
-            this.setState({
-                RespuestaActual: this.state.ValorI / this.state.ValorD
-            })
-        }
         if (this.state.ValorI != prevState.ValorI) {
             this.setState({
                 RespuestaActual: this.state.ValorI / this.state.ValorD
             })
         }
-        console.log(this.state.RespuestaActual)
-        if (this.props.RespuestaCorrecta == this.state.RespuestaActual && this.state.Color!=prevState.Color) {
+        if (this.state.ValorD != prevState.ValorD) {
+            this.setState({
+                RespuestaActual: this.state.ValorI / this.state.ValorD
+            })
+        }
+        console.log(this.props.RespuestaCorrecta-this.state.RespuestaActual)
+        
+        if (this.props.RespuestaCorrecta == this.state.RespuestaActual && this.state.Color == prevState.Color) {
             console.log("¡Exito!")
-            /*this.setState({
-                Color:"fondotrue"
-            })*/
+            this.setState({
+                Color: "fondotrue",
+                ControlFlag: true
+            })
+        } else if (this.props.RespuestaCorrecta != this.state.RespuestaActual && this.state.Color == prevState.Color) {
+            
+            if (this.state.ControlFlag) {
+                this.setState({
+                    Color: "fondodav",
+                    ControlFlag: false
+                })
+            }
         }
     }
     render() {
