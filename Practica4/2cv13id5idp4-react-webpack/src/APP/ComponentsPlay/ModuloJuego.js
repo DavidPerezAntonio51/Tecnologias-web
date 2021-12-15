@@ -13,7 +13,7 @@ class ModuloJuego extends Component {
             ValorD: 10,
             RespuestaActual: 1,
             Color: "fondodav",
-            ControlFlag: true
+            ControlFlag: true,
         }
         this.updateIzquierdo = this.updateIzquierdo.bind(this);
         this.updateDerecho = this.updateDerecho.bind(this);
@@ -29,26 +29,59 @@ class ModuloJuego extends Component {
         })
     }
     componentDidUpdate(prevPops, prevState) {
+        var RespuestaPredecida
         if (this.state.ValorI != prevState.ValorI) {
+            RespuestaPredecida = (this.state.ValorD * this.props.VIC) / this.props.VDC
             this.setState({
-                RespuestaActual: this.state.ValorI / this.state.ValorD
+                RespuestaActual: this.state.ValorI / this.state.ValorD,
+
             })
+            if (Math.abs(RespuestaPredecida - this.state.ValorI) == 1) {
+                this.setState({
+                    Color: "fondocasi1",
+                })
+            } else if (Math.abs(RespuestaPredecida - this.state.ValorI) == 2) {
+                this.setState({
+                    Color: "fondocasi2",
+                })
+            } else if (Math.abs(RespuestaPredecida - this.state.ValorI) == 3) {
+                this.setState({
+                    Color: "fondocasi3",
+                })
+            }
+
         }
         if (this.state.ValorD != prevState.ValorD) {
+            RespuestaPredecida = (this.state.ValorI * this.props.VDC) / this.props.VIC
+
+
             this.setState({
-                RespuestaActual: this.state.ValorI / this.state.ValorD
+                RespuestaActual: this.state.ValorI / this.state.ValorD,
             })
+            if (Math.abs(RespuestaPredecida - this.state.ValorD) == 1) {
+                this.setState({
+                    Color: "fondocasi1",
+                })
+            } else if (Math.abs(RespuestaPredecida - this.state.ValorD) == 2) {
+                this.setState({
+                    Color: "fondocasi2",
+                })
+            } else if (Math.abs(RespuestaPredecida - this.state.ValorD) == 3) {
+                this.setState({
+                    Color: "fondocasi3",
+                })
+            }
         }
-        console.log(this.props.RespuestaCorrecta-this.state.RespuestaActual)
-        
-        if (this.props.RespuestaCorrecta == this.state.RespuestaActual && this.state.Color == prevState.Color) {
+        console.log(this.props.RespuestaCorrecta - this.state.RespuestaActual)
+
+        if (this.props.RespuestaCorrecta == this.state.RespuestaActual && this.state.Color != "fondodav") {
             console.log("¡Exito!")
             this.setState({
                 Color: "fondotrue",
                 ControlFlag: true
             })
-        } else if (this.props.RespuestaCorrecta != this.state.RespuestaActual && this.state.Color == prevState.Color) {
-            
+        } else if (this.props.RespuestaCorrecta != this.state.RespuestaActual && this.state.Color != "fondodav") {
+
             if (this.state.ControlFlag) {
                 this.setState({
                     Color: "fondodav",
