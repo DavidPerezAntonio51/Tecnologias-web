@@ -15,12 +15,19 @@
 
   }
 
+ 
+
+
   #swal2-title{
     color: white;
   }
 
   #swal2-html-container{
     color: white;
+  }
+
+  .textB{
+    color: rgb(0, 0, 0);
   }
 
   .textV{
@@ -30,11 +37,19 @@
   .textV1{
     color: #ffc107;
     padding-top: 20px;
-    padding-bottom: 75px;
   }
   
   Label{
-    color: white;
+    color: rgb(255, 0, 0);
+  }
+
+  .Imaplay {
+    position: relative;
+    justify-content: center;
+    top: 0;
+    left: 12vh;
+    width: 7vh;
+    height: 7vh;
   }
 
   .login-boton {
@@ -44,6 +59,30 @@
     padding-top: 25px;
   }
 
+  .fondodav{
+   color: white; 
+   background-color: white;
+  }
+
+  .fondotrue{
+    color: green; 
+    background-color: green;
+   }
+
+   .fondocasi1{
+    color: rgb(45, 252, 45); 
+    background-color: rgb(45, 252, 45);
+   }
+
+   .fondocasi2{
+    color: rgb(109, 243, 109); 
+    background-color: rgb(109, 243, 109);
+   }
+
+   .fondocasi3{
+    color: rgb(163, 245, 163);  
+    background-color: rgb(163, 245, 163);
+   }
 
   .login-lab {
     padding-top: 15px;
@@ -71,7 +110,7 @@
   body{
     min-height: 100vh;
     max-height: 100vh;
-    background: linear-gradient(#170730, #7597de);
+    background: linear-gradient(#100522, #7597de);
   
   }
 

@@ -17,9 +17,12 @@ class NombrePregunta extends Component {
     render() {
         return (
             <Form.Group>
-                <Form.Label className="textV">Escribe el nombre de tu pregunta:</Form.Label>
+                <Form.Label>Escribe el nombre de tu pregunta:</Form.Label>
                 <Form.Floating >
-                    <Form.Control name="NombrePregunta" type="text" placeholder="Nombre de la Pregunta" value={this.state.Nombre} onChange={this.handlerOnChange} />
+                    <Form.Control required name="NombrePregunta" type="text" placeholder="Nombre de la Pregunta" value={this.state.Nombre} onChange={this.handlerOnChange} />
+                    <Form.Control.Feedback type="invalid">
+                        ¡Cuidado Nombre de Pregunta Invalido!
+                    </Form.Control.Feedback>
                     <label htmlFor="Nombre">Nombre de la Pregunta</label>
                 </Form.Floating>
             </Form.Group>

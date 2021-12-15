@@ -48,7 +48,7 @@ module.exports = {
       },
       {
         test: /\.png$/i,
-        use: ["file-loader?name=[name]/[name].[ext]"],
+        use: ["file-loader?name=Assets/[name].[ext]"],
       }
     ],
   },

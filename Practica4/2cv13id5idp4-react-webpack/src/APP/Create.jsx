@@ -10,16 +10,7 @@ import {Link} from 'react-router-dom';
 class Crear extends Component {
     constructor(props) {
         super(props);
-        this.state = {
-            ValorI: 1,
-            ValorD: 1,
-            CanvasSize: 10,
-            objetosI: [],
-            objetosD: [],
-            defaultPointer: 1,
-        }
     }
-
     render() {
         return (
             <Container>
@@ -32,7 +23,7 @@ class Crear extends Component {
                     <Container>
                         <Row>
                             <Col>
-                                <Formulario />
+                                <Formulario/>
                             </Col>
                         </Row>
                     </Container>

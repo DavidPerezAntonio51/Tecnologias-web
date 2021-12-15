@@ -29,7 +29,7 @@ class Proporcion extends Component {
             <Form.Group>
                 <Form.Label>Elige la porporcion que deseas usar</Form.Label>
                 <Stack direction="horizontal" gap={3}>
-                    <Form.Label>Proporcion </Form.Label>
+                    <Form.Label >Proporcion </Form.Label>
                     <FloatingLabel controlId="Valor1" label="Valor">
                         <Form.Select value={this.state.valorI} name="ValorI" onChange={this.handlerOnChangeI}>
                             <option value={1}>1</option>

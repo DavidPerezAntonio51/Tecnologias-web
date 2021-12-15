@@ -9,7 +9,7 @@ class Personalizado extends Component {
     render() {
         return (
             <Form.Group>
-                <Form.Label>
+                <Form.Label className="textV" >
                     Carga tu Propio {this.props.tipo} \^^/
                 </Form.Label>
                 <Form.Control type="file" name={this.props.tipo} />
